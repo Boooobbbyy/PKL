@@ -28,4 +28,4 @@
         <!-- END: Single File Upload -->
     </div>
 </div>
-<div> <button class="btn btn-elevated-primary w-24 mr-1 mb-2">Primary</button>
+<div> <button class="btn btn-elevated-primary w-24 mr-1 mb-2">Primary</button></div>
