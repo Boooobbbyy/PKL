@@ -52,7 +52,7 @@
 		}
 
 		.owl-theme .owl-nav [class*="owl-"]:hover {
-			backgroud-color: transparent;
+			background-color: transparent;
 		}
 	</style>
 	<!-- Template Main CSS File -->
