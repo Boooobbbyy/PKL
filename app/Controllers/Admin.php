@@ -25,4 +25,18 @@ class Admin extends BaseController
         echo view('admin/index', $data);
         echo view('layout/footer');
     }
+
+    public function dp()
+    {
+        $data['title'] = "PT Arsi Enarcon | Admin";
+        $data['slug'] = "pegawai";
+        $data['validation'] = \config\services::validation();
+
+        echo view('layout/header', $data);
+        echo view('layout/mobile_sidebar');
+        echo view('layout/desktop_sidebar');
+        echo view('layout/topbar');
+        echo view('admin/datapegawai', $data);
+        echo view('layout/footer');
+    }
 }
