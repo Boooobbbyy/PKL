@@ -11,24 +11,24 @@
 	<meta content="" name="keywords">
 
 	<!-- Favicons -->
-	<link href="assets/img/a.png" rel="icon">
-	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+	<link href="/assets/img/a.png" rel="icon">
+	<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
 
 	<!-- Vendor CSS Files -->
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-	<link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-	<link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="assets/vendor/nivo-slider/css/nivo-slider.css" rel="stylesheet">
-	<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-	<link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+	<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+	<link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+	<link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/vendor/nivo-slider/css/nivo-slider.css" rel="stylesheet">
+	<link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
 	<!--   owl  -->
-	<link rel="stylesheet" href="assets/css/bs.css">
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/assets/css/bs.css">
+	<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
 	<!-- ======================================================= -->
 	<style>
 		.owl-prev {
@@ -56,14 +56,14 @@
 		}
 	</style>
 	<!-- Template Main CSS File -->
-	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
 
 	<!--			flipster				-->
-	<link rel="stylesheet" href="assets/css/demo.css">
-	<link rel="stylesheet" href="assets/css/jquery.flipster.min.css">
+	<link rel="stylesheet" href="/assets/css/demo.css">
+	<link rel="stylesheet" href="/assets/css/jquery.flipster.min.css">
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.flipster.min.js"></script>
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/js/jquery.flipster.min.js"></script>
 
 
 </head>
@@ -77,7 +77,7 @@
 			<div class="logo mr-auto">
 				<h1 class="text-light"><a href="index.html"><span>PT.</span>ARSI ENARCON</a></h1>
 				<!-- Uncomment below if you prefer to use an image logo -->
-				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+				<!-- <a href="index.html"><img src="/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 			</div>
 
 			<nav class="nav-menu d-none d-lg-block">
@@ -120,9 +120,9 @@
 	<div id="home" class="slider-area">
 		<div class="bend niceties preview-2">
 			<div id="ensign-nivoslider" class="slides">
-				<img src="assets/img/slider/slider1.jpg" alt="" title="#slider-direction-1" />
-				<img src="assets/img/slider/slider2.jpg" alt="" title="#slider-direction-2" />
-				<img src="assets/img/slider/slider3.jpg" alt="" title="#slider-direction-3" />
+				<img src="/assets/img/slider/slider1.jpg" alt="" title="#slider-direction-1" />
+				<img src="/assets/img/slider/slider2.jpg" alt="" title="#slider-direction-2" />
+				<img src="/assets/img/slider/slider3.jpg" alt="" title="#slider-direction-3" />
 			</div>
 
 			<!-- direction 1 -->
@@ -220,7 +220,7 @@
 						<div class="well-left">
 							<div class="single-well">
 								<a href="#">
-									<img src="assets/img/about/1.jpg" alt="">
+									<img src="/assets/img/about/1.jpg" alt="">
 								</a>
 							</div>
 						</div>
@@ -533,34 +533,34 @@
 						<div id="coverflow">
 							<ul class="flip-items">
 								<li data-flip-title="Red">
-									<img src="assets/img/text1.gif">
+									<img src="/assets/img/text1.gif">
 								</li>
 								<li data-flip-title="Razzmatazz" data-flip-category="Purples">
-									<img src="assets/img/text2.gif">
+									<img src="/assets/img/text2.gif">
 								</li>
 								<li data-flip-title="Deep Lilac" data-flip-category="Purples">
-									<img src="assets/img/text3.gif">
+									<img src="/assets/img/text3.gif">
 								</li>
 								<li data-flip-title="Daisy Bush" data-flip-category="Purples">
-									<img src="assets/img/text4.gif">
+									<img src="/assets/img/text4.gif">
 								</li>
 								<li data-flip-title="Cerulean Blue" data-flip-category="Blues">
-									<img src="assets/img/text5.gif">
+									<img src="/assets/img/text5.gif">
 								</li>
 								<li data-flip-title="Dodger Blue" data-flip-category="Blues">
-									<img src="assets/img/text6.gif">
+									<img src="/assets/img/text6.gif">
 								</li>
 								<li data-flip-title="Cyan" data-flip-category="Blues">
-									<img src="assets/img/text7.gif">
+									<img src="/assets/img/text7.gif">
 								</li>
 								<li data-flip-title="Robin's Egg" data-flip-category="Blues">
-									<img src="assets/img/text8.gif">
+									<img src="/assets/img/text8.gif">
 								</li>
 								<li data-flip-title="Deep Sea" data-flip-category="Greens">
-									<img src="assets/img/text9.gif">
+									<img src="/assets/img/text9.gif">
 								</li>
 								<li data-flip-title="Apple" data-flip-category="Greens">
-									<img src="assets/img/text10.gif">
+									<img src="/assets/img/text10.gif">
 								</li>
 							</ul>
 						</div>
@@ -700,7 +700,7 @@
 							<div class="single-blog">
 								<div class="single-blog-img">
 									<a href="blog.html">
-										<img src="assets/arsi/1.jpeg" alt="" style="height:200px;width:100%;">
+										<img src="/assets/arsi/1.jpeg" alt="" style="height:200px;width:100%;">
 									</a>
 								</div>
 								<div class="blog-meta">
@@ -732,7 +732,7 @@
 							<div class="single-blog">
 								<div class="single-blog-img">
 									<a href="blog.html">
-										<img src="assets/arsi/2.jpeg" alt="" style="height:200px;width:100%;">
+										<img src="/assets/arsi/2.jpeg" alt="" style="height:200px;width:100%;">
 									</a>
 								</div>
 								<div class="blog-meta">
@@ -764,7 +764,7 @@
 							<div class="single-blog">
 								<div class="single-blog-img">
 									<a href="blog.html">
-										<img src="assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+										<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
 									</a>
 								</div>
 								<div class="blog-meta">
@@ -886,7 +886,7 @@
 										<div class="validate"></div>
 									</div>
 									<div class="form-group">
-										<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+										<textarea class="form-control" name="msg" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
 										<div class="validate"></div>
 									</div>
 									<div class="mb-3">
@@ -961,12 +961,12 @@
 							<div class="footer-head">
 								<h4>Instagram</h4>
 								<div class="flicker-img">
-									<a href="#"><img src="assets/img/proyek/1.jpeg" alt=""></a>
-									<a href="#"><img src="assets/img/proyek/2.jpeg" alt=""></a>
-									<a href="#"><img src="assets/img/proyek/3.jpeg" alt=""></a>
-									<a href="#"><img src="assets/img/proyek/4.jpeg" alt=""></a>
-									<a href="#"><img src="assets/img/proyek/5.jpeg" alt=""></a>
-									<a href="#"><img src="assets/img/proyek/6.jpeg" alt=""></a>
+									<a href="#"><img src="/assets/img/proyek/1.jpeg" alt=""></a>
+									<a href="#"><img src="/assets/img/proyek/2.jpeg" alt=""></a>
+									<a href="#"><img src="/assets/img/proyek/3.jpeg" alt=""></a>
+									<a href="#"><img src="/assets/img/proyek/4.jpeg" alt=""></a>
+									<a href="#"><img src="/assets/img/proyek/5.jpeg" alt=""></a>
+									<a href="#"><img src="/assets/img/proyek/6.jpeg" alt=""></a>
 								</div>
 							</div>
 						</div>
@@ -998,20 +998,20 @@
 	</script>
 
 	<!-- Vendor JS Files -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/appear/jquery.appear.js"></script>
-	<script src="assets/vendor/knob/jquery.knob.js"></script>
-	<script src="assets/vendor/parallax/parallax.js"></script>
-	<script src="assets/vendor/wow/wow.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="assets/vendor/nivo-slider/js/jquery.nivo.slider.js"></script>
-	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="assets/vendor/venobox/venobox.min.js"></script>
+	<script src="/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="/assets/vendor/php-email-form/validate.js"></script>
+	<script src="/assets/vendor/appear/jquery.appear.js"></script>
+	<script src="/assets/vendor/knob/jquery.knob.js"></script>
+	<script src="/assets/vendor/parallax/parallax.js"></script>
+	<script src="/assets/vendor/wow/wow.min.js"></script>
+	<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="/assets/vendor/nivo-slider/js/jquery.nivo.slider.js"></script>
+	<script src="/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="/assets/vendor/venobox/venobox.min.js"></script>
 	<!-- owl carousel  -->
-	<script src="assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$(".owl-carousel").owlCarousel({
@@ -1025,7 +1025,7 @@
 		});
 	</script>
 	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
 
 </body>
 

@@ -55,7 +55,7 @@ $routes->get('/proyek6', 'Proyek::p6');
 $routes->get('/proyek7', 'Proyek::p7');
 $routes->get('/proyek8', 'Proyek::p8');
 $routes->get('/proyek9', 'Proyek::p9');
-
+//=================================== admin ===========================================//
 $routes->get('/Login', 'Auth');
 $routes->get('/login', 'Auth');
 $routes->get('/Logout', 'Auth::logout');
