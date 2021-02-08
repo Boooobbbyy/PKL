@@ -14,12 +14,17 @@
             </div>
             <div class="p-5" id="single-file-upload">
                 <div class="preview">
-                    <form data-single="true" action="http://midone.left4code.com/file-upload" class="dropzone border-gray-200 border-dashed">
-                        <div class="fallback">
-                            <input name="file" type="file" />
+                    <form data-single="true" action="http://midone.left4code.com/file-upload" class="dropzone">
+                        <div class=" border-gray-200 border-dashed">
+                            <div class="fallback">
+                                <input name="file" type="file" />
+                            </div>
+                            <div class="dz-message" data-dz-message>
+                                <div class="text-lg font-medium">Drop files here or click to upload.</div>
+                            </div>
                         </div>
-                        <div class="dz-message" data-dz-message>
-                            <div class="text-lg font-medium">Drop files here or click to upload.</div>
+                        <div class="button">
+                            <button class="button text-white bg-theme-1 shadow-md mr-2">Upload New Files</button>
                         </div>
                     </form>
                 </div>
@@ -28,4 +33,3 @@
         <!-- END: Single File Upload -->
     </div>
 </div>
-<div> <button class="btn btn-elevated-primary w-24 mr-1 mb-2">Primary</button>
