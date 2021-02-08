@@ -56,6 +56,11 @@ $routes->get('/proyek7', 'Proyek::p7');
 $routes->get('/proyek8', 'Proyek::p8');
 $routes->get('/proyek9', 'Proyek::p9');
 
+$routes->get('/Login', 'Auth');
+$routes->get('/login', 'Auth');
+$routes->get('/Logout', 'Auth::logout');
+$routes->get('/logout', 'Auth::logout');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

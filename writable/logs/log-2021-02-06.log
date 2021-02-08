@@ -1,0 +1,38 @@
+CRITICAL - 2021-02-06 07:32:03 --> Invalid file: auth/index.php
+#0 /var/www/html/PKL/system/View/View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('auth/index.php')
+#1 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('auth/index', Array, true)
+#2 /var/www/html/PKL/app/Controllers/Auth.php(9): view('auth/index')
+#3 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->index()
+#4 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#5 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#8 {main}
+CRITICAL - 2021-02-06 07:53:17 --> Undefined property: App\Controllers\Auth::$usersModel
+#0 /var/www/html/PKL/app/Controllers/Auth.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/var/www/html/P...', 31, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->login()
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-06 07:54:28 --> Undefined property: App\Controllers\Auth::$usersModel
+#0 /var/www/html/PKL/app/Controllers/Auth.php(31): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/var/www/html/P...', 31, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->login()
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-06 08:05:40 --> Object of class CodeIgniter\Validation\Validation could not be converted to string
+#0 /var/www/html/PKL/app/Views/auth/index.php(47): CodeIgniter\Debug\Exceptions->errorHandler(4096, 'Object of class...', '/var/www/html/P...', 47, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('auth/index', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Auth.php(24): view('auth/index', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->index()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
