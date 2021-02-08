@@ -3,9 +3,9 @@
     <div class="top-bar">
         <!-- BEGIN: Breadcrumb -->
         <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-            <a href="#" class="">Application</a>
+            <a href="<?= base_url('Admin'); ?>" class="">Application</a>
             <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-            <a href="#" class="breadcrumb--active">Dashboard</a>
+            <a href="<?= base_url('Admin') . '/' . $slug; ?>" class="breadcrumb--active"><?= ucfirst($slug); ?></a>
         </div>
         <!-- END: Breadcrumb -->
         <!-- BEGIN: Notifications -->
