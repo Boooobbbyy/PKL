@@ -70,4 +70,38 @@ class Videos extends BaseController
         $this->videoModel->delete($id);
         return redirect()->to('/Admin/videos');
     }
+
+    public function edit($id)
+    {
+        $data['title'] = "PT Arsi Enarcon | Admin";
+        $data['slug'] = "videos";
+        $data['video'] = $this->videoModel->getVideo($id);
+        $data['validation'] = \config\services::validation();
+
+        echo view('layout/header', $data);
+        echo view('layout/mobile_sidebar');
+        echo view('layout/desktop_sidebar');
+        echo view('layout/topbar');
+        echo view('compro/addvideos', $data);
+        echo view('layout/footer');
+    }
+
+    public function update($id)
+    {
+
+        $link = $this->request->getPost('link');
+        if (strpos($link, '=')) {
+            $link = "https://www.youtube.com/embed/" . explode("=", $link)[1];
+        }
+        $data = [
+            'judul' => $this->request->getPost('judul'),
+            'link' => $link,
+            'deskripsi' => $this->request->getPost('editor'),
+            'date_uploaded' => time() + 3600 * 7
+        ];
+        $this->videoModel->update($id, $data);
+        session()->setFlashdata('msg', 'Berhasil Diubah');
+
+        return redirect()->to('/Admin/videos');
+    }
 }
