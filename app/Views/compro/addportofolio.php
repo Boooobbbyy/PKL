@@ -14,19 +14,21 @@
             </div>
             <div class="p-5" id="single-file-upload">
                 <div class="preview">
-                    <form data-single="true" action="http://midone.left4code.com/file-upload" class="dropzone">
-                        <div class=" border-gray-200 border-dashed">
-                            <div class="fallback">
-                                <input name="file" type="file" />
+                    <?php if (isset($portofolio)) : ?>
+                        <form method="post" action="<?= base_url('Portofolio/update') . '/' . $portofolio['id']; ?>" enctype="multipart/form-data">
+                        <?php else : ?>
+                            <form method="post" action="<?= base_url('Portofolio/save'); ?>" enctype="multipart/form-data">
+                            <?php endif; ?>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="file" name="porto" class="form-control">
+                                </div>
                             </div>
-                            <div class="dz-message" data-dz-message>
-                                <div class="text-lg font-medium">Drop files here or click to upload.</div>
+
+                            <div class="button mt-5">
+                                <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Upload New Files</button>
                             </div>
-                        </div>
-                        <div class="button">
-                            <button class="button text-white bg-theme-1 shadow-md mr-2">Upload New Files</button>
-                        </div>
-                    </form>
+                            </form> </br></br></br>
                 </div>
             </div>
         </div>

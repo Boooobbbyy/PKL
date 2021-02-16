@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\VideoModel;
+use App\Models\PortofolioModel;
 
 class Admin extends BaseController
 {
@@ -11,6 +12,7 @@ class Admin extends BaseController
     public function __construct()
     {
         $this->videoModel = new VideoModel();
+        $this->portofolioModel = new PortofolioModel();
         if (session()->get('logged_in') != 1) {
             header("Location: /Login");
             exit;
@@ -78,6 +80,7 @@ class Admin extends BaseController
     {
         $data['title'] = "PT Arsi Enarcon | Admin";
         $data['slug'] = "portofolio";
+        $data['portofolio'] = $this->portofolioModel->findAll();
         $data['validation'] = \config\services::validation();
 
         echo view('layout/header', $data);
