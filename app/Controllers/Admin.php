@@ -2,10 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\VideoModel;
+use App\Models\PortofolioModel;
+
 class Admin extends BaseController
 {
+    protected $videoModel;
+
     public function __construct()
     {
+        $this->videoModel = new VideoModel();
+        $this->portofolioModel = new PortofolioModel();
         if (session()->get('logged_in') != 1) {
             header("Location: /Login");
             exit;
@@ -58,6 +65,7 @@ class Admin extends BaseController
     {
         $data['title'] = "PT Arsi Enarcon | Admin";
         $data['slug'] = "videos";
+        $data['videos'] = $this->videoModel->getVideos();
         $data['validation'] = \config\services::validation();
 
         echo view('layout/header', $data);
@@ -72,6 +80,7 @@ class Admin extends BaseController
     {
         $data['title'] = "PT Arsi Enarcon | Admin";
         $data['slug'] = "portofolio";
+        $data['portofolio'] = $this->portofolioModel->findAll();
         $data['validation'] = \config\services::validation();
 
         echo view('layout/header', $data);
@@ -92,7 +101,7 @@ class Admin extends BaseController
         echo view('layout/mobile_sidebar');
         echo view('layout/desktop_sidebar');
         echo view('layout/topbar');
-        echo view('compro/home', $data);
+        echo view('compro/news', $data);
         echo view('layout/footer');
     }
 }

@@ -8,4 +8,172 @@ CRITICAL - 2021-02-08 01:55:09 --> Invalid file: admin/addportofolio.php
 #6 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
 #7 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
 #8 {main}
+<<<<<<< HEAD
 ERROR - 2021-02-08 03:57:12 --> Error connecting to the database: Unknown database 'pkl'
+=======
+ERROR - 2021-02-08 02:34:33 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2021-02-08 02:34:33 --> Unable to connect to the database.
+#0 D:\Program Files\xampp\htdocs\PKL\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 D:\Program Files\xampp\htdocs\PKL\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 D:\Program Files\xampp\htdocs\PKL\system\Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#3 D:\Program Files\xampp\htdocs\PKL\app\Models\UserModel.php(15): CodeIgniter\Model->__call('get', Array)
+#4 D:\Program Files\xampp\htdocs\PKL\app\Controllers\Auth.php(34): App\Models\UserModel->getLogin('admin')
+#5 D:\Program Files\xampp\htdocs\PKL\system\CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 D:\Program Files\xampp\htdocs\PKL\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 D:\Program Files\xampp\htdocs\PKL\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Program Files\xampp\htdocs\PKL\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 D:\Program Files\xampp\htdocs\PKL\system\Commands\Server\rewrite.php(45): require_once('D:\\Program File...')
+#10 {main}
+ERROR - 2021-02-08 10:10:33 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2021-02-08 10:10:33 --> Unable to connect to the database.
+#0 /var/www/html/PKL/system/Database/BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/html/PKL/app/Models/UserModel.php(15): CodeIgniter\Model->__call('get', Array)
+#4 /var/www/html/PKL/app/Controllers/Auth.php(34): App\Models\UserModel->getLogin('admin')
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->login()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-02-08 10:10:33 --> Uncaught ErrorException: print_r(): Property access is not allowed yet in /var/www/html/PKL/app/Views/errors/html/error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Prop...', '/var/www/html/P...', 100, Array)
+#1 /var/www/html/PKL/app/Views/errors/html/error_exception.php(100): print_r(Object(App\Controllers\Auth), true)
+#2 /var/www/html/PKL/system/Debug/Exceptions.php(281): include('/var/www/html/P...')
+#3 /var/www/html/PKL/system/Debug/Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Database\Exceptions\DatabaseException), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Database\Exceptions\DatabaseException))
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-02-08 10:51:03 --> syntax error, unexpected ':', expecting ']'
+#0 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/videos', Array, true)
+#2 /var/www/html/PKL/app/Controllers/Admin.php(73): view('compro/videos', Array)
+#3 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Admin->videos()
+#4 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#8 {main}
+CRITICAL - 2021-02-08 10:57:04 --> array_slice() expects parameter 1 to be array, string given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'array_slice() e...', '/var/www/html/P...', 42, Array)
+#1 /var/www/html/PKL/app/Views/compro/videos.php(42): array_slice('Astrid S - Hurt...', 0, 3)
+#2 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#3 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/videos', Array, true)
+#5 /var/www/html/PKL/app/Controllers/Admin.php(73): view('compro/videos', Array)
+#6 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Admin->videos()
+#7 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#11 {main}
+CRITICAL - 2021-02-08 11:36:46 --> Undefined offset: 1
+#0 /var/www/html/PKL/app/Controllers/Videos.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', '/var/www/html/P...', 32, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->save()
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-08 12:11:24 --> Undefined property: App\Controllers\Videos::$orderModel
+#0 /var/www/html/PKL/app/Controllers/Videos.php(74): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/var/www/html/P...', 74, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->delete('3')
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-08 22:16:38 --> Too few arguments to function App\Controllers\Videos::edit(), 0 passed in /var/www/html/PKL/system/CodeIgniter.php on line 936 and exactly 1 expected
+#0 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit()
+#1 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#2 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#5 {main}
+CRITICAL - 2021-02-08 22:17:05 --> Too few arguments to function App\Controllers\Videos::edit(), 0 passed in /var/www/html/PKL/system/CodeIgniter.php on line 936 and exactly 1 expected
+#0 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit()
+#1 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#2 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#5 {main}
+CRITICAL - 2021-02-08 22:17:09 --> Undefined index: judul
+#0 /var/www/html/PKL/app/Views/compro/addvideos.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/var/www/html/P...', 15, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/addvideo...', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Videos.php(85): view('compro/addvideo...', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit('1')
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-02-08 22:17:29 --> Undefined index: judul
+#0 /var/www/html/PKL/app/Views/compro/addvideos.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/var/www/html/P...', 15, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/addvideo...', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Videos.php(85): view('compro/addvideo...', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit('1')
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+ERROR - 2021-02-08 22:19:32 --> mysqli_sql_exception: Unknown column 'username' in 'where clause' in /var/www/html/PKL/system/Database/MySQLi/Connection.php:314
+Stack trace:
+#0 /var/www/html/PKL/system/Database/MySQLi/Connection.php(314): mysqli->query('SELECT *\nFROM `...')
+#1 /var/www/html/PKL/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/html/PKL/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/PKL/app/Models/VideoModel.php(15): CodeIgniter\Model->__call('get', Array)
+#6 /var/www/html/PKL/app/Controllers/Videos.php(78): App\Models\VideoModel->getVideo('1')
+#7 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit('1')
+#8 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#9 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#12 {main}
+CRITICAL - 2021-02-08 22:19:32 --> Unknown column 'username' in 'where clause'
+#0 /var/www/html/PKL/system/Database/MySQLi/Connection.php(314): mysqli->query('SELECT *\nFROM `...')
+#1 /var/www/html/PKL/system/Database/BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/html/PKL/system/Database/BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/PKL/app/Models/VideoModel.php(15): CodeIgniter\Model->__call('get', Array)
+#6 /var/www/html/PKL/app/Controllers/Videos.php(78): App\Models\VideoModel->getVideo('1')
+#7 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit('1')
+#8 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#9 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#12 {main}
+CRITICAL - 2021-02-08 22:20:09 --> Cannot use object of type stdClass as array
+#0 /var/www/html/PKL/system/View/View.php(220): include()
+#1 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/addvideo...', Array, true)
+#3 /var/www/html/PKL/app/Controllers/Videos.php(85): view('compro/addvideo...', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit('1')
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}
+CRITICAL - 2021-02-08 22:21:57 --> Cannot use object of type stdClass as array
+#0 /var/www/html/PKL/system/View/View.php(220): include()
+#1 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/addvideo...', Array, true)
+#3 /var/www/html/PKL/app/Controllers/Videos.php(85): view('compro/addvideo...', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Videos->edit('1')
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Videos))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}
+>>>>>>> 41a3079c158fd8ec85d7e01e70fea77b6458b9c2
