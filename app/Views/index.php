@@ -27,6 +27,7 @@
 	<link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
 	<!--   owl  -->
 	<link rel="stylesheet" href="/assets/css/bs.css">
+	<link rel="stylesheet" href="/assets/css/border.css">
 	<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
 	<!-- ======================================================= -->
@@ -104,7 +105,7 @@
 							<li><a href="#">Drop Down 5</a></li>
 						</ul>
 					</li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="/login">login</a></li>
 
 				</ul>
 			</nav><!-- .nav-menu -->
@@ -438,78 +439,79 @@
 			<div class="row no-gutters">
 				<div class="container mt-5 mb-5">
 					<div class="owl-carousel owl-theme">
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/766qmHTc2ro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 1</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek1" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/766qmHTc2ro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek1">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 2</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek2" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek2">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 3</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek3" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek3">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/7pvUPBWkZHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 4</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek4" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/7pvUPBWkZHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek4">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/YAXTn0E-Zgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 5</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek5" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/YAXTn0E-Zgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek5">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/LtrB_8CejUA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 6</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek6" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/LtrB_8CejUA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek6">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ps_YVt2ZqPw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 7</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek7" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/Ps_YVt2ZqPw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek7">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ps_YVt2ZqPw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 8</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek8" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/Ps_YVt2ZqPw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek8">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
-						<div class="card" style="background-color:#f0f0f1;">
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/yvZHcrzzpOM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="card-body">
-								<h5 class="card-title">proyek 9</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<a href="/proyek9" class="btn btn-primary">lihat</a>
+						<div class="container">
+							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/yvZHcrzzpOM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<div class="middle">
+								<a href="/proyek9">
+									<div class="text">proyek</div>
+								</a>
 							</div>
 						</div>
+
 
 
 					</div>
