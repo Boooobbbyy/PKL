@@ -1,0 +1,68 @@
+CRITICAL - 2021-02-17 03:55:47 --> Undefined index: date_uploader
+#0 /var/www/html/PKL/app/Views/compro/news.php(22): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/var/www/html/P...', 22, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/news', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Admin.php(107): view('compro/news', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Admin->news()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-02-17 04:00:05 --> Undefined variable: p
+#0 /var/www/html/PKL/app/Views/compro/news.php(28): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/var/www/html/P...', 28, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/news', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Admin.php(107): view('compro/news', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Admin->news()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-02-17 04:00:30 --> Undefined property: App\Controllers\News::$portofolioModel
+#0 /var/www/html/PKL/app/Controllers/News.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/var/www/html/P...', 64, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\News->edit('1')
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\News))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-17 04:00:35 --> Undefined property: App\Controllers\News::$portofolioModel
+#0 /var/www/html/PKL/app/Controllers/News.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/var/www/html/P...', 64, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\News->edit('1')
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\News))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-17 04:03:06 --> Undefined variable: v
+#0 /var/www/html/PKL/app/Views/compro/news.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/var/www/html/P...', 29, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('compro/news', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Admin.php(107): view('compro/news', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Admin->news()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-02-17 04:04:19 --> Undefined property: App\Controllers\News::$portofolioModel
+#0 /var/www/html/PKL/app/Controllers/News.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', '/var/www/html/P...', 64, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\News->edit('1')
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\News))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
+CRITICAL - 2021-02-17 04:26:20 --> Undefined variable: foto
+#0 /var/www/html/PKL/app/Controllers/News.php(91): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/var/www/html/P...', 91, Array)
+#1 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\News->update('1')
+#2 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\News))
+#3 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#5 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#6 {main}
