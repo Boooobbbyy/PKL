@@ -28,7 +28,7 @@
                             <div class="button mt-5">
                                 <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Upload New Files</button>
                             </div>
-                            </form> </br></br></br>
+                            </form>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\VideoModel;
 use App\Models\PortofolioModel;
+use App\Models\NewsModel;
 
 class Admin extends BaseController
 {
@@ -13,6 +14,7 @@ class Admin extends BaseController
     {
         $this->videoModel = new VideoModel();
         $this->portofolioModel = new PortofolioModel();
+        $this->newsModel = new NewsModel();
         if (session()->get('logged_in') != 1) {
             header("Location: /Login");
             exit;
@@ -95,6 +97,7 @@ class Admin extends BaseController
     {
         $data['title'] = "PT Arsi Enarcon | Admin";
         $data['slug'] = "news";
+        $data['news'] = $this->newsModel->findAll();
         $data['validation'] = \config\services::validation();
 
         echo view('layout/header', $data);
