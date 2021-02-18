@@ -3,14 +3,15 @@
 </h2>
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-        <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Slider</button>
-        <div class="hidden md:block mx-auto text-gray-600">Showing 1 to 10 of 150 entries</div>
-        <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
-            <div class="w-56 relative text-gray-700 dark:text-gray-300">
-                <input type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
-                <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
+        <a href="<?= base_url('Ahome'); ?>">
+            <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Slider</button>
+            <div class="hidden md:block mx-auto text-gray-600">Showing 1 to 10 of 150 entries</div>
+            <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
+                <div class="w-56 relative text-gray-700 dark:text-gray-300">
+                    <input type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
+                    <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
+                </div>
             </div>
-        </div>
     </div>
     <!-- BEGIN: Data List -->
     <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
