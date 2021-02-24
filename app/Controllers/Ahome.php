@@ -17,7 +17,7 @@ class Ahome extends BaseController
         echo view('layout/mobile_sidebar');
         echo view('layout/desktop_sidebar');
         echo view('layout/topbar');
-        echo view('compro/ahome');
+        echo view('compro/ahome', $data);
         echo view('layout/footer');
     }
 }

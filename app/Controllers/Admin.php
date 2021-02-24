@@ -107,4 +107,18 @@ class Admin extends BaseController
         echo view('compro/news', $data);
         echo view('layout/footer');
     }
+    public function web()
+    {
+        $data['title'] = "PT Arsi Enarcon | Admin";
+        $data['slug'] = "WEB";
+        $data['WEB'] = $this->newsModel->findAll();
+        $data['validation'] = \config\services::validation();
+
+        echo view('layout/header', $data);
+        echo view('layout/mobile_sidebar');
+        echo view('layout/desktop_sidebar');
+        echo view('layout/topbar');
+        echo view('compro/web', $data);
+        echo view('layout/footer');
+    }
 }

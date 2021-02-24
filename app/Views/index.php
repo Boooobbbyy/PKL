@@ -440,12 +440,10 @@
 				<div class="container mt-5 mb-5">
 					<div class="owl-carousel owl-theme">
 						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/766qmHTc2ro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek1">
-									<div class="text">proyek</div>
-								</a>
-							</div>
+							<iframe style="width:100%" width="100%" height="100%" src="https://www.youtube.com/embed/766qmHTc2ro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
 						</div>
 						<div class="container">
 							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
