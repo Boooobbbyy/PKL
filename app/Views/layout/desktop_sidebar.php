@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?= base_url('Admin/web'); ?>" class="side-menu <?php if ($slug == "WEB") echo "side-menu--active"; ?>">
+                <a href="<?= base_url('Admin/web'); ?>" class="side-menu <?php if ($slug == "web") echo "side-menu--active"; ?>">
                     <div class="side-menu__icon"><i data-feather="award"></i></div>
                     <div class="side-menu__title">Web</div>
                 </a>

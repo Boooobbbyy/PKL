@@ -6,12 +6,12 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>PT.ARSI ENARCON</title>
+	<title><?= $perusahaan['nama_pt']; ?></title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
 	<!-- Favicons -->
-	<link href="/assets/img/a.png" rel="icon">
+	<link href="/assets/img/<?= $perusahaan['logo_pt']; ?>" rel="icon">
 	<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
@@ -915,10 +915,10 @@
 						<div class="footer-content">
 							<div class="footer-head">
 								<div class="footer-logo">
-									<h2><span>PT.</span>ARSI ENARCON</h2>
+									<h2><span>PT</span><?= str_replace("PT", "", $perusahaan['nama_pt']); ?></h2>
 								</div>
 
-								<p>Perusahan jasa arsitektur dan interior yang sudah berkembang dengan proyek design yang heterogen.Telah berpengalaman dalam mendesign rumah tinggal, perumahan, kantor, hotel, masterplan perumahan, sekolah, hingga museum.</p>
+								<p><?= $perusahaan['profile_pt']; ?></p>
 								<div class="footer-icons">
 									<ul>
 										<li>
@@ -944,12 +944,11 @@
 							<div class="footer-head">
 								<h4>Location :</h4>
 								<p>
-									Jl. Saninten No. 6
-									Bandung 40114
+									<?= $perusahaan['tempat']; ?>
 								</p>
 								<div class="footer-contacts">
-									<p><span>Tel:</span> (022) 7275016</p>
-									<p><span>Email:</span> arsi_enarcon@yahoo.com</p>
+									<p><span>Tel:</span> <?= $perusahaan['no_telp']; ?></p>
+									<p><span>Email:</span> <?= $perusahaan['email']; ?></p>
 									<p><span>Working Hours:</span> 9am-5pm</p>
 								</div>
 							</div>
