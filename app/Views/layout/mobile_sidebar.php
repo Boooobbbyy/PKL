@@ -55,6 +55,14 @@
                 </div>
             </a>
         </li>
+        <li>
+            <a href="<?= base_url('Admin/web'); ?>" class="menu <?php if ($slug == "web") echo "side-menu--active"; ?>">
+                <div class="menu__icon"><i data-feather="award"></i></div>
+                <div class="menu__title">
+                    Web
+                </div>
+            </a>
+        </li>
         <li class="menu__devider my-6"></li>
         <li>
             <a href="<?= base_url(); ?>" target="_blank" class="menu">

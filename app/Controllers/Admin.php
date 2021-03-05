@@ -5,16 +5,23 @@ namespace App\Controllers;
 use App\Models\VideoModel;
 use App\Models\PortofolioModel;
 use App\Models\NewsModel;
+use App\Models\PerusahaanModel;
 
 class Admin extends BaseController
 {
     protected $videoModel;
+    protected $portofolioModel;
+    protected $newsModel;
+    protected $perusahaanModel;
+
 
     public function __construct()
     {
         $this->videoModel = new VideoModel();
         $this->portofolioModel = new PortofolioModel();
         $this->newsModel = new NewsModel();
+        $this->perusahaanModel = new PerusahaanModel();
+
         if (session()->get('logged_in') != 1) {
             header("Location: /Login");
             exit;
@@ -110,8 +117,8 @@ class Admin extends BaseController
     public function web()
     {
         $data['title'] = "PT Arsi Enarcon | Admin";
-        $data['slug'] = "WEB";
-        $data['WEB'] = $this->newsModel->findAll();
+        $data['slug'] = "web";
+        $data['web'] = $this->perusahaanModel->get()->getRowArray();
         $data['validation'] = \config\services::validation();
 
         echo view('layout/header', $data);
