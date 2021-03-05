@@ -56,6 +56,7 @@
 			background-color: transparent;
 		}
 	</style>
+
 	<!-- Template Main CSS File -->
 	<link href="/assets/css/style.css" rel="stylesheet">
 
@@ -88,23 +89,6 @@
 					<li><a href="#services">Services</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#blog">Blog</a></li>
-					<li class="drop-down"><a href="">Drop Down</a>
-						<ul>
-							<li><a href="/dp1">blank 1</a></li>
-							<li class="drop-down"><a href="#">Drop Down 2</a>
-								<ul>
-									<li><a href="#">Deep Drop Down 1</a></li>
-									<li><a href="#">Deep Drop Down 2</a></li>
-									<li><a href="#">Deep Drop Down 3</a></li>
-									<li><a href="#">Deep Drop Down 4</a></li>
-									<li><a href="#">Deep Drop Down 5</a></li>
-								</ul>
-							</li>
-							<li><a href="/dp2">blank 3</a></li>
-							<li><a href="#">Drop Down 4</a></li>
-							<li><a href="#">Drop Down 5</a></li>
-						</ul>
-					</li>
 					<li><a href="/login">login</a></li>
 
 				</ul>
@@ -438,81 +422,27 @@
 		<div class="reviews-area">
 			<div class="row no-gutters">
 				<div class="container mt-5 mb-5">
-					<div class="owl-carousel owl-theme">
-						<div class="container">
-							<iframe style="width:100%" width="100%" height="100%" src="https://www.youtube.com/embed/766qmHTc2ro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div class="container">
 
-
-
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek2">
-									<div class="text">proyek</div>
-								</a>
+						<div class="row">
+							<div class="column">
+								<img src="https://fsa.zobj.net/crop.php?r=rcNXL7y5wIybb8rLCBsEDVa5gxM1mt2IYwaMiY6BJzRVRYxz_QQFrk7ckFc12NMNbwKJNokmapdmxO3hipSnhjgYNgvuXF-wN9pS-nzrYaN_Vsgf-uEoWxsHgxEodTROtmSoiEt0rWzP7m8b" alt="Nature" style="height:200px;width:100%;" onclick="myFunction(this);">
+							</div>
+							<div class="column">
+								<img src="https://specials-images.forbesimg.com/imageserve/6023e1a9e9fa25b08ceeef91/960x0.jpg?fit=scale" alt="Snow" style="height:200px;width:100%;" onclick="myFunction(this);">
+							</div>
+							<div class="column">
+								<img src="https://i.pinimg.com/originals/dc/2c/9f/dc2c9fd87e255ab4f553c1bbf59579b7.png" alt="Mountains" style="height:200px;width:100%;" onclick="myFunction(this);">
+							</div>
+							<div class="column">
+								<img src="https://esportsku.com/wp-content/uploads/2021/01/hu-tao-1200x900.png" alt="Lights" style="height:200px;width:100%;" onclick="myFunction(this);">
 							</div>
 						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/NiPdWzCBEdI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek3">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/7pvUPBWkZHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek4">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/YAXTn0E-Zgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek5">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/LtrB_8CejUA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek6">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/Ps_YVt2ZqPw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek7">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/Ps_YVt2ZqPw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek8">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-						<div class="container">
-							<iframe style="width:100%" class="image" width="100%" height="100%" src="https://www.youtube.com/embed/yvZHcrzzpOM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-							<div class="middle">
-								<a href="/proyek9">
-									<div class="text">proyek</div>
-								</a>
-							</div>
-						</div>
-
-
-
+						<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+						<img id="expandedImg" style="width:100%">
+						<div id="imgtext"></div>
 					</div>
+
 				</div>
 			</div>
 		</div><!-- End Rviews Section -->
@@ -795,113 +725,279 @@
 			</div>
 		</div><!-- End Blog Section -->
 
-		<!-- ======= Suscribe Section ======= -->
-		<div class="suscribe-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
-						<div class="suscribe-text text-center">
-							<h3>Welcome to our company</h3>
-							<a class="sus-btn" href="#">Get A quate</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!-- End Suscribe Section -->
-
-		<!-- ======= Contact Section ======= -->
-		<div id="contact" class="contact-area">
-			<div class="contact-inner area-padding">
-				<div class="contact-overly"></div>
+		<!-- ======= Blog Section ======= -->
+		<div id="blog" class="blog-area">
+			<div class="blog-inner area-padding">
+				<div class="blog-overly"></div>
 				<div class="container ">
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="section-headline text-center">
-								<h2>Contact us</h2>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<!-- Start contact icon column -->
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="contact-icon text-center">
-								<div class="single-icon">
-									<i class="fa fa-mobile"></i>
-									<p>
-										Call: (022) 7275016<br>
-
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- Start contact icon column -->
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="contact-icon text-center">
-								<div class="single-icon">
-									<i class="fa fa-envelope"></i>
-									<p>
-										Email: arsi_enarcon@yahoo.com<br>
-
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- Start contact icon column -->
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="contact-icon text-center">
-								<div class="single-icon">
-									<i class="fa fa-map-marker"></i>
-									<p>
-										Location: Jl. Saninten No. 6<br>
-										<span> Bandung 40114</span>
-									</p>
+					<div class="suscribe-area">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12">
+											<div class="section-headline text-center">
+												<h2>Struktur Organisasi</h2>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+
 					<div class="row">
+						<!-- Start Left Blog -->
+						<div class="col-md-4 col-sm-4 col-xs-12">
 
-						<!-- Start Google Map -->
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<!-- Start Map -->
-							<iframe src="https://maps.google.com/maps?q=pt%20arsi%20enarcon&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-							<!-- End Map -->
+							<!-- Start single blog -->
 						</div>
-						<!-- End Google Map -->
+						<!-- End Left Blog-->
+						<!-- Start Left Blog -->
+						<br>
 
-						<!-- Start  contact -->
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<div class="form contact-form">
-								<form action="forms/contact.php" method="post" role="form" class="php-email-form">
-									<div class="form-group">
-										<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-										<div class="validate"></div>
+						<!-- End Left Blog-->
+						<!-- Start Right Blog-->
+
+						<!-- End Right Blog-->
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="section-headline text-center">
+									<br>
+									<h4>Direktur</h4>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="row">
+									<!-- Start Left Blog -->
+									<div class="col-md-3 col-sm-4 col-xs-12">
+										<div class="single-blog">
+											<div class="single-blog-img">
+												<a href="blog.html">
+													<img src="/assets/arsi/1.jpeg" alt="" style="height:200px;width:100%;">
+												</a>
+											</div>
+											<div class="blog-meta">
+
+											</div>
+											<div class="blog-text">
+												<h6>Ir.Iman Nuryanto D</h6>
+												<h5>
+													Direktur Utama
+												</h5>
+
+											</div>
+
+										</div>
+										<!-- Start single blog -->
 									</div>
-									<div class="form-group">
-										<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-										<div class="validate"></div>
+									<!-- End Left Blog-->
+									<!-- Start Left Blog -->
+									<div class="col-md-3 col-sm-4 col-xs-12">
+										<div class="single-blog">
+											<div class="single-blog-img">
+												<a href="blog.html">
+													<img src="/assets/arsi/2.jpeg" alt="" style="height:200px;width:100%;">
+												</a>
+											</div>
+											<div class="blog-meta">
+
+
+											</div>
+											<div class="blog-text">
+												<h6>Ir.Suwanto</h6>
+												<h5>
+													Direktur Desain
+												</h5>
+
+											</div>
+
+										</div>
+										<!-- Start single blog -->
 									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-										<div class="validate"></div>
+									<!-- End Left Blog-->
+									<!-- Start Right Blog-->
+									<div class="col-md-3 col-sm-4 col-xs-12">
+										<div class="single-blog">
+											<div class="single-blog-img">
+												<a href="blog.html">
+													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+												</a>
+											</div>
+											<div class="blog-meta">
+
+
+											</div>
+											<div class="blog-text">
+												<h6>Ir.Beni Robini</h6>
+												<h5>
+													Direktur Operasional
+												</h5>
+
+											</div>
+
+										</div>
 									</div>
-									<div class="form-group">
-										<textarea class="form-control" name="msg" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-										<div class="validate"></div>
+									<!-- End Left Blog-->
+									<!-- Start Right Blog-->
+									<div class="col-md-3 col-sm-4 col-xs-12">
+										<div class="single-blog">
+											<div class="single-blog-img">
+												<a href="blog.html">
+													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+												</a>
+											</div>
+											<div class="blog-meta">
+
+
+											</div>
+											<div class="blog-text">
+												<h6>Dra. Ratna Arum</h6>
+												<h5>
+													Direktur Keuangan
+												</h5>
+
+											</div>
+
+										</div>
 									</div>
-									<div class="mb-3">
-										<div class="loading">Loading</div>
-										<div class="error-message"></div>
-										<div class="sent-message">Your message has been sent. Thank you!</div>
+
+
+									<div class="col-md-3 col-sm-4 col-xs-12">
+										<div class="single-blog">
+											<div class="single-blog-img">
+												<a href="blog.html">
+													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+												</a>
+											</div>
+											<div class="blog-meta">
+
+
+											</div>
+											<div class="blog-text">
+												<h6>Dra. Ratna Arum</h6>
+												<h5>
+													Direktur Keuangan
+												</h5>
+
+											</div>
+
+										</div>
 									</div>
-									<div class="text-center"><button type="submit">Send Message</button></div>
-								</form>
+									<!-- End Right Blog-->
+								</div>
+
+
 							</div>
 						</div>
-						<!-- End Left contact -->
+					</div>
+				</div><!-- End Blog Section -->
+
+				<!-- ======= Suscribe Section ======= -->
+				<!-- End Suscribe Section -->
+
+				<!-- ======= Contact Section =======
+				<div id="contact" class="contact-area">
+					<div class="contact-inner area-padding">
+						<div class="contact-overly"></div>
+						<div class="container ">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="section-headline text-center">
+										<h2>Contact us</h2>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+							  Start contact icon column  
+								<div class="col-md-4 col-sm-4 col-xs-12">
+									<div class="contact-icon text-center">
+										<div class="single-icon">
+											<i class="fa fa-mobile"></i>
+											<p>
+												Call: (022) 7275016<br>
+
+											</p>
+										</div>
+									</div>
+								</div>
+							  Start contact icon column 
+								<div class="col-md-4 col-sm-4 col-xs-12">
+									<div class="contact-icon text-center">
+										<div class="single-icon">
+											<i class="fa fa-envelope"></i>
+											<p>
+												Email: arsi_enarcon@yahoo.com<br>
+
+											</p>
+										</div>
+									</div>
+								</div>
+							  Start contact icon column  
+								<div class="col-md-4 col-sm-4 col-xs-12">
+									<div class="contact-icon text-center">
+										<div class="single-icon">
+											<i class="fa fa-map-marker"></i>
+											<p>
+												Location: Jl. Saninten No. 6<br>
+												<span> Bandung 40114</span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div> -->
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="section-headline text-center">
+							<h2>Contact Us</h2>
+						</div>
 					</div>
 				</div>
+				<div class="row">
+
+					<!-- Start Google Map -->
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<!-- Start Map -->
+						<iframe src="https://maps.google.com/maps?q=pt%20arsi%20enarcon&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+						<!-- End Map -->
+					</div>
+					<!-- End Google Map -->
+
+					<!-- Start  contact -->
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="form contact-form">
+							<form action="forms/contact.php" method="post" role="form" class="php-email-form">
+								<div class="form-group">
+									<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+									<div class="validate"></div>
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+									<div class="validate"></div>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+									<div class="validate"></div>
+								</div>
+								<div class="form-group">
+									<textarea class="form-control" name="msg" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+									<div class="validate"></div>
+								</div>
+								<div class="mb-3">
+									<div class="loading">Loading</div>
+									<div class="error-message"></div>
+									<div class="sent-message">Your message has been sent. Thank you!</div>
+								</div>
+								<div class="text-center"><button type="submit">Send Message</button></div>
+							</form>
+						</div>
+					</div>
+					<!-- End Left contact -->
+				</div>
 			</div>
+		</div>
 		</div><!-- End Contact Section -->
 
 	</main><!-- End #main -->
@@ -955,22 +1051,50 @@
 							</div>
 						</div>
 					</div>
-					<!-- end single footer
+					<!-- end single footer -->
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="footer-content">
 							<div class="footer-head">
-								<h4>Instagram</h4>
-								<div class="flicker-img">
-									<a href="#"><img src="/assets/img/proyek/1.jpeg" alt=""></a>
-									<a href="#"><img src="/assets/img/proyek/2.jpeg" alt=""></a>
-									<a href="#"><img src="/assets/img/proyek/3.jpeg" alt=""></a>
-									<a href="#"><img src="/assets/img/proyek/4.jpeg" alt=""></a>
-									<a href="#"><img src="/assets/img/proyek/5.jpeg" alt=""></a>
-									<a href="#"><img src="/assets/img/proyek/6.jpeg" alt=""></a>
+								<h4>Contact</h4>
+								<div class="row">
+									<!-- Start contact icon column -->
+									<div class="col-md-5 col-sm-4 col-xs-12">
+										<div class="contact-icon text-center">
+											<div class="single-icon">
+												<i class="fa fa-mobile"></i>
+												<p>
+													(022) 7275016<br>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!-- Start contact icon column -->
+									<div class="col-md-5 col-sm-4 col-xs-12">
+										<div class="contact-icon text-center">
+											<div class="single-icon">
+												<i class="fa fa-envelope"></i>
+												<p>
+													arsi_enarcon@yahoo.com<br>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!-- Start contact icon column -->
+									<div class="col-md-5 col-sm-4 col-xs-12">
+										<div class="contact-icon text-center">
+											<div class="single-icon">
+												<i class="fa fa-map-marker"></i>
+												<p>
+													Jl. Saninten No. 6<br>
+													<span> Bandung 40114</span>
+												</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1024,9 +1148,19 @@
 			});
 		});
 	</script>
+
+
 	<!-- Template Main JS File -->
 	<script src="/assets/js/main.js"></script>
-
+	<script>
+		function myFunction(imgs) {
+			var expandImg = document.getElementById("expandedImg");
+			var imgText = document.getElementById("imgtext");
+			expandImg.src = imgs.src;
+			imgText.innerHTML = imgs.alt;
+			expandImg.parentElement.style.display = "block";
+		}
+	</script>
 </body>
 
 </html>

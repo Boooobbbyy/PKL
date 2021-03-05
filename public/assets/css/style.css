@@ -1179,7 +1179,7 @@ preview-2
 }
 
 .team-left-icon.text-center {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .head-team h4 {
@@ -1657,7 +1657,7 @@ preview-2
 --------------------------------------------------------------*/
 .suscribe-area {
   background: #3EC1D5 none repeat scroll 0 0;
-  padding: 30px 0;
+  padding: 10px 0;
 }
 
 .suscribe-text {
@@ -2527,7 +2527,7 @@ span.email-notes {
     width: 40%;
   }
   .team-content.text-center > h4 {
-    font-size: 20px;
+    font-size: 16px;
   }
   .sus-btn {
     margin-left: 0;
@@ -2742,4 +2742,53 @@ span.email-notes {
   .slider-content {
     padding: 0;
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 1; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
 }
