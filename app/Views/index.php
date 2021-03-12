@@ -88,7 +88,7 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#services">Services</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#blog">Blog</a></li>
+					<li><a href="#blog">News</a></li>
 					<li><a href="/login">login</a></li>
 
 				</ul>
@@ -422,24 +422,26 @@
 		<div class="reviews-area">
 			<div class="row no-gutters">
 				<div class="container mt-5 mb-5">
-					<div class="container">
-
+					<div class="owl-carousel testimonial-carousel">
 						<div class="row">
 							<div class="column">
-								<img src="https://fsa.zobj.net/crop.php?r=rcNXL7y5wIybb8rLCBsEDVa5gxM1mt2IYwaMiY6BJzRVRYxz_QQFrk7ckFc12NMNbwKJNokmapdmxO3hipSnhjgYNgvuXF-wN9pS-nzrYaN_Vsgf-uEoWxsHgxEodTROtmSoiEt0rWzP7m8b" alt="Nature" style="height:200px;width:100%;" onclick="myFunction(this);">
+								<img src="https://fsa.zobj.net/crop.php?r=rcNXL7y5wIybb8rLCBsEDVa5gxM1mt2IYwaMiY6BJzRVRYxz_QQFrk7ckFc12NMNbwKJNokmapdmxO3hipSnhjgYNgvuXF-wN9pS-nzrYaN_Vsgf-uEoWxsHgxEodTROtmSoiEt0rWzP7m8b" alt="Nature" style="height:80%;width:100%;" onclick="myFunction(this);">
 							</div>
 							<div class="column">
-								<img src="https://specials-images.forbesimg.com/imageserve/6023e1a9e9fa25b08ceeef91/960x0.jpg?fit=scale" alt="Snow" style="height:200px;width:100%;" onclick="myFunction(this);">
+								<img src="https://specials-images.forbesimg.com/imageserve/6023e1a9e9fa25b08ceeef91/960x0.jpg?fit=scale" alt="Snow" style="height:80%;width:100%;" onclick="myFunction(this);">
 							</div>
 							<div class="column">
-								<img src="https://i.pinimg.com/originals/dc/2c/9f/dc2c9fd87e255ab4f553c1bbf59579b7.png" alt="Mountains" style="height:200px;width:100%;" onclick="myFunction(this);">
+								<img src="https://i.pinimg.com/originals/dc/2c/9f/dc2c9fd87e255ab4f553c1bbf59579b7.png" alt="Mountains" style="height:80%;width:100%;" onclick="myFunction(this);">
 							</div>
 							<div class="column">
-								<img src="https://esportsku.com/wp-content/uploads/2021/01/hu-tao-1200x900.png" alt="Lights" style="height:200px;width:100%;" onclick="myFunction(this);">
+								<img src="https://esportsku.com/wp-content/uploads/2021/01/hu-tao-1200x900.png" alt="Lights" style="height:80%;width:100%;" onclick="myFunction(this);">
 							</div>
 						</div>
+					</div>
+
+					<div class="container">
 						<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-						<img id="expandedImg" style="width:100%">
+						<img id="expandedImg" style="height:100%;width:100%;">
 						<div id="imgtext"></div>
 					</div>
 
@@ -453,7 +455,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="section-headline text-center">
-							<h2>Our Portfolio</h2>
+							<h2>Our Portofolio</h2>
 						</div>
 					</div>
 				</div>
@@ -764,7 +766,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="section-headline text-center">
 									<br>
-									<h4>Direktur</h4>
+									<h4>Principal</h4>
 
 								</div>
 							</div>
@@ -775,7 +777,7 @@
 										<div class="single-blog">
 											<div class="single-blog-img">
 												<a href="blog.html">
-													<img src="/assets/arsi/1.jpeg" alt="" style="height:200px;width:100%;">
+													<img src="/assets/arsi/1.jpeg" alt="" style="height:200px;width:80%;">
 												</a>
 											</div>
 											<div class="blog-meta">
@@ -798,7 +800,7 @@
 										<div class="single-blog">
 											<div class="single-blog-img">
 												<a href="blog.html">
-													<img src="/assets/arsi/2.jpeg" alt="" style="height:200px;width:100%;">
+													<img src="/assets/arsi/2.jpeg" alt="" style="height:200px;width:80%;">
 												</a>
 											</div>
 											<div class="blog-meta">
@@ -822,7 +824,7 @@
 										<div class="single-blog">
 											<div class="single-blog-img">
 												<a href="blog.html">
-													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:80%;">
 												</a>
 											</div>
 											<div class="blog-meta">
@@ -845,7 +847,7 @@
 										<div class="single-blog">
 											<div class="single-blog-img">
 												<a href="blog.html">
-													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:80%;">
 												</a>
 											</div>
 											<div class="blog-meta">
@@ -868,7 +870,7 @@
 										<div class="single-blog">
 											<div class="single-blog-img">
 												<a href="blog.html">
-													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
+													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:80%;">
 												</a>
 											</div>
 											<div class="blog-meta">
