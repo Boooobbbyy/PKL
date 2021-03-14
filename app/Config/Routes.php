@@ -37,15 +37,30 @@ $routes->get('/Logout', 'Auth::logout');
 $routes->get('/Validasi', 'Auth::validasi');
 $routes->get('/Dashboard', 'Dashboard::index', ['filter' => 'Auth']);
 $routes->get('/Dashboard/(:any)', 'Dashboard::$1', ['filter' => 'Auth']);
+$routes->get('/Profile', 'Profile::index', ['filter' => 'Auth']);
+$routes->get('/Profile/(:any)', 'Profile::$1', ['filter' => 'Auth']);
 $routes->get('/User', 'User::index', ['filter' => 'Role1']);
 $routes->get('/User/(:any)', 'User::$1', ['filter' => 'Role1']);
-$routes->get('/Profile', 'Profile::index', ['filter' => 'Role1']);
-$routes->get('/Profile/(:any)', 'Profile::$1', ['filter' => 'Role1']);
+$routes->get('/Konfigurasi', 'Konfigurasi::index', ['filter' => 'Role1']);
+$routes->get('/Konfigurasi/(:any)', 'Konfigurasi::$1', ['filter' => 'Role1']);
 $routes->get('/Jabatan', 'Jabatan::index', ['filter' => 'Role2']);
 $routes->get('/Jabatan/(:any)', 'Jabatan::$1', ['filter' => 'Role2']);
 $routes->get('/Pegawai', 'Pegawai::index', ['filter' => 'Role2']);
 $routes->get('/Pegawai/(:any)', 'Pegawai::$1', ['filter' => 'Role2']);
-
+$routes->get('/Proyek', 'Proyek::index', ['filter' => 'Role2']);
+$routes->get('/Proyek/(:any)', 'Proyek::$1', ['filter' => 'Role2']);
+$routes->get('/SuratMasuk', 'SuratMasuk::index', ['filter' => 'Role2']);
+$routes->get('/SuratMasuk/(:any)', 'SuratMasuk::$1', ['filter' => 'Role2']);
+$routes->get('/SuratKeluar', 'SuratKeluar::index', ['filter' => 'Role2']);
+$routes->get('/SuratKeluar/(:any)', 'SuratKeluar::$1', ['filter' => 'Role2']);
+$routes->get('/Videos', 'Videos::index', ['filter' => 'Role3']);
+$routes->get('/Videos/(:any)', 'Videos::$1', ['filter' => 'Role3']);
+$routes->get('/Ahome', 'Ahome::index', ['filter' => 'Role3']);
+$routes->get('/Ahome/(:any)', 'Ahome::$1', ['filter' => 'Role3']);
+$routes->get('/Portofolio', 'Portofolio::index', ['filter' => 'Role3']);
+$routes->get('/Portofolio/(:any)', 'Portofolio::$1', ['filter' => 'Role3']);
+$routes->get('/News', 'News::index', ['filter' => 'Role3']);
+$routes->get('/News/(:any)', 'News::$1', ['filter' => 'Role3']);
 
 /*
  * --------------------------------------------------------------------

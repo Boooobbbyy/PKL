@@ -7,11 +7,29 @@ class Profile extends BaseController
     public function index()
     {
         $data = [
-            'title' => "SMAP - Profile",
-            'head' => "Profile"
+            'title' => "SMAP - Profile User",
+            'head' => "Profile User"
         ];
 
         return view('admin/profile/index', $data);
+    }
+
+    public function fetch_data()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $id = session()->get('user_id');
+            $data = [
+                'profile' => $this->UserModel->join('role', 'role.role = user.role_id')->where('id_user', $id)->get()->getRowArray()
+            ];
+            $msg = [
+                'data' => view('admin/profile/read', $data)
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
     }
 
     public function submit()
@@ -19,105 +37,66 @@ class Profile extends BaseController
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
             $validation = \Config\Services::validation();
+            $rulesUsername = 'required';
+            if ($request->getVar('username') != session()->get('username')) {
+                $rulesUsername = 'required|is_unique[user.username]';
+            }
+            $rulesEmail = 'required|valid_email';
+            if ($request->getVar('email') != session()->get('email')) {
+                $rulesEmail = 'required|is_unique[user.email]';
+            }
             $valid = $this->validate([
-                'nama_web' => [
-                    'label' => 'Nama website',
-                    'rules' => 'required|alpha_numeric_space',
+                'username' => [
+                    'label' => 'Username',
+                    'rules' => $rulesUsername,
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
-                        'alpha_numeric_space' => 'Tidak boleh mengandung karakter unik',
-                    ]
-                ],
-                'deskripsi' => [
-                    'label' => 'Deskripsi',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'visi' => [
-                    'label' => 'Visi',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'misi' => [
-                    'label' => 'Misi',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'instagram' => [
-                    'label' => 'Instagram',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'facebook' => [
-                    'label' => 'Facebook',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'whatsapp' => [
-                    'label' => 'Whatsapp',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
+                        'is_unique' => '{field} tersebut sudah ada'
                     ]
                 ],
                 'email' => [
                     'label' => 'Email',
-                    'rules' => 'required',
+                    'rules' => $rulesEmail,
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
+                        'is_unique' => '{field} tersebut sudah ada',
+                        'valid_email' => '{field} salah'
                     ]
                 ],
-                'alamat' => [
-                    'label' => 'Alamat',
-                    'rules' => 'required',
+                'password2' => [
+                    'label' => 'Confirm Password',
+                    'rules' => 'matches[password]',
                     'errors' => [
-                        'required' => '{field} tidak boleh kosong',
+                        'matches' => '{field} tidak cocok'
                     ]
-                ],
+                ]
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'nama_web'      => $validation->getError('nama_web'),
-                        'deskripsi'     => $validation->getError('deskripsi'),
-                        'visi'          => $validation->getError('visi'),
-                        'misi'          => $validation->getError('misi'),
-                        'instagram'     => $validation->getError('instagram'),
-                        'facebook'      => $validation->getError('facebook'),
-                        'whatsapp'      => $validation->getError('whatsapp'),
-                        'email'         => $validation->getError('email'),
-                        'alamat'        => $validation->getError('alamat'),
+                        'username'  => $validation->getError('username'),
+                        'email'     => $validation->getError('email'),
+                        'password' => $validation->getError('password2'),
                     ]
                 ];
             } else {
                 $simpandata = [
-                    'nama_web'     => $request->getVar('nama_web'),
-                    'deskripsi'    => $request->getVar('deskripsi'),
-                    'visi'         => $request->getVar('visi'),
-                    'misi'         => $request->getVar('misi'),
-                    'instagram'    => $request->getVar('instagram'),
-                    'facebook'     => $request->getVar('facebook'),
-                    'whatsapp'     => $request->getVar('whatsapp'),
-                    'email'        => $request->getVar('email'),
-                    'alamat'       => $request->getVar('alamat'),
+                    'username'      => $request->getVar('username'),
+                    'email'         => $request->getVar('email')
                 ];
-                $konfigurasi_id = $request->getVar('konfigurasi_id');
-                $this->konfigurasi->update($konfigurasi_id, $simpandata);
+                if ($request->getVar('password') != NULL) {
+                    $simpandata['password'] = password_hash($request->getVar('password'), PASSWORD_DEFAULT);
+                }
+
+                $id = session()->get('user_id');
+                $this->UserModel->update($id, $simpandata);
                 $msg = [
                     'sukses' => 'Data berhasil diupdate'
                 ];
             }
             echo json_encode($msg);
+        } else {
+            exit(view('error'));
         }
     }
 
@@ -125,144 +104,78 @@ class Profile extends BaseController
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
-            $konfigurasi_id = $request->getVar('konfigurasi_id');
-            $list =  $this->konfigurasi->find($konfigurasi_id);
+
+            $id = $request->getVar('id');
+            $row = $this->UserModel->find($id);
+
             $data = [
-                'title' => 'Upload Logo Website',
-                'list'  => $list,
-                'konfigurasi_id' => $list['konfigurasi_id']
+                'id' => $row['id_user'],
+                'foto' => $row['foto']
             ];
+
             $msg = [
-                'sukses' => view('auth/konfigurasi/uploadlogo', $data)
+                'sukses' => view('admin/profile/upload', $data)
             ];
+
             echo json_encode($msg);
+        } else {
+            exit(view('error'));
         }
     }
 
-    public function douploadlogo()
+    public function doupload()
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
-
-            $konfigurasi_id = $request->getVar('konfigurasi_id');
-
             $validation = \Config\Services::validation();
 
             $valid = $this->validate([
-                'logo' => [
-                    'label' => 'Upload Logo',
-                    'rules' => 'uploaded[logo]|mime_in[logo,image/png,image/jpg,image/jpeg]|is_image[logo]',
+                'foto' => [
+                    'label' => 'Logo',
+                    'rules' => 'uploaded[foto]|max_size[foto, 1024]|mime_in[foto,image/png,image/jpg,image/jpeg]|is_image[foto]',
                     'errors' => [
-                        'uploaded' => 'Masukkan gambar',
-                        'mime_in' => 'Harus gambar!'
+                        'uploaded'  => '{field} belum diupload',
+                        'max_size'  => 'Ukuran {field} Melebihi 1 MB',
+                        'mime_in'   => 'File yang diupload harus gambar!',
+                        'is_image'  => 'File yang diupload harus gambar!'
                     ]
                 ]
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'logo' => $validation->getError('logo')
+                        'foto' => $validation->getError('foto')
                     ]
                 ];
             } else {
 
-                //check
-                $cekdata = $this->konfigurasi->find($konfigurasi_id);
-                $fotolama = $cekdata['logo'];
+                $id = $request->getVar('id');
+                $cekdata = $this->UserModel->find($id);
+                $fotolama = $cekdata['foto'];
+
                 if ($fotolama != 'default.png') {
-                    unlink('img/konfigurasi/logo/' . $fotolama);
-                    unlink('img/konfigurasi/logo/thumb/' . 'thumb_' . $fotolama);
+                    unlink('uploads/user' . '/' . $fotolama);
+                    unlink('uploads/user/thumb' . '/thumb_' . $fotolama);
                 }
 
-                $filegambar = $request->getFile('logo');
+                $filegambar = $request->getFile('foto');
 
                 $updatedata = [
-                    'logo' => $filegambar->getName(),
+                    'foto' => $filegambar->getName()
                 ];
 
-                $this->konfigurasi->update($konfigurasi_id, $updatedata);
+                $this->UserModel->update($id, $updatedata);
 
                 \Config\Services::image()
                     ->withFile($filegambar)
-                    ->fit(250, 250, 'center')
-                    ->save('img/konfigurasi/logo/thumb/' . 'thumb_' .  $filegambar->getName());
-                $filegambar->move('img/konfigurasi/logo');
+                    ->fit(800, 533, 'center')
+                    ->save('uploads/user/thumb/' . 'thumb_' .  $filegambar->getName());
+                $filegambar->move('uploads/user');
+
+                session()->set(['foto' => $filegambar->getName()]);
+
                 $msg = [
-                    'sukses' => 'Gambar berhasil diupload!',
-                ];
-            }
-            echo json_encode($msg);
-        }
-    }
-
-    public function formuploadicon()
-    {
-        $request = \Config\Services::request();
-        if ($request->isAJAX()) {
-            $konfigurasi_id = $request->getVar('konfigurasi_id');
-            $list =  $this->konfigurasi->find($konfigurasi_id);
-            $data = [
-                'title' => 'Upload Icon Website',
-                'list'  => $list,
-                'konfigurasi_id' => $list['konfigurasi_id']
-            ];
-            $msg = [
-                'sukses' => view('auth/konfigurasi/uploadicon', $data)
-            ];
-            echo json_encode($msg);
-        }
-    }
-
-    public function douploadicon()
-    {
-        $request = \Config\Services::request();
-        if ($request->isAJAX()) {
-
-            $konfigurasi_id = $request->getVar('konfigurasi_id');
-
-            $validation = \Config\Services::validation();
-
-            $valid = $this->validate([
-                'icon' => [
-                    'label' => 'Upload Icon',
-                    'rules' => 'uploaded[icon]|mime_in[icon,image/png,image/jpg,image/jpeg]|is_image[icon]',
-                    'errors' => [
-                        'uploaded' => 'Masukkan gambar',
-                        'mime_in' => 'Harus gambar!'
-                    ]
-                ]
-            ]);
-            if (!$valid) {
-                $msg = [
-                    'error' => [
-                        'icon' => $validation->getError('icon')
-                    ]
-                ];
-            } else {
-
-                //check
-                $cekdata = $this->konfigurasi->find($konfigurasi_id);
-                $fotolama = $cekdata['icon'];
-                if ($fotolama != 'default.png') {
-                    unlink('img/konfigurasi/icon/' . $fotolama);
-                    unlink('img/konfigurasi/icon/thumb/' . 'thumb_' . $fotolama);
-                }
-
-                $filegambar = $request->getFile('icon');
-
-                $updatedata = [
-                    'icon' => $filegambar->getName(),
-                ];
-
-                $this->konfigurasi->update($konfigurasi_id, $updatedata);
-
-                \Config\Services::image()
-                    ->withFile($filegambar)
-                    ->fit(250, 250, 'center')
-                    ->save('img/konfigurasi/icon/thumb/' . 'thumb_' .  $filegambar->getName());
-                $filegambar->move('img/konfigurasi/icon');
-                $msg = [
-                    'sukses' => 'Gambar berhasil diupload!',
+                    'sukses' => 'Gambar berhasil diupload!'
                 ];
             }
             echo json_encode($msg);

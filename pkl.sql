@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2021 at 02:29 PM
+-- Generation Time: Mar 14, 2021 at 11:39 PM
 -- Server version: 10.3.25-MariaDB-0+deb10u1
 -- PHP Version: 7.3.19-1~deb10u1
 
@@ -162,6 +162,32 @@ INSERT INTO `portofolio` (`id`, `foto`, `date_uploaded`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `profile`
+--
+
+CREATE TABLE `profile` (
+  `id` int(11) NOT NULL,
+  `nama_pt` varchar(128) NOT NULL,
+  `profile_pt` text NOT NULL,
+  `logo_pt` varchar(128) NOT NULL,
+  `no_telp` varchar(20) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `tempat` text NOT NULL,
+  `instagram` varchar(70) NOT NULL,
+  `facebook` varchar(70) NOT NULL,
+  `whatsapp` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `email`, `tempat`, `instagram`, `facebook`, `whatsapp`) VALUES
+(1, 'Arsi Enarcon', 'Perusahaan ini mulai dirintis oleh 4 orang ex karyawan PT Megapola Macro Design (MMD). Dari keempat orang tersebut, tiga di antaranya memiliki disiplin arsitektur dari perguruan tinggi yang sama dan satu orang mempunyai disiplin seni rupa. Mereka adalah Ir. Iman N. Djatiatmadja (arsitek), Ir. Beni Robini (arsitek), Ir. Budi Satria (arsitek), dan Drs. Zainal Arifin (seni rupa). Setelah lima tahun bekerja pada PT MMD, tahun 1995 mereka memisahkan diri dengan mendirikan Studio Adi Reka Seni Imaji (ARSI). Manajemen PT MMD sendiri mengalami perpecahan.', 'default.svg', '(022) 7275016', 'arsienarcon@gmail.com', 'Jl. Saninten No.6, Cihapit, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40114', 'www.instagram.com/arsienarcon', 'www.facebook.com/arsienarcon', '082297578773');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `role`
 --
 
@@ -200,8 +226,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `foto`, `username`, `email`, `password`, `role_id`, `last_login`) VALUES
-(1, 'default.png', 'brondol', 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-13 09:37:09'),
-(2, '1. Nabil.png', 'aulia.ahmad1074', 'admin@gmail.com', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '0000-00-00 00:00:00');
+(1, 'default.png', 'brondol', 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-14 23:12:42'),
+(2, '1. Nabil.png', 'aulia.ahmad1074', 'admin@gmail.com', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-14 23:38:44');
 
 -- --------------------------------------------------------
 
@@ -255,6 +281,12 @@ ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -298,6 +330,12 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `profile`
+--
+ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

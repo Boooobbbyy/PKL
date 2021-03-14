@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center " href="<?= base_url('Dashboard'); ?>">
+    <a class="sidebar-brand d-flex align-items-center " href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -48,8 +48,8 @@
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item <?php if ($head == 'Proyek') echo 'active'; ?>">
+            <a class="nav-link" href="<?= base_url('Proyek'); ?>">
                 <i class="fas fa-fw fa-briefcase"></i>
                 <span>Proyek</span></a>
         </li>
@@ -62,8 +62,8 @@
             </a>
             <div id="collapseSurat" class="collapse" aria-labelledby="headingSurat" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?= base_url('Jabatan'); ?>">Surat Masuk</a>
-                    <a class="collapse-item" href="<?= base_url('Pegawai'); ?>">Surat Keluar</a>
+                    <a class="collapse-item" href="<?= base_url('SuratMasuk'); ?>">Surat Masuk</a>
+                    <a class="collapse-item" href="<?= base_url('SuratKeluar'); ?>">Surat Keluar</a>
                 </div>
             </div>
         </li>
@@ -78,26 +78,26 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item <?php if ($head == 'Home') echo 'active'; ?>">
+            <a class="nav-link" href="<?= base_url('Ahome'); ?>">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Home</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item <?php if ($head == 'Video') echo 'active'; ?>">
+            <a class="nav-link" href="<?= base_url('Videos'); ?>">
                 <i class="fas fa-fw fa-video"></i>
                 <span>Videos</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item <?php if ($head == 'Portofolio') echo 'active'; ?>">
+            <a class="nav-link" href="<?= base_url('Portofolio'); ?>">
                 <i class="fas fa-fw fa-paste"></i>
                 <span>Portofolio</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item <?php if ($head == 'News') echo 'active'; ?>">
+            <a class="nav-link" href="<?= base_url('News'); ?>">
                 <i class="fas fa-fw fa-newspaper"></i>
                 <span>News</span></a>
         </li>
@@ -113,7 +113,7 @@
         </div>
 
         <li class="nav-item <?php if ($head == 'Profile') echo 'active'; ?>">
-            <a class="nav-link" href="<?= base_url('Profile'); ?>">
+            <a class="nav-link" href="<?= base_url('Konfigurasi'); ?>">
                 <i class="fas fa-fw fa-cogs"></i>
                 <span>Profiles</span></a>
         </li>
