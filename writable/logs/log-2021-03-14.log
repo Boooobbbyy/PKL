@@ -1,0 +1,83 @@
+CRITICAL - 2021-03-14 13:48:30 --> Class 'App\Models\PerusahaanModel' not found
+#0 /var/www/html/PKL/system/CodeIgniter.php(908): App\Controllers\Home->__construct()
+#1 /var/www/html/PKL/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#5 {main}
+CRITICAL - 2021-03-14 13:49:48 --> Class 'App\Models\UserModel' not found
+#0 /var/www/html/PKL/system/CodeIgniter.php(908): App\Controllers\Auth->__construct()
+#1 /var/www/html/PKL/system/CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#4 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#5 {main}
+CRITICAL - 2021-03-14 13:53:21 --> Invalid file: /home/interior.php
+#0 /var/www/html/PKL/system/View/View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/home/interior....')
+#1 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('/home/interior', Array, true)
+#2 /var/www/html/PKL/app/Controllers/Home.php(27): view('/home/interior')
+#3 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Home->interior()
+#4 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#7 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#8 {main}
+CRITICAL - 2021-03-14 14:01:08 --> Call to undefined function form_open()
+#0 /var/www/html/PKL/system/View/View.php(220): include()
+#1 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('admin/login', Array, true)
+#3 /var/www/html/PKL/app/Controllers/Auth.php(16): view('admin/login', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->index()
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}
+ERROR - 2021-03-14 14:17:08 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2021-03-14 14:17:08 --> Unable to connect to the database.
+#0 /var/www/html/PKL/system/Database/BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/html/PKL/app/Controllers/Auth.php(31): CodeIgniter\Model->__call('get', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->validasi()
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}
+ERROR - 2021-03-14 14:17:45 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2021-03-14 14:17:45 --> Unable to connect to the database.
+#0 /var/www/html/PKL/system/Database/BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/html/PKL/app/Controllers/Auth.php(31): CodeIgniter\Model->__call('get', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->validasi()
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}
+ERROR - 2021-03-14 14:17:47 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2021-03-14 14:17:47 --> Unable to connect to the database.
+#0 /var/www/html/PKL/system/Database/BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/html/PKL/app/Controllers/Auth.php(31): CodeIgniter\Model->__call('get', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->validasi()
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}
+ERROR - 2021-03-14 14:17:48 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
+CRITICAL - 2021-03-14 14:17:48 --> Unable to connect to the database.
+#0 /var/www/html/PKL/system/Database/BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 /var/www/html/PKL/system/Database/BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /var/www/html/PKL/system/Model.php(836): CodeIgniter\Database\BaseBuilder->get()
+#3 /var/www/html/PKL/app/Controllers/Auth.php(31): CodeIgniter\Model->__call('get', Array)
+#4 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Auth->validasi()
+#5 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#6 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#9 {main}

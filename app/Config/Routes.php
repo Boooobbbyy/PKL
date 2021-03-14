@@ -32,34 +32,20 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/dp1', 'Home::dp1');
-$routes->get('/dp2', 'Home::dp2');
-$routes->get('/interior', 'Home::interior');
-$routes->get('/developer', 'Home::develop');
-$routes->get('/remodelling', 'Home::commer');
-$routes->get('/bla', 'Home::bla');
-//=================================== service =========================================//
-$routes->get('/konsultan', 'Service::konsultan');
-$routes->get('/kompetensi', 'Service::kompetensi');
-$routes->get('/mitra', 'Service::mitra');
-$routes->get('/perencanaan', 'Service::perencanaan');
-$routes->get('/pelayanan', 'Service::pelayanan');
-$routes->get('/arsitektur', 'Service::arsitektur');
-//=================================== proyek ===========================================//
-$routes->get('/proyek1', 'Proyek::p1');
-$routes->get('/proyek2', 'Proyek::p2');
-$routes->get('/proyek3', 'Proyek::p3');
-$routes->get('/proyek4', 'Proyek::p4');
-$routes->get('/proyek5', 'Proyek::p5');
-$routes->get('/proyek6', 'Proyek::p6');
-$routes->get('/proyek7', 'Proyek::p7');
-$routes->get('/proyek8', 'Proyek::p8');
-$routes->get('/proyek9', 'Proyek::p9');
-//=================================== admin ===========================================//
-$routes->get('/Login', 'Auth');
-$routes->get('/login', 'Auth');
+$routes->get('/Login', 'Auth::index');
 $routes->get('/Logout', 'Auth::logout');
-$routes->get('/logout', 'Auth::logout');
+$routes->get('/Validasi', 'Auth::validasi');
+$routes->get('/Dashboard', 'Dashboard::index', ['filter' => 'Auth']);
+$routes->get('/Dashboard/(:any)', 'Dashboard::$1', ['filter' => 'Auth']);
+$routes->get('/User', 'User::index', ['filter' => 'Role1']);
+$routes->get('/User/(:any)', 'User::$1', ['filter' => 'Role1']);
+$routes->get('/Profile', 'Profile::index', ['filter' => 'Role1']);
+$routes->get('/Profile/(:any)', 'Profile::$1', ['filter' => 'Role1']);
+$routes->get('/Jabatan', 'Jabatan::index', ['filter' => 'Role2']);
+$routes->get('/Jabatan/(:any)', 'Jabatan::$1', ['filter' => 'Role2']);
+$routes->get('/Pegawai', 'Pegawai::index', ['filter' => 'Role2']);
+$routes->get('/Pegawai/(:any)', 'Pegawai::$1', ['filter' => 'Role2']);
+
 
 /*
  * --------------------------------------------------------------------

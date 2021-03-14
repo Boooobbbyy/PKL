@@ -2,58 +2,75 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
-
 class Auth extends BaseController
 {
-    protected $userModel;
-
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-    }
 
     public function index()
     {
-        if (session()->get('logged_in') == 1) {
-            header("Location: /Admin");
-            exit;
+        if (session('login')) {
+            return redirect()->to('/Dashboard');
         }
-
-        $data['title'] = "PT Arsi Enarcon | Login";
-        $data['validation'] = \config\services::validation();
-
-        return view('auth/index', $data);
+        $data = [
+            'title' => 'SMAP - Login'
+        ];
+        return view('admin/login', $data);
     }
 
-    public function login()
+    public function validasi()
     {
-        $username      = $this->request->getPost('username');
-        $password   = $this->request->getPost('password');
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $username = $request->getVar('username');
+            $password = $request->getVar('password');
 
-        $row = $this->userModel->getLogin($username);
+            if ($username == NULL or $password == NULL) {
+                $msg = [
+                    'error' => 'Harap mengisi Username dan Password !'
+                ];
+            } else {
+                $row = $this->UserModel->where('username', $username)->get();
 
-        if ($row == NULL) {
-            return redirect()->to('/Login')->withInput()->with('pesan', 'Username Belum terdaftar');
-        }
-        if (password_verify($password, $row->password)) {
-            $data = [
-                'id' => $row->id,
-                'username' => $username,
-                'logged_in' => 1
-            ];
-            session()->set($data);
+                if ($row->getNumRows() > 0) {
+                    $row = $row->getRowArray();
+                    $password_user = $row['password'];
 
-            return redirect()->to(base_url('Admin'));
+                    if (password_verify($password, $password_user)) {
+                        $simpan_session = [
+                            'login' => true,
+                            'user_id' => $row['id_user'],
+                            'username' => $row['username'],
+                            'email'  => $row['email'],
+                            'foto'  => $row['foto'],
+                            'role' => $row['role_id'],
+                        ];
+
+                        $this->session->set($simpan_session);
+
+                        $msg = [
+                            'sukses' => [
+                                'link' => base_url('Dashboard')
+                            ]
+                        ];
+                    } else {
+                        $msg = [
+                            'error' => 'Password salah!'
+                        ];
+                    }
+                } else {
+                    $msg = [
+                        'error' => 'User tidak ditemukan!'
+                    ];
+                }
+            }
+            echo json_encode($msg);
         } else {
-            session()->setFlashdata('pesan', 'Password Salah');
-            return redirect()->to(base_url('Login'));
+            exit(view('error'));
         }
     }
 
     public function logout()
     {
-        session()->destroy();
-        return redirect()->to('/Login');
+        $this->session->destroy();
+        return redirect()->to(base_url('Auth'));
     }
 }

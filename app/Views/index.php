@@ -89,7 +89,7 @@
 					<li><a href="#services">Services</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#blog">News</a></li>
-					<li><a href="/login">login</a></li>
+					<li><a href="/Login">Login</a></li>
 
 				</ul>
 			</nav><!-- .nav-menu -->
@@ -913,7 +913,7 @@
 								</div>
 							</div>
 							<div class="row">
-							  Start contact icon column  
+							  Start contact icon column
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="contact-icon text-center">
 										<div class="single-icon">
@@ -925,7 +925,7 @@
 										</div>
 									</div>
 								</div>
-							  Start contact icon column 
+							  Start contact icon column
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="contact-icon text-center">
 										<div class="single-icon">
@@ -937,7 +937,7 @@
 										</div>
 									</div>
 								</div>
-							  Start contact icon column  
+							  Start contact icon column
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<div class="contact-icon text-center">
 										<div class="single-icon">

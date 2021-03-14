@@ -2,24 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\PerusahaanModel;
-
 class Home extends BaseController
 {
 	protected $perusahaanModel;
 
-
-	public function __construct()
-	{
-		$this->perusahaanModel = new PerusahaanModel();
-	}
-
 	public function index()
 	{
-		$data['perusahaan'] = $this->perusahaanModel->get()->getRowArray();
-		$data['validation'] = \config\services::validation();
-
-		return view('index', $data);
+		return view('index');
 	}
 
 	public function dp1()
