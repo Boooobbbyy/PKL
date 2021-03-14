@@ -6,12 +6,12 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title><?= $perusahaan['nama_pt']; ?></title>
+	<title>PT. Arsi Enarcon</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
 	<!-- Favicons -->
-	<link href="/assets/img/<?= $perusahaan['logo_pt']; ?>" rel="icon">
+	<link href="/assets/img/a.png" rel="icon">
 	<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
@@ -612,7 +612,8 @@
 					</div>
 				</div>
 			</div>
-		</div><!-- End Testimonials Section -->
+		</div>
+		<!-- End Testimonials Section -->
 
 		<!-- ======= Blog Section ======= -->
 		<div id="blog" class="blog-area">
@@ -1013,10 +1014,10 @@
 						<div class="footer-content">
 							<div class="footer-head">
 								<div class="footer-logo">
-									<h2><span>PT</span><?= str_replace("PT", "", $perusahaan['nama_pt']); ?></h2>
+									<h2><span>PT</span> Arsi Enarcon</h2>
 								</div>
 
-								<p><?= $perusahaan['profile_pt']; ?></p>
+								<p>profile bla bla bla</p>
 								<div class="footer-icons">
 									<ul>
 										<li>
@@ -1042,11 +1043,11 @@
 							<div class="footer-head">
 								<h4>Location :</h4>
 								<p>
-									<?= $perusahaan['tempat']; ?>
+									saninten bandung
 								</p>
 								<div class="footer-contacts">
-									<p><span>Tel:</span> <?= $perusahaan['no_telp']; ?></p>
-									<p><span>Email:</span> <?= $perusahaan['email']; ?></p>
+									<p><span>Tel:</span> 08154038751</p>
+									<p><span>Email:</span>arsienarcon@gmail.com</p>
 									<p><span>Working Hours:</span> 9am-5pm</p>
 								</div>
 							</div>
