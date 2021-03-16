@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2021 at 11:39 PM
+-- Generation Time: Mar 16, 2021 at 06:00 PM
 -- Server version: 10.3.25-MariaDB-0+deb10u1
 -- PHP Version: 7.3.19-1~deb10u1
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `pkl`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `nip` int(12) NOT NULL,
+  `latitude` varchar(128) NOT NULL,
+  `longitude` varchar(128) NOT NULL,
+  `catatan` text NOT NULL,
+  `foto` varchar(128) NOT NULL,
+  `device` varchar(255) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `nama`, `nip`, `latitude`, `longitude`, `catatan`, `foto`, `device`, `keterangan`, `created_at`) VALUES
+(1, 'Intania Rahmadila', 1817051025, '-5.3971396', '105.26678869999999', '                                                                           tes', '2021-03-16_1817051025', 'Linux x86_64, Chrome/88.0.4324.96', 'Masuk', '2021-03-16 10:52:46'),
+(3, 'Bobby Malela', 1817051002, '-5.3971396', '105.26678869999999', 'Hari ini saya melanjutkan pembuatan website bagian absensi pegawai', '2021-03-16_1817051002.jpg', 'Linux x86_64, Chrome/88.0.4324.96', 'Datang Terlambat', '2021-03-16 13:06:31'),
+(6, 'Bobby Malela', 1817051002, '-5.383782399999999', '105.26719999999999', 'jangan lupa pulang ya kawan-kawan ku semuanyaaaaaa', '2021-03-16_16-32-16_1817051002.jpg', 'Linux x86_64, Chrome/88.0.4324.96', 'Pulang', '2021-03-16 16:32:16');
 
 -- --------------------------------------------------------
 
@@ -114,8 +142,10 @@ CREATE TABLE `pegawai` (
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `foto`, `nama`, `telepon`, `email`, `jabatan`, `gaji_pokok`, `mulai_bekerja`) VALUES
 (1, 1817051074, 'EM9NURDU4AAO2MH.jpeg', 'Aulia Ahmad Nabil', '082297578773', 'nabilunited2@gmail.com', 1, 12000000, '2020-05-10'),
-(5, 1807051008, 'default.png', 'Intania Rahmadila', '081278317777', 'admin@gmail.com', 5, 1000000, '2021-03-11'),
-(6, 1807051006, 'default.png', 'Thorin Satria Ramadhans', '081278317778', 'idnbdy@gmail.com', 2, 1000000, '2021-03-18');
+(5, 1807051008, 'default.png', 'Pandi Barep', '081278317777', 'admin@gmail.com', 5, 1000000, '2021-03-11'),
+(6, 1807051006, 'default.png', 'Thorin Satria Ramadhans', '081278317778', 'idnbdy@gmail.com', 2, 1000000, '2021-03-18'),
+(7, 1817051025, 'default.png', 'Intania Rahmadila', '089630479663', 'intaniar@gmail.com', 5, 3500000, '2021-03-01'),
+(8, 1817051002, 'default.png', 'Bobby Malela', '081234567890', 'bur.ilham2021@students.ugm.ac.id', 2, 1000000, '2021-03-02');
 
 -- --------------------------------------------------------
 
@@ -203,7 +233,8 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`role`, `nama`) VALUES
 (1, 'Admin Utama'),
 (2, 'Admin Administrasi'),
-(3, 'Admin Content');
+(3, 'Admin Content'),
+(4, 'Pegawai');
 
 -- --------------------------------------------------------
 
@@ -215,6 +246,7 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role_id` int(11) NOT NULL,
@@ -225,9 +257,11 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `foto`, `username`, `email`, `password`, `role_id`, `last_login`) VALUES
-(1, 'default.png', 'brondol', 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-14 23:12:42'),
-(2, '1. Nabil.png', 'aulia.ahmad1074', 'admin@gmail.com', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-14 23:38:44');
+INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `password`, `role_id`, `last_login`) VALUES
+(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-16 13:36:30'),
+(2, '1. Nabil.png', 'aulia.ahmad1074', 0, 'aulia.ahmad1074@students.unila.ac.id', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-15 09:47:38'),
+(3, 'default.png', '1817051025', 7, 'intaniar@gmail.com', '$2y$10$s6.Z.H0s.JJFiRVrNoMdNOFQPD9ql5UwfGMQItnNMx4aPrMYJA2yy', 4, '2021-03-16 08:31:50'),
+(4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-16 13:37:22');
 
 -- --------------------------------------------------------
 
@@ -255,6 +289,12 @@ INSERT INTO `videos` (`id`, `judul`, `deskripsi`, `link`, `date_uploaded`) VALUE
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jabatan`
@@ -309,6 +349,12 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT for table `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
@@ -324,7 +370,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
@@ -342,13 +388,13 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `videos`
