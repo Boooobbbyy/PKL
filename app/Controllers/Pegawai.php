@@ -161,8 +161,18 @@ class Pegawai extends BaseController
                     'jabatan'       => $request->getVar('jabatan'),
                     'foto'          => "default.png"
                 ];
-
                 $this->PegawaiModel->insert($simpandata);
+
+                $userdata = [
+                    'foto' => "default.png",
+                    'username' => $request->getVar('nip'),
+                    'email' => $request->getVar('email'),
+                    'password' => password_hash($request->getVar('nip'), PASSWORD_DEFAULT),
+                    'role_id' => 4,
+                    'id_pegawai' => $this->PegawaiModel->insertID()
+                ];
+                $this->UserModel->insert($userdata);
+
                 $msg = [
                     'sukses' => 'Data berhasil disimpan'
                 ];

@@ -25,6 +25,30 @@
             <span>Visit Site</span></a>
     </li>
 
+
+    <?php if (session()->get('role') == 4) : ?>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Pegawai
+        </div>
+
+        <li class="nav-item <?php if ($head == 'Absensi') echo 'active'; ?>">
+            <a class=" nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAbsensi" aria-expanded="true" aria-controls="collapseAbsensi">
+                <i class="fas fa-fw fa-address-book"></i>
+                <span>Absensi</span>
+            </a>
+            <div id="collapseAbsensi" class="collapse" aria-labelledby="headingAbsensi" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="<?= base_url('/Checkin'); ?>">Check-in</a>
+                    <a class="collapse-item" href="<?= base_url('/Laporan'); ?>">Laporan Harian</a>
+                </div>
+            </div>
+        </li>
+    <?php endif; ?>
+
     <?php if (session()->get('role') == 2 or session()->get('role') == 1) : ?>
         <!-- Divider -->
         <hr class="sidebar-divider">

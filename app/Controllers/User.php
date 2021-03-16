@@ -124,7 +124,7 @@ class User extends BaseController
                     'email'          => $request->getVar('email'),
                     'password'       => password_hash($request->getVar('telepon'), PASSWORD_DEFAULT),
                     'role_id'         => $request->getVar('role'),
-                    'foto'          => "default.png"
+                    'foto'          => "default.png",
                 ];
 
                 $this->UserModel->insert($simpandata);

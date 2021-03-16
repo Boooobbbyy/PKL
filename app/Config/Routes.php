@@ -61,6 +61,11 @@ $routes->get('/Portofolio', 'Portofolio::index', ['filter' => 'Role3']);
 $routes->get('/Portofolio/(:any)', 'Portofolio::$1', ['filter' => 'Role3']);
 $routes->get('/News', 'News::index', ['filter' => 'Role3']);
 $routes->get('/News/(:any)', 'News::$1', ['filter' => 'Role3']);
+$routes->get('/Absensi', 'Absensi::index', ['filter' => 'Role4']);
+$routes->get('/Absensi/(:any)', 'Absensi::$1', ['filter' => 'Role4']);
+
+$routes->get('/Checkin', 'Absensi::index', ['filter' => 'Role4']);
+$routes->get('/Laporan', 'Absensi::laporan', ['filter' => 'Role4']);
 
 /*
  * --------------------------------------------------------------------

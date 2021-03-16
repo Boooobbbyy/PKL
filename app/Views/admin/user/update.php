@@ -56,6 +56,11 @@
                     <div class="col-sm-8">
                         <select class="form-select form-control" aria-label="Default select example" name="role">
                             <?php foreach ($role as $r) : ?>
+                                <?php
+                                if ($r['role'] == 4) {
+                                    continue;
+                                }
+                                ?>
                                 <option value="<?= $r['role']; ?>" <?php if ($r['role'] == $role_id) echo 'selected'; ?>><?= $r['nama']; ?></option>
                             <?php endforeach; ?>
                         </select>

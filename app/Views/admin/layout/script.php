@@ -13,3 +13,6 @@
 
 <!-- Sweetalert2 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- Webcam js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>

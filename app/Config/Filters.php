@@ -10,6 +10,7 @@ use App\Filters\Login;
 use App\Filters\AdminUtama;
 use App\Filters\Administrasi;
 use App\Filters\Content;
+use App\Filters\Pegawai;
 
 class Filters extends BaseConfig
 {
@@ -35,6 +36,10 @@ class Filters extends BaseConfig
 		'Role3'	   => [
 			Login::class,
 			Content::class
+		],
+		'Role4'	   => [
+			Login::class,
+			Pegawai::class
 		]
 	];
 

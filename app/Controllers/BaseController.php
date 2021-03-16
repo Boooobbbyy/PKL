@@ -11,6 +11,7 @@ use App\Models\JabatanModel;
 use App\Models\PegawaiModel;
 use App\Models\UserModel;
 use App\Models\ProfileModel;
+use App\Models\AbsensiModel;
 
 /**
  * Class BaseController
@@ -50,11 +51,13 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+		date_default_timezone_set('Asia/Jakarta');
 		$this->db = \Config\Database::connect();
 		$this->session = \Config\Services::session();
 		$this->JabatanModel = new JabatanModel();
 		$this->PegawaiModel = new PegawaiModel();
 		$this->UserModel = new UserModel();
 		$this->ProfileModel = new ProfileModel();
+		$this->AbsensiModel = new AbsensiModel();
 	}
 }
