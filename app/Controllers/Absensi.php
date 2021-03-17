@@ -21,11 +21,12 @@ class Absensi extends BaseController
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
             date_default_timezone_set('Asia/Jakarta');
-
             if ($request->getVar('keterangan') == "Masuk" or $request->getVar('keterangan') == "Datang Terlambat") {
-                $cek = $this->AbsensiModel->like('created_at', date('Y-m-d'))->where(['nip' => $request->getVar('nip'), 'keterangan' => 'Masuk'])->orWhere('keterangan', 'Datang Terlambat')->get()->getNumRows();
+                $query = "SELECT * FROM absensi WHERE (keterangan = 'Masuk' OR keterangan = 'Datang Terlambat') AND created_at LIKE '%" . date('Y-m-d') . "%' AND nip = '" . $request->getVar('nip') . "'";
+                $cek = $this->db->query($query)->getNumRows();
             } else {
-                $cek = $this->AbsensiModel->like('created_at', date('Y-m-d'))->where(['nip' => $request->getVar('nip'), 'keterangan' => 'Pulang'])->orWhere('keterangan', 'Lembur')->get()->getNumRows();
+                $query = "SELECT * FROM absensi WHERE (keterangan = 'Pulang' OR keterangan = 'Lembur') AND created_at LIKE '%" . date('Y-m-d') . "%' AND nip = '" . $request->getVar('nip') . "'";
+                $cek = $this->db->query($query)->getNumRows();
             }
             if ($cek < 1) {
                 $validation = \Config\Services::validation();
