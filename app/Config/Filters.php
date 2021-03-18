@@ -11,6 +11,7 @@ use App\Filters\AdminUtama;
 use App\Filters\Administrasi;
 use App\Filters\Content;
 use App\Filters\Pegawai;
+use App\Filters\Role124;
 
 class Filters extends BaseConfig
 {
@@ -40,6 +41,10 @@ class Filters extends BaseConfig
 		'Role4'	   => [
 			Login::class,
 			Pegawai::class
+		],
+		'Role124'	   => [
+			Login::class,
+			Role124::class
 		]
 	];
 

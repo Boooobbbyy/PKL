@@ -159,7 +159,8 @@ class Pegawai extends BaseController
                     'gaji_pokok'    => $request->getVar('gaji'),
                     'mulai_bekerja' => $request->getVar('mulai'),
                     'jabatan'       => $request->getVar('jabatan'),
-                    'foto'          => "default.png"
+                    'foto'          => "default.png",
+                    'created_at'    => date('Y-m-d')
                 ];
                 $this->PegawaiModel->insert($simpandata);
 

@@ -124,14 +124,12 @@ class Absensi extends BaseController
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
-            if ($request->getVar('tanggal') != NULL) {
-                $tanggal = $request->getVar('tanggal');
-            } else {
-                $tanggal = date('Y-m-d');
-            }
+
+            $tanggal = $request->getVar('tanggal');
             $data = [
                 'absensi' => $this->AbsensiModel->like('created_at', $tanggal)->get()->getResultArray(),
             ];
+
             $query = "SELECT * FROM absensi WHERE (keterangan = 'Masuk' OR keterangan = 'Datang Terlambat') AND created_at LIKE '%" . $tanggal . "%'";
             $jumlahmasuk = $this->db->query($query)->getNumRows();
             $query = "SELECT * FROM absensi WHERE (keterangan = 'Pulang' OR keterangan = 'Lembur') AND created_at LIKE '%" . $tanggal . "%'";
@@ -139,7 +137,7 @@ class Absensi extends BaseController
 
             $msg = [
                 'data'          => view('user/absensi/laporan/read', $data),
-                'jumlahpegawai' => $this->PegawaiModel->countAllResults(),
+                'jumlahpegawai' => $this->PegawaiModel->where('created_at <=', $tanggal)->countAllResults(),
                 'jumlahmasuk'   => $jumlahmasuk,
                 'jumlahpulang'  => $jumlahpulang
             ];
@@ -147,6 +145,27 @@ class Absensi extends BaseController
             echo json_encode($msg);
         } else {
             exit(view('error'));
+        }
+    }
+
+    public function hapus()
+    {
+        $request = \Config\Services::request();
+
+        if ($request->isAJAX()) {
+
+            $id = $request->getVar('id');
+
+            $cekdata = $this->AbsensiModel->find($id);
+            $fotolama = $cekdata['foto'];
+            unlink('uploads/absensi' . '/' . $fotolama);
+
+            $this->AbsensiModel->delete($id);
+            $msg = [
+                'sukses' => 'Data berhasil dihapus'
+            ];
+
+            echo json_encode($msg);
         }
     }
 }

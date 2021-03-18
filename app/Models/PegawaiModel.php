@@ -8,5 +8,5 @@ class PegawaiModel extends Model
 {
     protected $table = 'pegawai';
     protected $primaryKey = 'id_pegawai';
-    protected $allowedFields = ['nip', 'foto', 'nama', 'telepon', 'email', 'jabatan', 'gaji_pokok', 'mulai_bekerja'];
+    protected $allowedFields = ['nip', 'foto', 'nama', 'telepon', 'email', 'jabatan', 'gaji_pokok', 'mulai_bekerja', 'created_at'];
 }

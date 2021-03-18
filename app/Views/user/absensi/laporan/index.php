@@ -77,14 +77,17 @@
 <script>
     function dataabsensi() {
         $.ajax({
+            type: "POST",
             url: "<?= base_url('Absensi/fetch_data'); ?>",
+            data: {
+                tanggal: $('input#tanggal').val(),
+            },
             dataType: "json",
             success: function(response) {
                 $('.viewdata').html(response.data);
                 $('.viewpegawai').html(response.jumlahpegawai);
                 $('.viewmasuk').html(response.jumlahmasuk);
                 $('.viewpulang').html(response.jumlahpulang);
-
             }
         });
     }
@@ -93,20 +96,7 @@
 
         $('.formcari').submit(function(e) {
             e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: $(this).attr('action'),
-                data: {
-                    tanggal: $('input#tanggal').val(),
-                },
-                dataType: "json",
-                success: function(response) {
-                    $('.viewdata').html(response.data);
-                    $('.viewpegawai').html(response.jumlahpegawai);
-                    $('.viewmasuk').html(response.jumlahmasuk);
-                    $('.viewpulang').html(response.jumlahpulang);
-                },
-            });
+            dataabsensi();
         });
     });
 </script>

@@ -91,6 +91,12 @@
                 </div>
             </div>
         </li>
+
+        <li class="nav-item <?php if ($head == 'Absensi') echo 'active'; ?>">
+            <a class="nav-link" href="<?= base_url('Laporan'); ?>">
+                <i class="fas fa-fw fa-address-book"></i>
+                <span>Absensi</span></a>
+        </li>
     <?php endif; ?>
     <?php if (session()->get('role') == 3 or session()->get('role') == 1) : ?>
         <!-- Divider -->

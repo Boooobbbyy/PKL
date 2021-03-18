@@ -24,7 +24,7 @@
                         <label> <i class="mdi mdi-account"></i>
                             Username
                         </label>
-                        <input type="text" id="username" name="username" value="<?= $profile['username']; ?>" class="form-control">
+                        <input type="text" id="username" name="username" value="<?= $profile['username']; ?>" class="form-control" <?php if (session()->get('role') == 4) echo "readonly"; ?>>
                         <div class="invalid-feedback errorUsername">
                         </div>
                     </div>
