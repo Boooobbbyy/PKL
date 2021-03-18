@@ -22,5 +22,34 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('myscript'); ?>
+<?= $this->section('myscript'); ?>
+<script>
+    function dataportofolio() {
+        $.ajax({
+            url: "<?= base_url('portofolio/fetch_data'); ?>",
+            dataType: "json",
+            success: function(response) {
+                $('.viewdata').html(response.data);
+            }
+        });
+    }
+
+
+    $(document).ready(function() {
+        dataportofolio();
+
+        $('.tomboltambah').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "<?= base_url('portofolio/form_tambah'); ?>",
+                dataType: "json",
+                success: function(response) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modaltambah').modal('show');
+                }
+            });
+        });
+    });
+</script>
 
 <?= $this->endSection(); ?>
