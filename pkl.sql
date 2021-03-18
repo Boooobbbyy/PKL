@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2021 at 06:00 PM
+-- Generation Time: Mar 18, 2021 at 02:39 PM
 -- Server version: 10.3.25-MariaDB-0+deb10u1
 -- PHP Version: 7.3.19-1~deb10u1
 
@@ -39,15 +39,6 @@ CREATE TABLE `absensi` (
   `keterangan` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `absensi`
---
-
-INSERT INTO `absensi` (`id`, `nama`, `nip`, `latitude`, `longitude`, `catatan`, `foto`, `device`, `keterangan`, `created_at`) VALUES
-(1, 'Intania Rahmadila', 1817051025, '-5.3971396', '105.26678869999999', '                                                                           tes', '2021-03-16_1817051025', 'Linux x86_64, Chrome/88.0.4324.96', 'Masuk', '2021-03-16 10:52:46'),
-(3, 'Bobby Malela', 1817051002, '-5.3971396', '105.26678869999999', 'Hari ini saya melanjutkan pembuatan website bagian absensi pegawai', '2021-03-16_1817051002.jpg', 'Linux x86_64, Chrome/88.0.4324.96', 'Datang Terlambat', '2021-03-16 13:06:31'),
-(6, 'Bobby Malela', 1817051002, '-5.383782399999999', '105.26719999999999', 'jangan lupa pulang ya kawan-kawan ku semuanyaaaaaa', '2021-03-16_16-32-16_1817051002.jpg', 'Linux x86_64, Chrome/88.0.4324.96', 'Pulang', '2021-03-16 16:32:16');
 
 -- --------------------------------------------------------
 
@@ -133,19 +124,21 @@ CREATE TABLE `pegawai` (
   `email` varchar(128) NOT NULL,
   `jabatan` int(11) NOT NULL,
   `gaji_pokok` int(11) NOT NULL,
-  `mulai_bekerja` date NOT NULL
+  `mulai_bekerja` date NOT NULL,
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `nip`, `foto`, `nama`, `telepon`, `email`, `jabatan`, `gaji_pokok`, `mulai_bekerja`) VALUES
-(1, 1817051074, 'EM9NURDU4AAO2MH.jpeg', 'Aulia Ahmad Nabil', '082297578773', 'nabilunited2@gmail.com', 1, 12000000, '2020-05-10'),
-(5, 1807051008, 'default.png', 'Pandi Barep', '081278317777', 'admin@gmail.com', 5, 1000000, '2021-03-11'),
-(6, 1807051006, 'default.png', 'Thorin Satria Ramadhans', '081278317778', 'idnbdy@gmail.com', 2, 1000000, '2021-03-18'),
-(7, 1817051025, 'default.png', 'Intania Rahmadila', '089630479663', 'intaniar@gmail.com', 5, 3500000, '2021-03-01'),
-(8, 1817051002, 'default.png', 'Bobby Malela', '081234567890', 'bur.ilham2021@students.ugm.ac.id', 2, 1000000, '2021-03-02');
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `foto`, `nama`, `telepon`, `email`, `jabatan`, `gaji_pokok`, `mulai_bekerja`, `created_at`) VALUES
+(1, 1817051074, 'EM9NURDU4AAO2MH.jpeg', 'Aulia Ahmad Nabil', '082297578773', 'nabilunited2@gmail.com', 1, 12000000, '2020-05-10', '0000-00-00'),
+(5, 1807051008, 'default.png', 'Pandi Barep', '081278317777', 'admin@gmail.com', 5, 1000000, '2021-03-11', '0000-00-00'),
+(6, 1807051006, 'default.png', 'Thorin Satria Ramadhans', '081278317778', 'idnbdy@gmail.com', 2, 1000000, '2021-03-18', '0000-00-00'),
+(7, 1817051025, 'default.png', 'Intania Rahmadila', '089630479663', 'intaniar@gmail.com', 5, 3500000, '2021-03-01', '0000-00-00'),
+(8, 1817051002, 'default.png', 'Bobby Malela', '081234567890', 'bur.ilham2021@students.ugm.ac.id', 2, 1000000, '2021-03-02', '0000-00-00'),
+(9, 1817051001, 'default.png', 'Pandi Barep', '081278317744', 'pandi.barep@gmail.com', 1, 2500000, '2021-03-02', '2021-03-18');
 
 -- --------------------------------------------------------
 
@@ -258,10 +251,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `password`, `role_id`, `last_login`) VALUES
-(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-16 13:36:30'),
-(2, '1. Nabil.png', 'aulia.ahmad1074', 0, 'aulia.ahmad1074@students.unila.ac.id', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-15 09:47:38'),
-(3, 'default.png', '1817051025', 7, 'intaniar@gmail.com', '$2y$10$s6.Z.H0s.JJFiRVrNoMdNOFQPD9ql5UwfGMQItnNMx4aPrMYJA2yy', 4, '2021-03-16 08:31:50'),
-(4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-16 13:37:22');
+(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-18 13:35:26'),
+(2, '1. Nabil.png', 'aulia.ahmad1074', 0, 'aulia.ahmad1074@students.unila.ac.id', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-18 13:14:44'),
+(3, 'default.png', '1817051025', 7, 'intaniar@gmail.com', '$2y$10$s6.Z.H0s.JJFiRVrNoMdNOFQPD9ql5UwfGMQItnNMx4aPrMYJA2yy', 4, '2021-03-18 13:33:23'),
+(4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-16 13:37:22'),
+(5, 'default.png', '1817051001', 9, 'pandi.barep@gmail.com', '$2y$10$yhJdi193oBwuB70aDcq/W.XVwQLQXvh1vNY/e9.k.uXJDFqZzJQ2a', 4, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -370,7 +364,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
@@ -394,7 +388,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `videos`
