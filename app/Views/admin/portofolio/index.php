@@ -22,7 +22,6 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('myscript'); ?>
-<?= $this->section('myscript'); ?>
 <script>
     function dataportofolio() {
         $.ajax({
