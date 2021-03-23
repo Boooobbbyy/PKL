@@ -8,7 +8,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Total Proyek</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewjumlah"></span> Proyek</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewtotal"></span> Proyek</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-id-card-alt fa-2x text-gray-300"></i>
@@ -24,7 +24,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Dalam Proses</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewjumlah"></span> Proyek</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewproses"></span> Proyek</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clock fa-2x text-gray-300"></i>
@@ -40,7 +40,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Selesai</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewjumlah"></span> Proyek</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewselesai"></span> Proyek</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-check-square fa-2x text-gray-300"></i>
@@ -56,7 +56,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                             Dibatalkan</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewjumlah"></span> Proyek</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewbatal"></span> Proyek</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-window-close fa-2x text-gray-300"></i>
@@ -95,6 +95,10 @@
             url: "<?= base_url('Proyek/fetch_data'); ?>",
             dataType: "json",
             success: function(response) {
+                $('.viewtotal').html(response.total);
+                $('.viewproses').html(response.proses);
+                $('.viewselesai').html(response.selesai);
+                $('.viewbatal').html(response.batal);
                 $('.viewdata').html(response.data);
             }
         });

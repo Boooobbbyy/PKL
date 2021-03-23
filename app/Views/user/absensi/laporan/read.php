@@ -1,4 +1,4 @@
-<table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+<table class="table table-striped table-bordered fixed" id="dataTable" width="100%" cellspacing="0">
     <thead class="thead-dark">
         <tr style="text-align: center;">
             <th>Foto</th>
@@ -16,7 +16,7 @@
     <tbody>
         <?php foreach ($absensi as $a) : ?>
             <tr class="text-center">
-                <td class="align-middle"><img src="<?= base_url('uploads/absensi') . '/' . $a['foto']; ?>" width="50px" class="img-thumbnail"></td>
+                <td class="align-middle"><img src=" <?= base_url('uploads/absensi') . '/' . $a['foto']; ?>" width="150px" class="img-thumbnail"></td>
                 <td class="align-middle"><b><?= $a['nama']; ?></b><br><?= $a['nip']; ?></td>
                 <td class="align-middle">Lat: <?= $a['latitude']; ?><br>Lng: <?= $a['longitude']; ?></td>
                 <td class="align-middle"><?= $a['created_at']; ?></td>

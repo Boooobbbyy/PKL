@@ -13,43 +13,43 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Nama</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama" value="Perpustakaan" readonly>
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $proyek['nama']; ?>" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Lokasi</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi" value="Bandung" readonly>
+                        <input type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $proyek['lokasi']; ?>" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Tanggal Mulai</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="tgl_mulai" name="tgl_mulai" value="12/03/2021" readonly>
+                        <input type="email" class="form-control" id="tgl_mulai" name="tgl_mulai" value="<?= $proyek['tgl_mulai']; ?>" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Tanggal Selesai</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="tgl_selesai" name="tgl_selesai" value="12/03/2021" readonly>
+                        <input type="email" class="form-control" id="tgl_selesai" name="tgl_selesai" value="<?= $proyek['tgl_selesai']; ?>" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Status</label>
                     <div class="col-sm-8">
-                        <input class="form-control" type="text" placeholder="dalam proses" readonly>
+                        <input class="form-control" type="text" placeholder="<?= $proyek['status']; ?>" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">progress</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="progress" name="progress" value="50 %" readonly>
+                        <input type="text" class="form-control" id="progress" name="progress" value="<?= $proyek['progress']; ?>%" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Dana Proyek</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="dana" name="dana" value="Rp. 15.000.000" readonly>
+                        <input type="text" class="form-control" id="dana" name="dana" value="Rp. <?= number_format($proyek['dana'], 2, ',', '.'); ?>" readonly>
                     </div>
                 </div>
             </div>

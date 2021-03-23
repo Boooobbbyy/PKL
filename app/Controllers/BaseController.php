@@ -12,6 +12,7 @@ use App\Models\PegawaiModel;
 use App\Models\UserModel;
 use App\Models\ProfileModel;
 use App\Models\AbsensiModel;
+use App\Models\ProyekModel;
 
 /**
  * Class BaseController
@@ -59,5 +60,6 @@ class BaseController extends Controller
 		$this->UserModel = new UserModel();
 		$this->ProfileModel = new ProfileModel();
 		$this->AbsensiModel = new AbsensiModel();
+		$this->ProyekModel = new ProyekModel();
 	}
 }

@@ -49,7 +49,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Status Proyek</label>
                     <div class="col-sm-8">
-                        <select class="form-select form-control" aria-label="Default select example" name="status">
+                        <select class="form-select form-control" aria-label="Default select example" id="status" name="status">
                             <option value="dalam proses">dalam proses</option>
                             <option value="selesai">selesai</option>
                             <option value="dibatalkan">dibatalkan</option>
@@ -70,7 +70,7 @@
                     <label for="" class="col-sm-4 col-form-label">Dana Proyek</label>
                     <div class="col-sm-8">
                         <input type="number" min="0" class="form-control" id="dana" name="dana">
-                        <div class="invalid-feedback errorProgress">
+                        <div class="invalid-feedback errorDana">
 
                         </div>
                     </div>
@@ -105,13 +105,6 @@
                 },
                 success: function(response) {
                     if (response.error) {
-                        if (response.error.nip) {
-                            $('#nip').addClass('is-invalid');
-                            $('.errorNip').html(response.error.nip);
-                        } else {
-                            $('#nip').removeClass('is-invalid');
-                            $('.errorNip').html('');
-                        }
                         if (response.error.nama) {
                             $('#nama').addClass('is-invalid');
                             $('.errorNama').html(response.error.nama);
@@ -119,33 +112,47 @@
                             $('#nama').removeClass('is-invalid');
                             $('.errorNama').html('');
                         }
-                        if (response.error.telepon) {
-                            $('#telepon').addClass('is-invalid');
-                            $('.errorTelepon').html(response.error.telepon);
+                        if (response.error.lokasi) {
+                            $('#lokasi').addClass('is-invalid');
+                            $('.errorLokasi').html(response.error.lokasi);
                         } else {
-                            $('#telepon').removeClass('is-invalid');
-                            $('.errorTelepon').html('');
+                            $('#lokasi').removeClass('is-invalid');
+                            $('.errorLokasi').html('');
                         }
-                        if (response.error.email) {
-                            $('#email').addClass('is-invalid');
-                            $('.errorEmail').html(response.error.email);
+                        if (response.error.tgl_mulai) {
+                            $('#tgl_mulai').addClass('is-invalid');
+                            $('.errorTgl_mulai').html(response.error.tgl_mulai);
                         } else {
-                            $('#email').removeClass('is-invalid');
-                            $('.errorEmail').html('');
+                            $('#tgl_mulai').removeClass('is-invalid');
+                            $('.errorTgl_mulai').html('');
                         }
-                        if (response.error.gaji) {
-                            $('#gaji').addClass('is-invalid');
-                            $('.errorGaji').html(response.error.gaji);
+                        if (response.error.tgl_selesai) {
+                            $('#tgl_selesai').addClass('is-invalid');
+                            $('.errorTgl_selesai').html(response.error.tgl_selesai);
                         } else {
-                            $('#gaji').removeClass('is-invalid');
-                            $('.errorGaji').html('');
+                            $('#tgl_selesai').removeClass('is-invalid');
+                            $('.errorTgl_selesai').html('');
                         }
-                        if (response.error.mulai) {
-                            $('#mulai').addClass('is-invalid');
-                            $('.errorMulai').html(response.error.mulai);
+                        if (response.error.status) {
+                            $('#status').addClass('is-invalid');
+                            $('.errorStatus').html(response.error.status);
                         } else {
-                            $('#mulai').removeClass('is-invalid');
-                            $('.errorMulai').html('');
+                            $('#status').removeClass('is-invalid');
+                            $('.errorStatus').html('');
+                        }
+                        if (response.error.progress) {
+                            $('#progress').addClass('is-invalid');
+                            $('.errorProgress').html(response.error.progress);
+                        } else {
+                            $('#progress').removeClass('is-invalid');
+                            $('.errorProgress').html('');
+                        }
+                        if (response.error.dana) {
+                            $('#dana').addClass('is-invalid');
+                            $('.errorDana').html(response.error.dana);
+                        } else {
+                            $('#dana').removeClass('is-invalid');
+                            $('.errorDana').html('');
                         }
                     } else {
                         Swal.fire({
@@ -155,9 +162,7 @@
                         });
 
                         $('#modaltambah').modal('hide');
-                        datapegawai();
-                        jumlahpegawai();
-                        totalgaji();
+                        dataproyek();
                     }
                 }
             });

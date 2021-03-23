@@ -17,8 +17,15 @@ class Proyek extends BaseController
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
+            $data = [
+                'proyek' => $this->ProyekModel->findAll(),
+            ];
             $msg = [
-                'data' => view('admin/proyek/read')
+                'data' => view('admin/proyek/read', $data),
+                'total' => $this->ProyekModel->countAllResults(),
+                'proses' => $this->ProyekModel->where('status', 'dalam proses')->countAllResults(),
+                'selesai' => $this->ProyekModel->where('status', 'selesai')->countAllResults(),
+                'batal' => $this->ProyekModel->where('status', 'dibatalkan')->countAllResults(),
             ];
 
             echo json_encode($msg);
@@ -32,7 +39,6 @@ class Proyek extends BaseController
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
-
 
             $msg = [
                 'data' => view('admin/proyek/create')
@@ -51,14 +57,6 @@ class Proyek extends BaseController
         if ($request->isAJAX()) {
             $validation = \Config\Services::validation();
             $valid = $this->validate([
-                'nip' => [
-                    'label' => 'NIP',
-                    'rules' => 'required|is_unique[pegawai.nip]',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada'
-                    ]
-                ],
                 'nama' => [
                     'label' => 'Nama',
                     'rules' => 'required',
@@ -66,72 +64,72 @@ class Proyek extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ]
                 ],
-                'telepon' => [
-                    'label' => 'Nomor Telepon',
-                    'rules' => 'required|is_unique[pegawai.telepon]|integer',
+                'lokasi' => [
+                    'label' => 'Lokasi',
+                    'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada',
-                        'integer' => '{field} salah'
                     ]
                 ],
-                'email' => [
-                    'label' => 'Email',
-                    'rules' => 'required|is_unique[pegawai.email]|valid_email',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada',
-                        'valid_email' => '{field} salah'
-                    ]
-                ],
-                'gaji' => [
-                    'label' => 'Gaji',
+                'tgl_mulai' => [
+                    'label' => 'Tanggal Mulai',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong'
                     ]
                 ],
-                'mulai' => [
-                    'label' => 'Tanggal Mulai Bekerja',
+                'tgl_selesai' => [
+                    'label' => 'Tanggal Selesai',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong'
                     ]
-                ]
+                ],
+                'status' => [
+                    'label' => 'Status',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'progress' => [
+                    'label' => 'Progress',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong'
+                    ]
+                ],
+                'dana' => [
+                    'label' => 'Dana',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong'
+                    ]
+                ],
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'nip'       => $validation->getError('nip'),
-                        'nama'      => $validation->getError('nama'),
-                        'telepon'   => $validation->getError('telepon'),
-                        'email'     => $validation->getError('email'),
-                        'gaji'      => $validation->getError('gaji'),
-                        'mulai'     => $validation->getError('mulai')
+                        'nama'        => $validation->getError('nama'),
+                        'lokasi'      => $validation->getError('lokasi'),
+                        'tgl_mulai'   => $validation->getError('tgl_mulai'),
+                        'tgl_selesai' => $validation->getError('tgl_selesai'),
+                        'status'     => $validation->getError('status'),
+                        'progress'    => $validation->getError('progress'),
+                        'dana'        => $validation->getError('dana')
                     ]
                 ];
             } else {
                 $simpandata = [
-                    'nip'           => $request->getVar('nip'),
                     'nama'          => $request->getVar('nama'),
-                    'telepon'       => $request->getVar('telepon'),
-                    'email'         => $request->getVar('email'),
-                    'gaji_pokok'    => $request->getVar('gaji'),
-                    'mulai_bekerja' => $request->getVar('mulai'),
-                    'jabatan'       => $request->getVar('jabatan'),
-                    'foto'          => "default.png"
+                    'lokasi'          => $request->getVar('lokasi'),
+                    'tgl_mulai'       => $request->getVar('tgl_mulai'),
+                    'tgl_selesai'         => $request->getVar('tgl_selesai'),
+                    'status'    => $request->getVar('status'),
+                    'progress' => $request->getVar('progress'),
+                    'dana' => $request->getVar('dana'),
                 ];
-                $this->PegawaiModel->insert($simpandata);
-
-                $userdata = [
-                    'foto' => "default.png",
-                    'username' => $request->getVar('nip'),
-                    'email' => $request->getVar('email'),
-                    'password' => password_hash($request->getVar('nip'), PASSWORD_DEFAULT),
-                    'role_id' => 4,
-                    'id_pegawai' => $this->PegawaiModel->insertID()
-                ];
-                $this->UserModel->insert($userdata);
+                $this->ProyekModel->insert($simpandata);
 
                 $msg = [
                     'sukses' => 'Data berhasil disimpan'
@@ -146,10 +144,14 @@ class Proyek extends BaseController
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
+            $id = $request->getVar('id');
 
+            $data = [
+                'proyek' => $this->ProyekModel->find($id)
+            ];
 
             $msg = [
-                'sukses' => view('admin/proyek/update')
+                'sukses' => view('admin/proyek/update', $data)
             ];
 
             echo json_encode($msg);
@@ -157,19 +159,72 @@ class Proyek extends BaseController
             exit(view('error'));
         }
     }
-    public function show_detail()
+
+    public function edit()
     {
         $request = \Config\Services::request();
-        if ($request->isAJAX()) {
 
+        if ($request->isAJAX()) {
+            $simpandata = [
+                'nama'          => $request->getVar('nama'),
+                'lokasi'        => $request->getVar('lokasi'),
+                'tgl_mulai'     => $request->getVar('tgl_mulai'),
+                'tgl_selesai'   => $request->getVar('tgl_selesai'),
+                'status'        => $request->getVar('status'),
+                'progress'      => $request->getVar('progress'),
+                'dana'          => $request->getVar('dana'),
+            ];
+
+            $id = $request->getVar('id');
+
+            $this->ProyekModel->update($id, $simpandata);
 
             $msg = [
-                'sukses' => view('admin/proyek/detail')
+                'sukses' => 'Data berhasil diupdate',
             ];
 
             echo json_encode($msg);
         } else {
             exit(view('error'));
+        }
+    }
+
+    public function show_detail()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+
+            $id = $request->getVar('id');
+
+            $data = [
+                'proyek' => $this->ProyekModel->find($id)
+            ];
+
+            $msg = [
+                'sukses' => view('admin/proyek/detail', $data)
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
+    }
+
+    public function hapus()
+    {
+        $request = \Config\Services::request();
+
+        if ($request->isAJAX()) {
+
+            $id = $request->getVar('id');
+
+            $this->ProyekModel->delete($id);
+
+            $msg = [
+                'sukses' => 'Data berhasil dihapus'
+            ];
+
+            echo json_encode($msg);
         }
     }
 }
