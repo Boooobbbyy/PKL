@@ -13,21 +13,22 @@
     </thead>
     <tbody>
         <?php $no = 1; ?>
-
-        <tr class="text-center">
-            <td class="align-middle"><?= $no++; ?></td>
-            <td class="align-middle">Perpustakaan</td>
-            <td class="align-middle">Bandung</td>
-            <td class="align-middle">12/03/2021</td>
-            <td class="align-middle">17/03/2021</td>
-            <td class="align-middle">dalam proses</td>
-            <td class="align-middle">50%</td>
-            <td class="align-middle">
-                <button class="btn btn-success btn-sm" onclick="detail()"><i class="fa fa-eye"></i></button>
-                <button class="btn btn-warning btn-sm" onclick="edit()"><i class="fa fa-tags"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="hapus()"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
+        <?php foreach ($proyek as $p) : ?>
+            <tr class="text-center">
+                <td class="align-middle"><?= $no++; ?></td>
+                <td class="align-middle"><?= $p['nama']; ?></td>
+                <td class="align-middle"><?= $p['lokasi']; ?></td>
+                <td class="align-middle"><?= $p['tgl_mulai']; ?></td>
+                <td class="align-middle"><?= $p['tgl_selesai']; ?></td>
+                <td class="align-middle"><?= $p['status']; ?></td>
+                <td class="align-middle"><?= $p['progress']; ?>%</td>
+                <td class="align-middle">
+                    <button class="btn btn-success btn-sm" onclick="detail(<?= $p['id_proyek']; ?>)"><i class="fa fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" onclick="edit(<?= $p['id_proyek']; ?>)"><i class="fa fa-tags"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="hapus(<?= $p['id_proyek']; ?>)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 
@@ -41,12 +42,12 @@
         });
     });
 
-    function detail() {
+    function detail(id) {
         $.ajax({
             type: "POST",
             url: "<?= base_url('Proyek/show_detail'); ?>",
             data: {
-
+                id: id
             },
             dataType: "json",
             success: function(response) {
@@ -58,12 +59,12 @@
         });
     }
 
-    function edit() {
+    function edit(id) {
         $.ajax({
             type: "POST",
             url: "<?= base_url('Proyek/form_edit'); ?>",
             data: {
-
+                id: id
             },
             dataType: "json",
             success: function(response) {
@@ -88,7 +89,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?= base_url('Pegawai/hapus') ?>",
+                    url: "<?= base_url('Proyek/hapus') ?>",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -103,30 +104,11 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            datapegawai();
-                            jumlahpegawai();
-                            totalgaji();
+                            dataproyek();
                         }
                     }
                 });
             }
         })
-    }
-
-    function gambar(id) {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('Pegawai/form_upload'); ?>",
-            data: {
-                id: id
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modalupload').modal('show');
-                }
-            }
-        });
     }
 </script>

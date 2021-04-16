@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 18 Mar 2021 pada 13.43
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.11
+-- Host: localhost
+-- Generation Time: Mar 23, 2021 at 10:28 AM
+-- Server version: 10.3.25-MariaDB-0+deb10u1
+-- PHP Version: 7.3.19-1~deb10u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absensi`
+-- Table structure for table `absensi`
 --
 
 CREATE TABLE `absensi` (
@@ -43,7 +43,7 @@ CREATE TABLE `absensi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jabatan`
+-- Table structure for table `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -53,7 +53,7 @@ CREATE TABLE `jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jabatan`
+-- Dumping data for table `jabatan`
 --
 
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`, `level`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -78,7 +78,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -101,7 +101,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `judul`, `slug`, `deskripsi`, `foto`, `date_uploaded`, `uploader`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `news` (`id`, `judul`, `slug`, `deskripsi`, `foto`, `date_uploaded`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -129,7 +129,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `foto`, `nama`, `telepon`, `email`, `jabatan`, `gaji_pokok`, `mulai_bekerja`, `created_at`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `foto`, `nama`, `telepon`, `email`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perusahaan`
+-- Table structure for table `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
@@ -157,7 +157,7 @@ CREATE TABLE `perusahaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `perusahaan`
+-- Dumping data for table `perusahaan`
 --
 
 INSERT INTO `perusahaan` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `email`, `tempat`) VALUES
@@ -166,7 +166,7 @@ INSERT INTO `perusahaan` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `portofolio`
+-- Table structure for table `portofolio`
 --
 
 CREATE TABLE `portofolio` (
@@ -176,7 +176,7 @@ CREATE TABLE `portofolio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `portofolio`
+-- Dumping data for table `portofolio`
 --
 
 INSERT INTO `portofolio` (`id`, `foto`, `date_uploaded`) VALUES
@@ -185,7 +185,7 @@ INSERT INTO `portofolio` (`id`, `foto`, `date_uploaded`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `profile`
+-- Table structure for table `profile`
 --
 
 CREATE TABLE `profile` (
@@ -202,7 +202,7 @@ CREATE TABLE `profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `profile`
+-- Dumping data for table `profile`
 --
 
 INSERT INTO `profile` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `email`, `tempat`, `instagram`, `facebook`, `whatsapp`) VALUES
@@ -211,7 +211,7 @@ INSERT INTO `profile` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `ema
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `proyek`
+-- Table structure for table `proyek`
 --
 
 CREATE TABLE `proyek` (
@@ -222,13 +222,21 @@ CREATE TABLE `proyek` (
   `tgl_selesai` date NOT NULL,
   `status` varchar(255) NOT NULL,
   `progress` int(11) NOT NULL,
-  `dana` int(11) NOT NULL
+  `dana` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `proyek`
+--
+
+INSERT INTO `proyek` (`id_proyek`, `nama`, `lokasi`, `tgl_mulai`, `tgl_selesai`, `status`, `progress`, `dana`) VALUES
+(1, 'Perpustakaan', 'Bandung', '2021-03-12', '2021-03-17', 'dalam proses', 50, 15000000),
+(3, 'Mall Terpadu', 'Jogja', '2021-03-10', '2021-03-24', 'selesai', 30, 90000000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -237,7 +245,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`role`, `nama`) VALUES
@@ -249,7 +257,7 @@ INSERT INTO `role` (`role`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -264,11 +272,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `password`, `role_id`, `last_login`) VALUES
-(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-18 13:35:26'),
+(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-23 08:05:37'),
 (2, '1. Nabil.png', 'aulia.ahmad1074', 0, 'aulia.ahmad1074@students.unila.ac.id', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-18 13:14:44'),
 (3, 'default.png', '1817051025', 7, 'intaniar@gmail.com', '$2y$10$s6.Z.H0s.JJFiRVrNoMdNOFQPD9ql5UwfGMQItnNMx4aPrMYJA2yy', 4, '2021-03-18 13:33:23'),
 (4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-16 13:37:22'),
@@ -277,7 +285,7 @@ INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `passw
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `videos`
+-- Table structure for table `videos`
 --
 
 CREATE TABLE `videos` (
@@ -289,7 +297,7 @@ CREATE TABLE `videos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `videos`
+-- Dumping data for table `videos`
 --
 
 INSERT INTO `videos` (`id`, `judul`, `deskripsi`, `link`, `date_uploaded`) VALUES
@@ -302,125 +310,125 @@ INSERT INTO `videos` (`id`, `judul`, `deskripsi`, `link`, `date_uploaded`) VALUE
 --
 
 --
--- Indeks untuk tabel `absensi`
+-- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indeks untuk tabel `perusahaan`
+-- Indexes for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `profile`
+-- Indexes for table `profile`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `proyek`
+-- Indexes for table `proyek`
 --
 ALTER TABLE `proyek`
   ADD PRIMARY KEY (`id_proyek`);
 
 --
--- Indeks untuk tabel `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `videos`
+-- Indexes for table `videos`
 --
 ALTER TABLE `videos`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `absensi`
+-- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `jabatan`
+-- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `perusahaan`
+-- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `profile`
+-- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `proyek`
+-- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `videos`
+-- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

@@ -122,7 +122,7 @@ class User extends BaseController
                 $simpandata = [
                     'username'           => $request->getVar('username'),
                     'email'          => $request->getVar('email'),
-                    'password'       => password_hash($request->getVar('telepon'), PASSWORD_DEFAULT),
+                    'password'       => password_hash($request->getVar('password'), PASSWORD_DEFAULT),
                     'role_id'         => $request->getVar('role'),
                     'foto'          => "default.png",
                 ];

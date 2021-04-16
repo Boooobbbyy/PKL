@@ -22,7 +22,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Absen Masuk</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewmasuk"></span> Orang</div>
                     </div>
@@ -38,7 +38,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                             Absen Pulang</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="viewpulang"></span> Orang</div>
                     </div>

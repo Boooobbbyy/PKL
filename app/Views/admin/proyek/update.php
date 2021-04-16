@@ -10,12 +10,12 @@
             <?= form_open('Proyek/edit', ['class' => 'formedit']) ?>
             <?= csrf_field(); ?>
             <div class="modal-body">
-                <input type="text" name="id" id="id" value="id" hidden>
+                <input type="text" name="id" id="id" value="<?= $proyek['id_proyek']; ?>" hidden>
 
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Nama Proyek</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $proyek['nama']; ?>">
                         <div class="invalid-feedback errorNama">
 
                         </div>
@@ -24,7 +24,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Lokasi</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi">
+                        <input type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $proyek['lokasi']; ?>">
                         <div class="invalid-feedback errorLokasi">
 
                         </div>
@@ -33,7 +33,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Tanggal Mulai</label>
                     <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
+                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="<?= $proyek['tgl_mulai']; ?>">
                         <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
@@ -42,7 +42,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Tanggal selesai</label>
                     <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai">
+                        <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" value="<?= $proyek['tgl_selesai']; ?>">
                         <div class="invalid-feedback errorTgl_selesai">
 
                         </div>
@@ -52,17 +52,16 @@
                     <label for="" class="col-sm-4 col-form-label">Status Proyek</label>
                     <div class="col-sm-8">
                         <select class="form-select form-control" aria-label="Default select example" name="status">
-                            <option value="dalam proses">dalam proses</option>
-                            <option value="selesai">selesai</option>
-                            <option value="dibatalkan">dibatalkan</option>
-
+                            <option value="dalam proses" <?php if ($proyek['status'] == 'dalam proses') echo 'selected'; ?>>dalam proses</option>
+                            <option value="selesai" <?php if ($proyek['status'] == 'selesai') echo 'selected'; ?>>selesai</option>
+                            <option value="dibatalkan" <?php if ($proyek['status'] == 'dibatalkan') echo 'selected'; ?>>dibatalkan</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Progress</label>
                     <div class="col-sm-8">
-                        <input type="number" min="0" class="form-control" id="progress" name="progress">
+                        <input type="number" min="0" max="100" class="form-control" id="progress" name="progress" value="<?= $proyek['progress']; ?>">
                         <div class="invalid-feedback errorProgress">
 
                         </div>
@@ -71,7 +70,7 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">Dana Proyek</label>
                     <div class="col-sm-8">
-                        <input type="number" min="0" class="form-control" id="dana" name="dana">
+                        <input type="number" min="0" class="form-control" id="dana" name="dana" value="<?= $proyek['dana']; ?>">
                         <div class="invalid-feedback errorProgress">
 
                         </div>
@@ -112,9 +111,10 @@
                     });
 
                     $('#modaledit').modal('hide');
-                    datapegawai();
-                    jumlahpegawai();
-                    totalgaji();
+                    dataproyek();
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
                 }
             });
         });

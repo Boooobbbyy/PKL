@@ -22,7 +22,10 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('myscript'); ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 38a2f97d7ad73dea726afb045fd9f5e275db4d28
 <script>
     function datasurat() {
         $.ajax({
@@ -51,4 +54,9 @@
         });
     });
 </script>
+<<<<<<< HEAD
 <?= $this->endSection(); ?>
+=======
+
+<?= $this->endSection(); ?>
+>>>>>>> 38a2f97d7ad73dea726afb045fd9f5e275db4d28

@@ -1,0 +1,45 @@
+CRITICAL - 2021-03-23 08:16:01 --> Undefined index: lokasi
+#0 /var/www/html/PKL/app/Views/admin/proyek/read.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', '/var/www/html/P...', 20, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('admin/proyek/re...', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Proyek.php(24): view('admin/proyek/re...', Array)
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Proyek->fetch_data()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Proyek))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-03-23 10:01:00 --> Undefined variable: proyek
+#0 /var/www/html/PKL/app/Views/admin/proyek/update.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/var/www/html/P...', 18, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('admin/proyek/up...', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Proyek.php(154): view('admin/proyek/up...')
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Proyek->form_edit()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Proyek))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-03-23 10:01:01 --> Undefined variable: proyek
+#0 /var/www/html/PKL/app/Views/admin/proyek/update.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/var/www/html/P...', 18, Array)
+#1 /var/www/html/PKL/system/View/View.php(220): include('/var/www/html/P...')
+#2 /var/www/html/PKL/system/View/View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /var/www/html/PKL/system/Common.php(1217): CodeIgniter\View\View->render('admin/proyek/up...', Array, true)
+#4 /var/www/html/PKL/app/Controllers/Proyek.php(154): view('admin/proyek/up...')
+#5 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Proyek->form_edit()
+#6 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Proyek))
+#7 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#9 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#10 {main}
+CRITICAL - 2021-03-23 10:21:55 --> unlink(uploads/pegawai/): Is a directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(uploads/...', '/var/www/html/P...', 367, Array)
+#1 /var/www/html/PKL/app/Controllers/Pegawai.php(367): unlink('uploads/pegawai...')
+#2 /var/www/html/PKL/system/CodeIgniter.php(936): App\Controllers\Pegawai->hapus()
+#3 /var/www/html/PKL/system/CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pegawai))
+#4 /var/www/html/PKL/system/CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /var/www/html/PKL/public/index.php(44): CodeIgniter\CodeIgniter->run()
+#6 /var/www/html/PKL/system/Commands/Server/rewrite.php(45): require_once('/var/www/html/P...')
+#7 {main}
