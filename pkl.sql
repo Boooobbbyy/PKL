@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 23, 2021 at 10:28 AM
--- Server version: 10.3.25-MariaDB-0+deb10u1
--- PHP Version: 7.3.19-1~deb10u1
+-- Host: 127.0.0.1
+-- Generation Time: Apr 16, 2021 at 04:43 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -40,6 +41,27 @@ CREATE TABLE `absensi` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `nama`, `nip`, `latitude`, `longitude`, `catatan`, `foto`, `device`, `keterangan`, `created_at`) VALUES
+(7, 'Bobby Malela', 1817051002, '-5.3948298999999995', '105.2006693', 'testtestestestestestestestestestestrestestestesteste', '2021-03-20_09-55-59_1817051002.jpg', 'NT 10.0;, like', 'Datang Terlambat', '2021-03-20 09:55:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home`
+--
+
+CREATE TABLE `home` (
+  `id_home` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `des` varchar(255) NOT NULL,
+  `tgl` date NOT NULL,
+  `jud` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -59,7 +81,7 @@ CREATE TABLE `jabatan` (
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`, `level`) VALUES
 (1, 'Chief Executive Officer', 1),
 (2, 'Manager HRD', 2),
-(5, 'Manager CSR', 2);
+(5, 'Manager CSR', 3);
 
 -- --------------------------------------------------------
 
@@ -91,23 +113,23 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 --
 
 CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
-  `judul` varchar(128) NOT NULL,
-  `slug` varchar(128) NOT NULL,
-  `deskripsi` text NOT NULL,
-  `foto` varchar(128) NOT NULL,
-  `date_uploaded` int(11) NOT NULL,
-  `uploader` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_news` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `desk` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `news`
 --
 
-INSERT INTO `news` (`id`, `judul`, `slug`, `deskripsi`, `foto`, `date_uploaded`, `uploader`) VALUES
-(1, 'Algoritma dan Pemrograman dalam C++', 'Algoritma-dan-Pemrograman-dalam-C++', '<p>$this-&gt;portofolioModel = new PortofolioModel();</p>', '1. Nabil.png', 1613582798, 'admin'),
-(0, 'fsdf', 'fsdf', '<p>aaaaa</p>', '1.jpg', 1613645283, 'admin'),
-(0, 'testt', 'testt', '<p>test1</p>', '1.png', 1613658002, 'admin');
+INSERT INTO `news` (`id_news`, `judul`, `tanggal`, `desk`, `link`, `foto`) VALUES
+(2, 'test', '2021-03-09', 'testing1', 'https://www.youtube.com/watch?v=EBotfH842hc', '12313'),
+(3, 'fsdf', '2021-03-03', 'asdas', 'asdas', 'default.png'),
+(5, 'fsdf', '2021-03-15', 'asas', 'https://www.youtube.com/watch?v=EBotfH842hc', 'default.png'),
+(6, 'zz', '2021-03-10', 'zzc', 'zxcz', 'default.png');
 
 -- --------------------------------------------------------
 
@@ -138,7 +160,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `foto`, `nama`, `telepon`, `email`, 
 (6, 1807051006, 'default.png', 'Thorin Satria Ramadhans', '081278317778', 'idnbdy@gmail.com', 2, 1000000, '2021-03-18', '0000-00-00'),
 (7, 1817051025, 'default.png', 'Intania Rahmadila', '089630479663', 'intaniar@gmail.com', 5, 3500000, '2021-03-01', '0000-00-00'),
 (8, 1817051002, 'default.png', 'Bobby Malela', '081234567890', 'bur.ilham2021@students.ugm.ac.id', 2, 1000000, '2021-03-02', '0000-00-00'),
-(9, 1817051001, 'default.png', 'Pandi Barep', '081278317744', 'pandi.barep@gmail.com', 1, 2500000, '2021-03-02', '2021-03-18');
+(9, 1817051001, '1.png', 'Pandi Barep', '081278317744', 'pandi.barep@gmail.com', 1, 2500000, '2021-03-02', '2021-03-18');
 
 -- --------------------------------------------------------
 
@@ -170,17 +192,17 @@ INSERT INTO `perusahaan` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `
 --
 
 CREATE TABLE `portofolio` (
-  `id` int(11) NOT NULL,
-  `foto` varchar(128) NOT NULL,
-  `date_uploaded` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_port` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `portofolio`
 --
 
-INSERT INTO `portofolio` (`id`, `foto`, `date_uploaded`) VALUES
-(4, '1. Nabil.png', 1613582461);
+INSERT INTO `portofolio` (`id_port`, `foto`, `tgl`) VALUES
+(1, 'default.png', '2021-03-03');
 
 -- --------------------------------------------------------
 
@@ -206,32 +228,7 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id`, `nama_pt`, `profile_pt`, `logo_pt`, `no_telp`, `email`, `tempat`, `instagram`, `facebook`, `whatsapp`) VALUES
-(1, 'Arsi Enarcon', 'Perusahaan ini mulai dirintis oleh 4 orang ex karyawan PT Megapola Macro Design (MMD). Dari keempat orang tersebut, tiga di antaranya memiliki disiplin arsitektur dari perguruan tinggi yang sama dan satu orang mempunyai disiplin seni rupa. Mereka adalah Ir. Iman N. Djatiatmadja (arsitek), Ir. Beni Robini (arsitek), Ir. Budi Satria (arsitek), dan Drs. Zainal Arifin (seni rupa). Setelah lima tahun bekerja pada PT MMD, tahun 1995 mereka memisahkan diri dengan mendirikan Studio Adi Reka Seni Imaji (ARSI). Manajemen PT MMD sendiri mengalami perpecahan.', 'default.svg', '(022) 7275016', 'arsienarcon@gmail.com', 'Jl. Saninten No.6, Cihapit, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40114', 'www.instagram.com/arsienarcon', 'www.facebook.com/arsienarcon', '082297578773');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `proyek`
---
-
-CREATE TABLE `proyek` (
-  `id_proyek` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `lokasi` varchar(255) NOT NULL,
-  `tgl_mulai` date NOT NULL,
-  `tgl_selesai` date NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `progress` int(11) NOT NULL,
-  `dana` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `proyek`
---
-
-INSERT INTO `proyek` (`id_proyek`, `nama`, `lokasi`, `tgl_mulai`, `tgl_selesai`, `status`, `progress`, `dana`) VALUES
-(1, 'Perpustakaan', 'Bandung', '2021-03-12', '2021-03-17', 'dalam proses', 50, 15000000),
-(3, 'Mall Terpadu', 'Jogja', '2021-03-10', '2021-03-24', 'selesai', 30, 90000000);
+(1, 'Arsi Enarcons', 'Perusahaan ini mulai dirintis oleh 4 orang ex karyawan PT Megapola Macro Design (MMD). Dari keempat orang tersebut, tiga di antaranya memiliki disiplin arsitektur dari perguruan tinggi yang sama dan satu orang mempunyai disiplin seni rupa. Mereka adalah Ir. Iman N. Djatiatmadja (arsitek), Ir. Beni Robini (arsitek), Ir. Budi Satria (arsitek), dan Drs. Zainal Arifin (seni rupa). Setelah lima tahun bekerja pada PT MMD, tahun 1995 mereka memisahkan diri dengan mendirikan Studio Adi Reka Seni Imaji (ARSI). Manajemen PT MMD sendiri mengalami perpecahan.', 'default.svg', '(022) 7275016', 'arsienarcon@gmail.com', 'Jl. Saninten No.6, Cihapit, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40114', 'www.instagram.com/arsienarcon', 'www.facebook.com/arsienarcon', '082297578773');
 
 -- --------------------------------------------------------
 
@@ -257,6 +254,54 @@ INSERT INTO `role` (`role`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `srtk`
+--
+
+CREATE TABLE `srtk` (
+  `id_srt` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `nomor` int(128) NOT NULL,
+  `tanggal` date NOT NULL,
+  `dari` varchar(255) NOT NULL,
+  `surat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `srtk`
+--
+
+INSERT INTO `srtk` (`id_srt`, `nama`, `nomor`, `tanggal`, `dari`, `surat`) VALUES
+(2, 'ddsafa', 2311, '2021-03-09', 'asdada', 'sadasffa'),
+(3, 'asdassadd', 12321, '2021-03-04', 'asd', 'asdasd');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `srtm`
+--
+
+CREATE TABLE `srtm` (
+  `id_srt` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `nomor` int(128) NOT NULL,
+  `tanggal` date NOT NULL,
+  `dari` varchar(255) NOT NULL,
+  `surat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `srtm`
+--
+
+INSERT INTO `srtm` (`id_srt`, `nama`, `nomor`, `tanggal`, `dari`, `surat`) VALUES
+(8, 'megumin', 7000, '2021-03-05', 'sadasada', 'asdsad'),
+(9, 'adsas', 2746, '2021-03-02', 'afaszc', 'pembangunan'),
+(10, 'zxcz', 12321, '2021-03-16', 'zxczxc', 'zxcz'),
+(11, 'megumindc', 2147483647, '2021-03-12', 'sdsd', 'asas');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -276,10 +321,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `password`, `role_id`, `last_login`) VALUES
-(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-03-23 08:05:37'),
+(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-04-06 15:07:15'),
 (2, '1. Nabil.png', 'aulia.ahmad1074', 0, 'aulia.ahmad1074@students.unila.ac.id', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-18 13:14:44'),
 (3, 'default.png', '1817051025', 7, 'intaniar@gmail.com', '$2y$10$s6.Z.H0s.JJFiRVrNoMdNOFQPD9ql5UwfGMQItnNMx4aPrMYJA2yy', 4, '2021-03-18 13:33:23'),
-(4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-16 13:37:22'),
+(4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-20 09:55:09'),
 (5, 'default.png', '1817051001', 9, 'pandi.barep@gmail.com', '$2y$10$yhJdi193oBwuB70aDcq/W.XVwQLQXvh1vNY/e9.k.uXJDFqZzJQ2a', 4, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
@@ -289,21 +334,20 @@ INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `passw
 --
 
 CREATE TABLE `videos` (
-  `id` int(11) NOT NULL,
-  `judul` varchar(128) NOT NULL,
-  `deskripsi` text NOT NULL,
-  `link` varchar(128) NOT NULL,
-  `date_uploaded` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_vid` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`id`, `judul`, `deskripsi`, `link`, `date_uploaded`) VALUES
-(1, 'Astrid S - Hurts So Good (Lyric Video)', '<p>Astrids S - Hurts So Good (Lyric Video) Song: Hurts So Good by Astrid S lyrics Discover of best new pop music on my channel: http://bit.ly/Lovelifelyrics</p>', 'https://www.youtube.com/embed/8RmvCLn6RoI', 1613582442),
-(2, 'I really miss you... Chill vibes', '<p>I really miss you... Chill vibes Just relax and enjoy this chill mix: <a href=\"https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqazJiZjkyczZZb05SdmczNDR3bjBPUW5KTEdVd3xBQ3Jtc0ttdUUwUlcxV1N6QzdFSjRHRDA3SHRCNnRQUlhNclVWeEo1b0VqRWxwRDBjdnFzSWl2OF9WSnJrLXdkaS1yU2dMYW9VYVotSGx5TGhwMmd1a2Z1LVZxQVhpQlB0cmNiU091UzlaNXN6aEs4b3ZFNUUtSQ&amp;q=https%3A%2F%2Fbit.ly%2Fchillvibesmusic\">https://bit.ly/chillvibesmusic</a>​ Discover the best pop music &amp; chill songs: <a href=\"https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbHY4VWQ4dnJtRVpTcjd6U09PVnJuY21YNlJLUXxBQ3Jtc0ttZHlVWlNqZzFOaVRpeWV4NzE3UFcwMU0zcnp6VkVacG1hVTB4bmV1OXdXNVZWN3B1TDlrU3lKQVh4NXR5b3lRWHhjRDI1UjByb1hoZkNMX2N6LWJ4RWJTd0ZBcHQzOXN1R0xLWXVkejRUR1BoWnlMOA&amp;q=http%3A%2F%2Fbit.ly%2FLovelifelyrics\">http://bit.ly/Lovelifelyrics</a></p>', 'https://www.youtube.com/embed/9AYl10qxc0M', 1612871413),
-(4, 'fsdf', '<p>test</p>', 'https://www.youtube.com/embed/EBotfH842hc', 1613621344);
+INSERT INTO `videos` (`id_vid`, `judul`, `link`, `tanggal`) VALUES
+(1, 'lagu', 'https://www.youtube.com/embed/Kv21Vcb28GI', '2021-03-03'),
+(2, 'fsdf', 'https://www.youtube.com/embed/EBotfH842hc', '2021-03-08'),
+(3, 'lagu2', 'https://www.youtube.com/embed/G4VAdWJXyFk', '2021-03-15');
 
 --
 -- Indexes for dumped tables
@@ -314,6 +358,12 @@ INSERT INTO `videos` (`id`, `judul`, `deskripsi`, `link`, `date_uploaded`) VALUE
 --
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `home`
+--
+ALTER TABLE `home`
+  ADD PRIMARY KEY (`id_home`);
 
 --
 -- Indexes for table `jabatan`
@@ -328,6 +378,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id_news`);
+
+--
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
@@ -340,22 +396,34 @@ ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `portofolio`
+--
+ALTER TABLE `portofolio`
+  ADD PRIMARY KEY (`id_port`);
+
+--
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `proyek`
---
-ALTER TABLE `proyek`
-  ADD PRIMARY KEY (`id_proyek`);
-
---
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role`);
+
+--
+-- Indexes for table `srtk`
+--
+ALTER TABLE `srtk`
+  ADD PRIMARY KEY (`id_srt`);
+
+--
+-- Indexes for table `srtm`
+--
+ALTER TABLE `srtm`
+  ADD PRIMARY KEY (`id_srt`);
 
 --
 -- Indexes for table `user`
@@ -367,7 +435,7 @@ ALTER TABLE `user`
 -- Indexes for table `videos`
 --
 ALTER TABLE `videos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_vid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -377,19 +445,31 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `home`
+--
+ALTER TABLE `home`
+  MODIFY `id_home` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -404,22 +484,34 @@ ALTER TABLE `perusahaan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `portofolio`
+--
+ALTER TABLE `portofolio`
+  MODIFY `id_port` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `proyek`
---
-ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `srtk`
+--
+ALTER TABLE `srtk`
+  MODIFY `id_srt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `srtm`
+--
+ALTER TABLE `srtm`
+  MODIFY `id_srt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -431,7 +523,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
