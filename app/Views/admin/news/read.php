@@ -1,29 +1,29 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr style="text-align: center;">
-            <th>No</th>
-            <th>Judul</th>
-            <th>Foto</th>
-            <th>Deskripsi</th>
-            <th>Tanggal masuk</th>
+            <th>No.</th>
+            <th>Judul </th>
+            <th>Foto </th>
+            <th>Deskripsi </th>
+            <th>tanggal </th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <?php $no = 1; ?>
-
-        <tr class="text-center">
-            <td class="align-middle"><?= $no++; ?></td>
-            <td class="align-middle">Pembangunan Bandung</td>
-            <td class="align-middle"> <img src="https://i.pinimg.com/736x/6e/f9/17/6ef917a976a533edf37c8e9b1948d2f1.jpg" width="100" height="80"></td>
-            <td class="align-middle">Pembangunan pada saat pandemi merupakan...</td>
-            <td class="align-middle">31/12/2020</td>
-            <td class="align-middle">
-                <button class="btn btn-success btn-sm" onclick="detail()"><i class="fa fa-eye"></i></button>
-                <button class="btn btn-warning btn-sm" onclick="edit()"><i class="fa fa-tags"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="hapus()"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
+        <?php foreach ($news as $j) : ?>
+            <tr style="text-align: center;">
+                <td><?= $no++; ?></td>
+                <td><?= $j['judul']; ?></td>
+                <td><img width="50px" class="img-thumbnail" src="<?= base_url('uploads/pegawai/thumb') . '/thumb_' . $j['foto']; ?>" alt=""></td>
+                <td><?= $j['desk']; ?></td>
+                <td><?= $j['tanggal']; ?></td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="edit(<?= $j['id_news']; ?>)"><i class="fa fa-tags"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="hapus(<?= $j['id_news']; ?>)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 
@@ -31,35 +31,18 @@
     $(document).ready(function() {
         $('#dataTable').DataTable({
             "columnDefs": [{
-                "targets": [1, 6],
+                "targets": [6],
                 "orderable": false,
             }]
         });
     });
 
-    function detail() {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('News/show_detail'); ?>",
-            data: {
-
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modaldetail').modal('show');
-                }
-            }
-        });
-    }
-
-    function edit() {
+    function edit(id) {
         $.ajax({
             type: "POST",
             url: "<?= base_url('News/form_edit'); ?>",
             data: {
-
+                id: id
             },
             dataType: "json",
             success: function(response) {
@@ -84,7 +67,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?= base_url('Pegawai/hapus') ?>",
+                    url: "<?= base_url('News/hapus') ?>",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -99,30 +82,12 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            datapegawai();
-                            jumlahpegawai();
-                            totalgaji();
+                            datasurat();
+                            jumlahsurat();
                         }
                     }
                 });
             }
         })
-    }
-
-    function gambar(id) {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('Pegawai/form_upload'); ?>",
-            data: {
-                id: id
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modalupload').modal('show');
-                }
-            }
-        });
     }
 </script>

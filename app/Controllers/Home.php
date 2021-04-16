@@ -4,11 +4,14 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-	protected $perusahaanModel;
+
 
 	public function index()
 	{
-		return view('index');
+		$data = [
+			'profile' => $this->ProfileModel->findAll()
+		];
+		return view('index', $data);
 	}
 
 	public function dp1()

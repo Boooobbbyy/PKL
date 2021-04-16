@@ -1,60 +1,56 @@
-<div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="suratModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="pegawaiModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah surat</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah Home</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('SuratKeluar/simpan', ['class' => 'formtambah']) ?>
+            <?= form_open('Ahome/simpan', ['class' => 'formtambah']) ?>
             <?= csrf_field(); ?>
             <div class="modal-body">
+
+
+
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Nama surat</label>
+                    <label for="" class="col-sm-4 col-form-label">Judul</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama">
-                        <div class="invalid-feedback errorNama">
+                        <input type="text" class="form-control" id="jud" name="jud">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">Deskripsi</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="des" name="des">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Nomor surat</label>
+                    <label for="" class="col-sm-4 col-form-label">Tanggal</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" id="nomor" name="nomor">
-                        <div class="invalid-feedback errorNama">
+                        <input type="date" class="form-control" id="tgl" name="tgl">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">tanggal </label>
+                    <label for="" class="col-sm-4 col-form-label">Foto</label>
                     <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tanggal" name="tanggal">
-                        <div class="invalid-feedback errorNama">
+                        <input type="text" class="form-control" id="foto" name="foto">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Kepada </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="dari" name="dari">
-                        <div class="invalid-feedback errorNama">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Surat </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="surat" name="surat">
-                        <div class="invalid-feedback errorNama">
-
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class=" modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

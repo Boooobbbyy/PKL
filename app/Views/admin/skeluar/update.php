@@ -1,46 +1,48 @@
-<div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="jabatanModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="suratModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Edit Proyek</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Edit surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('Proyek/edit', ['class' => 'formedit']) ?>
+            <?= form_open('SuratKeluar/edit', ['class' => 'formedit']) ?>
             <?= csrf_field(); ?>
             <div class="modal-body">
-                <input type="text" name="id" id="id" value="id" hidden>
+                <input type="text" name="id" id="id_srt" value="<?= $id; ?>" hidden>
 
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Nomor Surat</label>
+                    <label for="" class="col-sm-4 col-form-label">Nama surat</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama">
-                        <div class="invalid-feedback errorNama">
-
-                        </div>
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $nama; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Dari</label>
+                    <label for="" class="col-sm-4 col-form-label">nomor surat</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi">
-                        <div class="invalid-feedback errorLokasi">
-
-                        </div>
+                        <input type="number" class="form-control" id="nomor" name="nomor" value="<?= $nomor; ?>">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Tanggal Keluar</label>
+                    <label for="" class="col-sm-4 col-form-label">Kepada</label>
                     <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
-                        <div class="invalid-feedback errorTgl_mulai">
-
-                        </div>
+                        <input type="text" class="form-control" id="dari" name="dari" value="<?= $dari; ?>">
                     </div>
                 </div>
-
-
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">tanggal</label>
+                    <div class="col-sm-8">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $tanggal; ?>">
+                        <small></small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">surat</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="surat" name="surat" value="<?= $surat; ?>">
+                    </div>
+                </div>
             </div>
             <div class=" modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -76,9 +78,8 @@
                     });
 
                     $('#modaledit').modal('hide');
-                    datapegawai();
-                    jumlahpegawai();
-                    totalgaji();
+                    datasurat();
+                    jumlahsurat();
                 }
             });
         });

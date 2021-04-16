@@ -1048,7 +1048,7 @@
 								<div class="footer-contacts">
 									<p><span>Tel:</span> 08154038751</p>
 									<p><span>Email:</span>arsienarcon@gmail.com</p>
-									<p><span>Working Hours:</span> 9am-5pm</p>
+									<p><span>Working Hours:</span> <?= $profile[0]['nama_pt']; ?></p>
 								</div>
 							</div>
 						</div>

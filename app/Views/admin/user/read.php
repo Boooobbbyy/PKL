@@ -20,7 +20,7 @@
                 <td class="align-middle"><?= $u['email']; ?></td>
                 <td class="align-middle"><?= $u['nama']; ?></td>
                 <td class="align-middle"><?= $u['last_login']; ?></td>
-                <td class="align-middle">
+                <td width="100" class="align-middle">
                     <button class="btn btn-warning btn-sm" onclick="edit(<?= $u['id_user']; ?>)"><i class="fa fa-tags"></i></button>
                     <button class="btn btn-danger btn-sm" onclick="hapus(<?= $u['id_user']; ?>)"><i class="fa fa-trash"></i></button>
                 </td>

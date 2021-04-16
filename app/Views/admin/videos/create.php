@@ -2,34 +2,48 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah Berita</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah Videos</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('Proyek/simpan', ['class' => 'formtambah']) ?>
+            <?= form_open('Videos/simpan', ['class' => 'formtambah']) ?>
             <?= csrf_field(); ?>
+
             <div class="modal-body">
                 <div class="form-group row">
                     <label for="" class="col-sm-4 col-form-label">judul</label>
                     <div class="col-sm-8">
-                        <input type="f" class="form-control" id="nama" name="nama">
+                        <input type="f" class="form-control" id="judul" name="judul">
                         <div class="invalid-feedback errorNama">
 
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Link</label>
+                    <label for="" class="col-sm-4 col-form-label">link</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi">
-                        <div class="invalid-feedback errorLokasi">
+                        <input type="text" class="form-control" id="link" name="link">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">tanggal</label>
+                    <div class="col-sm-8">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
             <div class=" modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary btnsimpan"><i class="fa fa-share-square"></i> Simpan</button>
@@ -58,47 +72,12 @@
                 },
                 success: function(response) {
                     if (response.error) {
-                        if (response.error.nip) {
-                            $('#nip').addClass('is-invalid');
-                            $('.errorNip').html(response.error.nip);
-                        } else {
-                            $('#nip').removeClass('is-invalid');
-                            $('.errorNip').html('');
-                        }
                         if (response.error.nama) {
                             $('#nama').addClass('is-invalid');
                             $('.errorNama').html(response.error.nama);
                         } else {
                             $('#nama').removeClass('is-invalid');
                             $('.errorNama').html('');
-                        }
-                        if (response.error.telepon) {
-                            $('#telepon').addClass('is-invalid');
-                            $('.errorTelepon').html(response.error.telepon);
-                        } else {
-                            $('#telepon').removeClass('is-invalid');
-                            $('.errorTelepon').html('');
-                        }
-                        if (response.error.email) {
-                            $('#email').addClass('is-invalid');
-                            $('.errorEmail').html(response.error.email);
-                        } else {
-                            $('#email').removeClass('is-invalid');
-                            $('.errorEmail').html('');
-                        }
-                        if (response.error.gaji) {
-                            $('#gaji').addClass('is-invalid');
-                            $('.errorGaji').html(response.error.gaji);
-                        } else {
-                            $('#gaji').removeClass('is-invalid');
-                            $('.errorGaji').html('');
-                        }
-                        if (response.error.mulai) {
-                            $('#mulai').addClass('is-invalid');
-                            $('.errorMulai').html(response.error.mulai);
-                        } else {
-                            $('#mulai').removeClass('is-invalid');
-                            $('.errorMulai').html('');
                         }
                     } else {
                         Swal.fire({
@@ -108,9 +87,8 @@
                         });
 
                         $('#modaltambah').modal('hide');
-                        datapegawai();
-                        jumlahpegawai();
-                        totalgaji();
+                        datasurat();
+                        jumlahsurat();
                     }
                 }
             });

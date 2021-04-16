@@ -1,27 +1,29 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr style="text-align: center;">
-            <th>No</th>
-            <th>Nomor surat</th>
-            <th>Dari</th>
-            <th>Tanggal Masuk</th>
+            <th>No.</th>
+            <th>Nama </th>
+            <th>nomor </th>
+            <th>dari </th>
+            <th>tanggal </th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <?php $no = 1; ?>
-
-        <tr class="text-center">
-            <td class="align-middle"><?= $no++; ?></td>
-            <td class="align-middle">12/001/1</td>
-            <td class="align-middle">Bandung</td>
-            <td class="align-middle">12/03/2021</td>
-            <td class="align-middle">
-                <button class="btn btn-success btn-sm" onclick="detail()"><i class="fa fa-eye"></i></button>
-                <button class="btn btn-warning btn-sm" onclick="edit()"><i class="fa fa-tags"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="hapus()"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
+        <?php foreach ($srtm as $j) : ?>
+            <tr style="text-align: center;">
+                <td><?= $no++; ?></td>
+                <td><?= $j['nama']; ?></td>
+                <td><?= $j['nomor']; ?></td>
+                <td><?= $j['dari']; ?></td>
+                <td><?= $j['tanggal']; ?></td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="edit(<?= $j['id_srt']; ?>)"><i class="fa fa-tags"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="hapus(<?= $j['id_srt']; ?>)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 
@@ -29,35 +31,18 @@
     $(document).ready(function() {
         $('#dataTable').DataTable({
             "columnDefs": [{
-                "targets": [1, 6],
+                "targets": [6],
                 "orderable": false,
             }]
         });
     });
 
-    function detail() {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('SuratMasuk/show_detail'); ?>",
-            data: {
-
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modaldetail').modal('show');
-                }
-            }
-        });
-    }
-
-    function edit() {
+    function edit(id) {
         $.ajax({
             type: "POST",
             url: "<?= base_url('SuratMasuk/form_edit'); ?>",
             data: {
-
+                id: id
             },
             dataType: "json",
             success: function(response) {
@@ -82,7 +67,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?= base_url('Pegawai/hapus') ?>",
+                    url: "<?= base_url('SuratMasuk/hapus') ?>",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -97,30 +82,12 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            datapegawai();
-                            jumlahpegawai();
-                            totalgaji();
+                            datasurat();
+                            jumlahsurat();
                         }
                     }
                 });
             }
         })
-    }
-
-    function gambar(id) {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('Pegawai/form_upload'); ?>",
-            data: {
-                id: id
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modalupload').modal('show');
-                }
-            }
-        });
     }
 </script>

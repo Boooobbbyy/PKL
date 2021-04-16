@@ -1,31 +1,40 @@
-<div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="jabatanModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="suratModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Edit Video</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Edit surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('Proyek/edit', ['class' => 'formedit']) ?>
+            <?= form_open('Videos/edit', ['class' => 'formedit']) ?>
             <?= csrf_field(); ?>
+            <input type="text" name="id" id="id_vid" value="<?= $id; ?>" hidden>
             <div class="modal-body">
-                <input type="text" name="id" id="id" value="id" hidden>
-
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Judul</label>
+                    <label for="" class="col-sm-4 col-form-label">judul</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="f" class="form-control" id="judul" name="judul" value="<?= $judul; ?>">
                         <div class="invalid-feedback errorNama">
 
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Link</label>
+                    <label for="" class="col-sm-4 col-form-label">link</label>
                     <div class="col-sm-8">
-                        <input type="text" value="https://www.youtube.com/watch?v=0jZNKV5ROBM" class="form-control" id="lokasi" name="lokasi">
-                        <div class="invalid-feedback errorLokasi">
+                        <input type="text" class="form-control" id="link" name="link" value="<?= $link; ?>">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">Tanggal</label>
+                    <div class="col-sm-8">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $tanggal; ?>">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
@@ -68,9 +77,8 @@
                     });
 
                     $('#modaledit').modal('hide');
-                    datapegawai();
-                    jumlahpegawai();
-                    totalgaji();
+                    datasurat();
+                    jumlahsurat();
                 }
             });
         });

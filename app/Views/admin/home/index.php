@@ -23,4 +23,32 @@
 
 <?= $this->section('myscript'); ?>
 
+<script>
+    function datasurat() {
+        $.ajax({
+            url: "<?= base_url('Ahome/fetch_data'); ?>",
+            dataType: "json",
+            success: function(response) {
+                $('.viewdata').html(response.data);
+            }
+        });
+    }
+
+
+    $(document).ready(function() {
+        datasurat();
+
+        $('.tomboltambah').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "<?= base_url('Ahome/form_tambah'); ?>",
+                dataType: "json",
+                success: function(response) {
+                    $('.viewmodal').html(response.data).show();
+                    $('#modaltambah').modal('show');
+                }
+            });
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

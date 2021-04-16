@@ -2,25 +2,25 @@
     <thead>
         <tr style="text-align: center;">
             <th>No.</th>
-            <th>Nama </th>
-            <th>nomor </th>
-            <th>Kepada </th>
+            <th>Judul </th>
+            <th>Deskripsi </th>
+            <th>Foto </th>
             <th>tanggal </th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <?php $no = 1; ?>
-        <?php foreach ($srtk as $j) : ?>
+        <?php foreach ($home as $j) : ?>
             <tr style="text-align: center;">
                 <td><?= $no++; ?></td>
-                <td><?= $j['nama']; ?></td>
-                <td><?= $j['nomor']; ?></td>
-                <td><?= $j['dari']; ?></td>
-                <td><?= $j['tanggal']; ?></td>
+                <td><?= $j['jud']; ?></td>
+                <td><?= $j['des']; ?></td>
+                <td><img width="50px" class="img-thumbnail" src="<?= base_url('uploads/pegawai/thumb') . '/thumb_' . $j['foto']; ?>" alt=""></td>
+                <td><?= $j['tgl']; ?></td>
                 <td>
-                    <button class="btn btn-warning btn-sm" onclick="edit(<?= $j['id_srt']; ?>)"><i class="fa fa-tags"></i></button>
-                    <button class="btn btn-danger btn-sm" onclick="hapus(<?= $j['id_srt']; ?>)"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-warning btn-sm" onclick="edit(<?= $j['id_home']; ?>)"><i class="fa fa-tags"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="hapus(<?= $j['id_home']; ?>)"><i class="fa fa-trash"></i></button>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -40,7 +40,7 @@
     function edit(id) {
         $.ajax({
             type: "POST",
-            url: "<?= base_url('SuratKeluar/form_edit'); ?>",
+            url: "<?= base_url('Ahome/form_edit'); ?>",
             data: {
                 id: id
             },
@@ -67,7 +67,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?= base_url('SuratKeluar/hapus') ?>",
+                    url: "<?= base_url('Ahome/hapus') ?>",
                     type: "POST",
                     dataType: "json",
                     data: {

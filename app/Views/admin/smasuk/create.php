@@ -1,17 +1,17 @@
-<div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="pegawaiModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="suratModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah Proyek</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('Proyek/simpan', ['class' => 'formtambah']) ?>
+            <?= form_open('SuratMasuk/simpan', ['class' => 'formtambah']) ?>
             <?= csrf_field(); ?>
             <div class="modal-body">
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Nomor surat</label>
+                    <label for="" class="col-sm-4 col-form-label">Nama surat</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="nama" name="nama">
                         <div class="invalid-feedback errorNama">
@@ -20,25 +20,41 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Dari</label>
+                    <label for="" class="col-sm-4 col-form-label">Nomor surat</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi">
-                        <div class="invalid-feedback errorLokasi">
+                        <input type="number" class="form-control" id="nomor" name="nomor">
+                        <div class="invalid-feedback errorNama">
 
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Tanggal Masuk</label>
+                    <label for="" class="col-sm-4 col-form-label">tanggal </label>
                     <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
-                        <div class="invalid-feedback errorTgl_mulai">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal">
+                        <div class="invalid-feedback errorNama">
 
                         </div>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">dari </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="dari" name="dari">
+                        <div class="invalid-feedback errorNama">
 
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">Surat </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="surat" name="surat">
+                        <div class="invalid-feedback errorNama">
 
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class=" modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -68,47 +84,12 @@
                 },
                 success: function(response) {
                     if (response.error) {
-                        if (response.error.nip) {
-                            $('#nip').addClass('is-invalid');
-                            $('.errorNip').html(response.error.nip);
-                        } else {
-                            $('#nip').removeClass('is-invalid');
-                            $('.errorNip').html('');
-                        }
                         if (response.error.nama) {
                             $('#nama').addClass('is-invalid');
                             $('.errorNama').html(response.error.nama);
                         } else {
                             $('#nama').removeClass('is-invalid');
                             $('.errorNama').html('');
-                        }
-                        if (response.error.telepon) {
-                            $('#telepon').addClass('is-invalid');
-                            $('.errorTelepon').html(response.error.telepon);
-                        } else {
-                            $('#telepon').removeClass('is-invalid');
-                            $('.errorTelepon').html('');
-                        }
-                        if (response.error.email) {
-                            $('#email').addClass('is-invalid');
-                            $('.errorEmail').html(response.error.email);
-                        } else {
-                            $('#email').removeClass('is-invalid');
-                            $('.errorEmail').html('');
-                        }
-                        if (response.error.gaji) {
-                            $('#gaji').addClass('is-invalid');
-                            $('.errorGaji').html(response.error.gaji);
-                        } else {
-                            $('#gaji').removeClass('is-invalid');
-                            $('.errorGaji').html('');
-                        }
-                        if (response.error.mulai) {
-                            $('#mulai').addClass('is-invalid');
-                            $('.errorMulai').html(response.error.mulai);
-                        } else {
-                            $('#mulai').removeClass('is-invalid');
-                            $('.errorMulai').html('');
                         }
                     } else {
                         Swal.fire({
@@ -118,9 +99,8 @@
                         });
 
                         $('#modaltambah').modal('hide');
-                        datapegawai();
-                        jumlahpegawai();
-                        totalgaji();
+                        datasurat();
+                        jumlahsurat();
                     }
                 }
             });

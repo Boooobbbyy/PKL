@@ -2,47 +2,54 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Edit surat</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Edit </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('SuratMasuk/edit', ['class' => 'formedit']) ?>
+            <?= form_open('Ahome/edit', ['class' => 'formedit']) ?>
             <?= csrf_field(); ?>
+            <input type="text" name="id" id="id_home" value="<?= $id; ?>" hidden>
             <div class="modal-body">
-                <input type="text" name="id" id="id_srt" value="<?= $id; ?>" hidden>
+                <div class="form-group row">
+                    <label for="" class="col-sm-4 col-form-label">Judul</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="jud" value="<?= $jud; ?>" name="jud">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Nama surat</label>
+                    <label for="" class="col-sm-4 col-form-label">Deskripsi</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $nama; ?>">
+                        <input type="text" class="form-control" id="des" value="<?= $des; ?>" name="des">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">nomor surat</label>
+                    <label for="" class="col-sm-4 col-form-label">Tanggal</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" id="nomor" name="nomor" value="<?= $nomor; ?>">
+                        <input type="date" class="form-control" id="tgl" name="tgl" value="<?= $tgl; ?>">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">dari</label>
+                    <label for="" class="col-sm-4 col-form-label">Foto</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="dari" name="dari" value="<?= $dari; ?>">
+                        <input type="file" class="form-control" id="foto" name="foto" value="<?= $foto; ?>">
+                        <div class="invalid-feedback errorTgl_mulai">
+
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">tanggal</label>
-                    <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $tanggal; ?>">
-                        <small></small>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">surat</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="surat" name="surat" value="<?= $surat; ?>">
-                    </div>
-                </div>
+
+
             </div>
             <div class=" modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

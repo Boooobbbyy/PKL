@@ -1,26 +1,25 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr style="text-align: center;">
-            <th>No</th>
-            <th>Judul</th>
-            <th>foto</th>
+            <th>No.</th>
+            <th>Foto </th>
+            <th>tanggal </th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <?php $no = 1; ?>
-
-        <tr class="text-center">
-            <td class="align-middle"><?= $no++; ?></td>
-            <td class="align-middle">pertama</td>
-            <td class="align-middle"> <img src="https://i.pinimg.com/736x/6e/f9/17/6ef917a976a533edf37c8e9b1948d2f1.jpg" width="100" height="80"></td>
-
-            <td class="align-middle">
-                <button class="btn btn-success btn-sm" onclick="detail()"><i class="fa fa-eye"></i></button>
-                <button class="btn btn-warning btn-sm" onclick="edit()"><i class="fa fa-tags"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="hapus()"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
+        <?php foreach ($portofolio as $j) : ?>
+            <tr style="text-align: center;">
+                <td><?= $no++; ?></td>
+                <td><img width="50px" class="img-thumbnail" src="<?= base_url('uploads/pegawai/thumb') . '/thumb_' . $j['foto']; ?>" alt=""></td>
+                <td><?= $j['tgl']; ?></td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="edit(<?= $j['id_port']; ?>)"><i class="fa fa-tags"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="hapus(<?= $j['id_port']; ?>)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 
@@ -28,35 +27,18 @@
     $(document).ready(function() {
         $('#dataTable').DataTable({
             "columnDefs": [{
-                "targets": [1, 6],
+                "targets": [6],
                 "orderable": false,
             }]
         });
     });
 
-    function detail() {
+    function edit(id) {
         $.ajax({
             type: "POST",
-            url: "<?= base_url('portofolio/show_detail'); ?>",
+            url: "<?= base_url('Portofolio/form_edit'); ?>",
             data: {
-
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modaldetail').modal('show');
-                }
-            }
-        });
-    }
-
-    function edit() {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('portofolio/form_edit'); ?>",
-            data: {
-
+                id: id
             },
             dataType: "json",
             success: function(response) {
@@ -81,7 +63,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "<?= base_url('Pegawai/hapus') ?>",
+                    url: "<?= base_url('Portofolio/hapus') ?>",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -96,30 +78,12 @@
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            datapegawai();
-                            jumlahpegawai();
-                            totalgaji();
+                            datasurat();
+                            jumlahsurat();
                         }
                     }
                 });
             }
         })
-    }
-
-    function gambar(id) {
-        $.ajax({
-            type: "POST",
-            url: "<?= base_url('Pegawai/form_upload'); ?>",
-            data: {
-                id: id
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.sukses) {
-                    $('.viewmodal').html(response.sukses).show();
-                    $('#modalupload').modal('show');
-                }
-            }
-        });
     }
 </script>

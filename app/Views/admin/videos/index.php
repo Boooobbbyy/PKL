@@ -24,7 +24,7 @@
 <?= $this->section('myscript'); ?>
 
 <script>
-    function dataproyek() {
+    function datasurat() {
         $.ajax({
             url: "<?= base_url('Videos/fetch_data'); ?>",
             dataType: "json",
@@ -36,7 +36,7 @@
 
 
     $(document).ready(function() {
-        dataproyek();
+        datasurat();
 
         $('.tomboltambah').click(function(e) {
             e.preventDefault();

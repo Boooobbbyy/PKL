@@ -18,8 +18,11 @@ class SuratMasuk extends BaseController
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
+            $data = [
+                'srtm' => $this->SrtmModel->orderBy('nomor', 'ASC')->get()->getResultArray()
+            ];
             $msg = [
-                'data' => view('admin/smasuk/read')
+                'data' => view('admin/smasuk/read', $data)
             ];
 
             echo json_encode($msg);
@@ -28,15 +31,34 @@ class SuratMasuk extends BaseController
         }
     }
 
+    public function getJumlah()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $data = [
+                'jumlah' => $this->SrtmModel->selectCount('id_srt')->get()->getRowArray()
+            ];
+            $msg = [
+                'data' => $data['jumlah']['id_srt']
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
+    }
 
     public function form_tambah()
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
 
+            $jumlah = $this->SrtmModel->selectCount('id_srt')->get()->getRowArray();
+            $jumlah = $jumlah['id_srt'] + 1;
+            $data['jumlah'] = $jumlah;
 
             $msg = [
-                'data' => view('admin/smasuk/create')
+                'data' => view('admin/smasuk/create', $data)
             ];
 
             echo json_encode($msg);
@@ -52,88 +74,67 @@ class SuratMasuk extends BaseController
         if ($request->isAJAX()) {
             $validation = \Config\Services::validation();
             $valid = $this->validate([
-                'nip' => [
-                    'label' => 'NIP',
-                    'rules' => 'required|is_unique[pegawai.nip]',
+                'nama' => [
+                    'label' => 'nama',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+
+                    ]
+                ],
+                'nomor' => [
+                    'label' => 'nomor',
+                    'rules' => 'required|is_unique[srtm.nomor]',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
                         'is_unique' => '{field} tersebut sudah ada'
                     ]
                 ],
-                'nama' => [
-                    'label' => 'Nama',
+                'tanggal' => [
+                    'label' => 'tanggal',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong',
+
                     ]
                 ],
-                'telepon' => [
-                    'label' => 'Nomor Telepon',
-                    'rules' => 'required|is_unique[pegawai.telepon]|integer',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada',
-                        'integer' => '{field} salah'
-                    ]
-                ],
-                'email' => [
-                    'label' => 'Email',
-                    'rules' => 'required|is_unique[pegawai.email]|valid_email',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada',
-                        'valid_email' => '{field} salah'
-                    ]
-                ],
-                'gaji' => [
-                    'label' => 'Gaji',
+                'dari' => [
+                    'label' => 'dari',
                     'rules' => 'required',
                     'errors' => [
-                        'required' => '{field} tidak boleh kosong'
+                        'required' => '{field} tidak boleh kosong',
+
                     ]
                 ],
-                'mulai' => [
-                    'label' => 'Tanggal Mulai Bekerja',
+                'surat' => [
+                    'label' => 'surat',
                     'rules' => 'required',
                     'errors' => [
-                        'required' => '{field} tidak boleh kosong'
+                        'required' => '{field} tidak boleh kosong',
+
                     ]
-                ]
+                ],
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'nip'       => $validation->getError('nip'),
-                        'nama'      => $validation->getError('nama'),
-                        'telepon'   => $validation->getError('telepon'),
-                        'email'     => $validation->getError('email'),
-                        'gaji'      => $validation->getError('gaji'),
-                        'mulai'     => $validation->getError('mulai')
+                        'nama'     => $validation->getError('nama'),
+                        'nomor'    => $validation->getError('nomor'),
+                        'tanggal'  => $validation->getError('tanggal'),
+                        'dari'     => $validation->getError('dari'),
+                        'surat'    => $validation->getError('surat'),
                     ]
                 ];
             } else {
                 $simpandata = [
-                    'nip'           => $request->getVar('nip'),
-                    'nama'          => $request->getVar('nama'),
-                    'telepon'       => $request->getVar('telepon'),
-                    'email'         => $request->getVar('email'),
-                    'gaji_pokok'    => $request->getVar('gaji'),
-                    'mulai_bekerja' => $request->getVar('mulai'),
-                    'jabatan'       => $request->getVar('jabatan'),
-                    'foto'          => "default.png"
+                    'nama'      => $request->getVar('nama'),
+                    'nomor'     => $request->getVar('nomor'),
+                    'tanggal'   => $request->getVar('tanggal'),
+                    'dari'      => $request->getVar('dari'),
+                    'surat'     => $request->getVar('surat'),
                 ];
-                $this->PegawaiModel->insert($simpandata);
 
-                $userdata = [
-                    'foto' => "default.png",
-                    'username' => $request->getVar('nip'),
-                    'email' => $request->getVar('email'),
-                    'password' => password_hash($request->getVar('nip'), PASSWORD_DEFAULT),
-                    'role_id' => 4,
-                    'id_pegawai' => $this->PegawaiModel->insertID()
-                ];
-                $this->UserModel->insert($userdata);
-
+                $this->SrtmModel->insert($simpandata);
                 $msg = [
                     'sukses' => 'Data berhasil disimpan'
                 ];
@@ -143,14 +144,28 @@ class SuratMasuk extends BaseController
             exit(view('error'));
         }
     }
+
     public function form_edit()
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
 
 
+            $id_srt = $request->getVar('id');
+            $row = $this->SrtmModel->find($id_srt);
+
+            $data = [
+                'id' => $row['id_srt'],
+                'nama' => $row['nama'],
+                'nomor' => $row['nomor'],
+                'dari' => $row['dari'],
+                'tanggal' => $row['tanggal'],
+                'surat' => $row['surat'],
+
+            ];
+
             $msg = [
-                'sukses' => view('admin/smasuk/update')
+                'sukses' => view('admin/smasuk/update', $data)
             ];
 
             echo json_encode($msg);
@@ -158,19 +173,47 @@ class SuratMasuk extends BaseController
             exit(view('error'));
         }
     }
-    public function show_detail()
+
+    public function edit()
     {
         $request = \Config\Services::request();
+
         if ($request->isAJAX()) {
+            $simpandata = [
+                'nama'          => $request->getVar('nama'),
+                'nomor'         => $request->getVar('nomor'),
+                'dari'          => $request->getVar('dari'),
+                'tanggal'       => $request->getVar('tanggal'),
+                'surat'         => $request->getVar('surat'),
+            ];
 
+            $id_srt = $request->getVar('id');
 
+            $this->SrtmModel->update($id_srt, $simpandata);
             $msg = [
-                'sukses' => view('admin/smasuk/detail')
+                'sukses' => 'Data berhasil diupdate'
             ];
 
             echo json_encode($msg);
         } else {
             exit(view('error'));
+        }
+    }
+
+    public function hapus()
+    {
+        $request = \Config\Services::request();
+
+        if ($request->isAJAX()) {
+
+            $id_srt = $request->getVar('id');
+
+            $this->SrtmModel->delete($id_srt);
+            $msg = [
+                'sukses' => 'Data berhasil dihapus'
+            ];
+
+            echo json_encode($msg);
         }
     }
 }

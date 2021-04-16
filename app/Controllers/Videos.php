@@ -13,12 +13,16 @@ class Videos extends BaseController
 
         return view('admin/videos/index', $data);
     }
+
     public function fetch_data()
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
+            $data = [
+                'videos' => $this->VideosModel->orderBy('tanggal', 'ASC')->get()->getResultArray()
+            ];
             $msg = [
-                'data' => view('admin/videos/read')
+                'data' => view('admin/videos/read', $data)
             ];
 
             echo json_encode($msg);
@@ -27,15 +31,34 @@ class Videos extends BaseController
         }
     }
 
+    public function getJumlah()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $data = [
+                'jumlah' => $this->VideosModel->selectCount('id_vid')->get()->getRowArray()
+            ];
+            $msg = [
+                'data' => $data['jumlah']['id_vid']
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
+    }
 
     public function form_tambah()
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
 
+            $jumlah = $this->VideosModel->selectCount('id_vid')->get()->getRowArray();
+            $jumlah = $jumlah['id_vid'] + 1;
+            $data['jumlah'] = $jumlah;
 
             $msg = [
-                'data' => view('admin/videos/create')
+                'data' => view('admin/videos/create', $data)
             ];
 
             echo json_encode($msg);
@@ -51,88 +74,44 @@ class Videos extends BaseController
         if ($request->isAJAX()) {
             $validation = \Config\Services::validation();
             $valid = $this->validate([
-                'nip' => [
-                    'label' => 'NIP',
-                    'rules' => 'required|is_unique[pegawai.nip]',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada'
-                    ]
-                ],
-                'nama' => [
-                    'label' => 'Nama',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ]
-                ],
-                'telepon' => [
-                    'label' => 'Nomor Telepon',
-                    'rules' => 'required|is_unique[pegawai.telepon]|integer',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada',
-                        'integer' => '{field} salah'
-                    ]
-                ],
-                'email' => [
-                    'label' => 'Email',
-                    'rules' => 'required|is_unique[pegawai.email]|valid_email',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                        'is_unique' => '{field} tersebut sudah ada',
-                        'valid_email' => '{field} salah'
-                    ]
-                ],
-                'gaji' => [
-                    'label' => 'Gaji',
+                'judul' => [
+                    'label' => 'judul',
                     'rules' => 'required',
                     'errors' => [
                         'required' => '{field} tidak boleh kosong'
-                    ]
-                ],
-                'mulai' => [
-                    'label' => 'Tanggal Mulai Bekerja',
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong'
+
                     ]
                 ]
             ]);
             if (!$valid) {
                 $msg = [
                     'error' => [
-                        'nip'       => $validation->getError('nip'),
-                        'nama'      => $validation->getError('nama'),
-                        'telepon'   => $validation->getError('telepon'),
-                        'email'     => $validation->getError('email'),
-                        'gaji'      => $validation->getError('gaji'),
-                        'mulai'     => $validation->getError('mulai')
+                        'judul'  => $validation->getError('judul')
                     ]
                 ];
             } else {
+
+                $url = $request->getVar('link');
+                $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
+                $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
+
+                if (preg_match($longUrlRegex, $url, $matches)) {
+                    $youtube_id = $matches[count($matches) - 1];
+                }
+
+                if (preg_match($shortUrlRegex, $url, $matches)) {
+                    $youtube_id = $matches[count($matches) - 1];
+                }
+                $fullEmbedUrl = 'https://www.youtube.com/embed/' . $youtube_id;
+
                 $simpandata = [
-                    'nip'           => $request->getVar('nip'),
-                    'nama'          => $request->getVar('nama'),
-                    'telepon'       => $request->getVar('telepon'),
-                    'email'         => $request->getVar('email'),
-                    'gaji_pokok'    => $request->getVar('gaji'),
-                    'mulai_bekerja' => $request->getVar('mulai'),
-                    'jabatan'       => $request->getVar('jabatan'),
-                    'foto'          => "default.png"
-                ];
-                $this->PegawaiModel->insert($simpandata);
 
-                $userdata = [
-                    'foto' => "default.png",
-                    'username' => $request->getVar('nip'),
-                    'email' => $request->getVar('email'),
-                    'password' => password_hash($request->getVar('nip'), PASSWORD_DEFAULT),
-                    'role_id' => 4,
-                    'id_pegawai' => $this->PegawaiModel->insertID()
+                    'judul'  => $request->getVar('judul'),
+                    'link'         => $fullEmbedUrl,
+                    'tanggal'         => $request->getVar('tanggal')
                 ];
-                $this->UserModel->insert($userdata);
 
+                $this->VideosModel->insert($simpandata);
                 $msg = [
                     'sukses' => 'Data berhasil disimpan'
                 ];
@@ -142,14 +121,28 @@ class Videos extends BaseController
             exit(view('error'));
         }
     }
+
     public function form_edit()
     {
         $request = \Config\Services::request();
         if ($request->isAJAX()) {
 
+            $jumlah = $this->VideosModel->selectCount('id_vid')->get()->getRowArray();
+            $jumlah = $jumlah['id_vid'];
+
+            $id_vid = $request->getVar('id');
+            $row = $this->VideosModel->find($id_vid);
+
+            $data = [
+                'id' => $row['id_vid'],
+                'judul' => $row['judul'],
+                'link' => $row['link'],
+                'tanggal' => $row['tanggal'],
+                'jumlah' => $jumlah
+            ];
 
             $msg = [
-                'sukses' => view('admin/videos/update')
+                'sukses' => view('admin/videos/update', $data)
             ];
 
             echo json_encode($msg);
@@ -157,19 +150,58 @@ class Videos extends BaseController
             exit(view('error'));
         }
     }
-    public function show_detail()
+
+    public function edit()
     {
         $request = \Config\Services::request();
+
         if ($request->isAJAX()) {
 
+            $url = $request->getVar('link');
+            $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
+            $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
 
+            if (preg_match($longUrlRegex, $url, $matches)) {
+                $youtube_id = $matches[count($matches) - 1];
+            }
+
+            if (preg_match($shortUrlRegex, $url, $matches)) {
+                $youtube_id = $matches[count($matches) - 1];
+            }
+            $fullEmbedUrl = 'https://www.youtube.com/embed/' . $youtube_id;
+            $simpandata = [
+                'judul'  => $request->getVar('judul'),
+                'link'         => $fullEmbedUrl,
+                'tanggal'         => $request->getVar('tanggal')
+            ];
+
+            $id_vid = $request->getVar('id');
+
+            $this->VideosModel->update($id_vid, $simpandata);
             $msg = [
-                'sukses' => view('admin/videos/detail')
+                'sukses' => 'Data berhasil diupdate'
             ];
 
             echo json_encode($msg);
         } else {
             exit(view('error'));
+        }
+    }
+
+    public function hapus()
+    {
+        $request = \Config\Services::request();
+
+        if ($request->isAJAX()) {
+
+            $id_vid = $request->getVar('id');
+
+            $this->VideosModel->delete($id_vid);
+            $msg = [
+                'sukses' => 'Data berhasil dihapus'
+            ];
+
+            echo json_encode($msg);
         }
     }
 }

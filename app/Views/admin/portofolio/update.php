@@ -1,36 +1,35 @@
-<div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="jabatanModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaledit" tabindex="-1" aria-labelledby="suratModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Edit portofolio</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Edit surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?= form_open('Proyek/edit', ['class' => 'formedit']) ?>
+            <?= form_open('Portofolio/edit', ['class' => 'formedit']) ?>
             <?= csrf_field(); ?>
+            <input type="text" name="id" id="id_port" value="<?= $id; ?>" hidden>
             <div class="modal-body">
-                <input type="text" name="id" id="id" value="id" hidden>
 
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Judul</label>
+                    <label for="" class="col-sm-4 col-form-label">Tanggal</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama" name="nama">
-                        <div class="invalid-feedback errorNama">
+                        <input type="date" class="form-control" id="tgl" name="tgl" value="<?= $tgl; ?>">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">foto</label>
+                    <label for="" class="col-sm-4 col-form-label">Foto</label>
                     <div class="col-sm-8">
-                        <input type="file" value="default.png" class="form-control" id="lokasi" name="lokasi">
-                        <div class="invalid-feedback errorLokasi">
+                        <input type="file" class="form-control" id="foto" name="foto" value="<?= $foto; ?>">
+                        <div class="invalid-feedback errorTgl_mulai">
 
                         </div>
                     </div>
                 </div>
-
 
 
             </div>
@@ -68,9 +67,8 @@
                     });
 
                     $('#modaledit').modal('hide');
-                    datapegawai();
-                    jumlahpegawai();
-                    totalgaji();
+                    datasurat();
+                    jumlahsurat();
                 }
             });
         });

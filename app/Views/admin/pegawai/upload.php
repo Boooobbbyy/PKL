@@ -19,7 +19,7 @@
                 <div class="div-col-sm-9 mb-3">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="foto" name="foto" onchange="previewImg()">
-                        <label class="custom-file-label" for="foto">Foto Pegawai</label>
+                        <label class="custom-file-label" for="foto">Fotod Pegawai</label>
                         <div class="ml-1 invalid-feedback errorFoto">
 
                         </div>

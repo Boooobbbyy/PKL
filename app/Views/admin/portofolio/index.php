@@ -22,11 +22,11 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('myscript'); ?>
-<?= $this->section('myscript'); ?>
+
 <script>
-    function dataportofolio() {
+    function datasurat() {
         $.ajax({
-            url: "<?= base_url('portofolio/fetch_data'); ?>",
+            url: "<?= base_url('Portofolio/fetch_data'); ?>",
             dataType: "json",
             success: function(response) {
                 $('.viewdata').html(response.data);
@@ -36,12 +36,12 @@
 
 
     $(document).ready(function() {
-        dataportofolio();
+        datasurat();
 
         $('.tomboltambah').click(function(e) {
             e.preventDefault();
             $.ajax({
-                url: "<?= base_url('portofolio/form_tambah'); ?>",
+                url: "<?= base_url('Portofolio/form_tambah'); ?>",
                 dataType: "json",
                 success: function(response) {
                     $('.viewmodal').html(response.data).show();
@@ -51,5 +51,4 @@
         });
     });
 </script>
-
 <?= $this->endSection(); ?>
