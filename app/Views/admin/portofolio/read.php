@@ -12,7 +12,7 @@
         <?php foreach ($portofolio as $j) : ?>
             <tr style="text-align: center;">
                 <td><?= $no++; ?></td>
-                <td><img width="50px" class="img-thumbnail" src="<?= base_url('uploads/pegawai/thumb') . '/thumb_' . $j['foto']; ?>" alt=""></td>
+                <td><img onclick="gambar(<?= $j['id_port'] ?>)" src="<?= base_url('uploads/port/thumb') . '/thumb_' . $j['foto']; ?>" width="50px" class="img-thumbnail"></td>
                 <td><?= $j['tgl']; ?></td>
                 <td>
                     <button class="btn btn-warning btn-sm" onclick="edit(<?= $j['id_port']; ?>)"><i class="fa fa-tags"></i></button>
@@ -85,5 +85,22 @@
                 });
             }
         })
+    }
+
+    function gambar(id) {
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('Portofolio/form_upload'); ?>",
+            data: {
+                id: id
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.sukses) {
+                    $('.viewmodal').html(response.sukses).show();
+                    $('#modalupload').modal('show');
+                }
+            }
+        });
     }
 </script>

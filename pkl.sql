@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2021 at 04:43 PM
+-- Generation Time: Apr 16, 2021 at 07:33 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -61,6 +61,15 @@ CREATE TABLE `home` (
   `tgl` date NOT NULL,
   `jud` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `home`
+--
+
+INSERT INTO `home` (`id_home`, `foto`, `des`, `tgl`, `jud`) VALUES
+(1, 'slider2.jpg', 'asd', '2021-03-30', 'test'),
+(2, 'slider1.jpg', 'ssdaa', '2021-03-28', 'asda'),
+(3, 'slider3.jpg', 'testing1', '2021-04-06', 'asd');
 
 -- --------------------------------------------------------
 
@@ -126,10 +135,9 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id_news`, `judul`, `tanggal`, `desk`, `link`, `foto`) VALUES
-(2, 'test', '2021-03-09', 'testing1', 'https://www.youtube.com/watch?v=EBotfH842hc', '12313'),
-(3, 'fsdf', '2021-03-03', 'asdas', 'asdas', 'default.png'),
-(5, 'fsdf', '2021-03-15', 'asas', 'https://www.youtube.com/watch?v=EBotfH842hc', 'default.png'),
-(6, 'zz', '2021-03-10', 'zzc', 'zxcz', 'default.png');
+(2, 'test', '2021-03-09', 'testing1', 'https://www.youtube.com/watch?v=EBotfH842hc', '2.jpeg'),
+(3, 'fsdf', '2021-03-03', 'asdas', 'asdas', '4.jpeg'),
+(6, 'zz', '2021-03-10', 'zzc', 'zxcz', '5.jpeg');
 
 -- --------------------------------------------------------
 
@@ -202,7 +210,16 @@ CREATE TABLE `portofolio` (
 --
 
 INSERT INTO `portofolio` (`id_port`, `foto`, `tgl`) VALUES
-(1, 'default.png', '2021-03-03');
+(1, '1817051049.png', '2021-03-03'),
+(2, 'default.png', '2021-03-31'),
+(3, 'default.png', '2021-04-06'),
+(4, 'default.png', '2021-04-27'),
+(5, 'default.png', '2021-05-08'),
+(6, 'default.png', '2021-03-30'),
+(7, 'default.png', '2021-05-06'),
+(8, 'default.png', '2021-04-30'),
+(9, 'default.png', '2021-05-01'),
+(10, 'default.png', '2021-04-30');
 
 -- --------------------------------------------------------
 
@@ -321,7 +338,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `foto`, `username`, `id_pegawai`, `email`, `password`, `role_id`, `last_login`) VALUES
-(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-04-06 15:07:15'),
+(1, 'default.png', 'brondol', 0, 'nabilunited2@gmail.com', '$2y$10$wjkg9fEhWg4nfgcsyj46jelDv.BKlS/y20CojprdmL7ogZE5J8Q7m', 1, '2021-04-16 22:00:26'),
 (2, '1. Nabil.png', 'aulia.ahmad1074', 0, 'aulia.ahmad1074@students.unila.ac.id', '$2y$10$FsbN.vw4D06GXG7ekV69N.9FsaV5BdCrC0c0JLxkfYWk4s6zmRRbq', 2, '2021-03-18 13:14:44'),
 (3, 'default.png', '1817051025', 7, 'intaniar@gmail.com', '$2y$10$s6.Z.H0s.JJFiRVrNoMdNOFQPD9ql5UwfGMQItnNMx4aPrMYJA2yy', 4, '2021-03-18 13:33:23'),
 (4, 'default.png', '1817051002', 8, 'bur.ilham2021@students.ugm.ac.id', '$2y$10$z0.BN2t8nZlu6GHLqJZqI.nmSD.g0xsjaF0XB/NzvkbA4IrlT2s3y', 4, '2021-03-20 09:55:09'),
@@ -451,7 +468,7 @@ ALTER TABLE `absensi`
 -- AUTO_INCREMENT for table `home`
 --
 ALTER TABLE `home`
-  MODIFY `id_home` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_home` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jabatan`
@@ -469,7 +486,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -487,7 +504,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `portofolio`
 --
 ALTER TABLE `portofolio`
-  MODIFY `id_port` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_port` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `profile`

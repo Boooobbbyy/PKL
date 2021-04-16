@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>PT. Arsi Enarcon</title>
+	<title>PT. <?= $profile[0]['nama_pt']; ?></title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
@@ -77,7 +77,7 @@
 		<div class="container d-flex">
 
 			<div class="logo mr-auto">
-				<h1 class="text-light"><a href="index.html"><span>PT.</span>ARSI ENARCON</a></h1>
+				<h1 class="text-light"><a href="index.html"><span>PT.</span> <?= $profile[0]['nama_pt']; ?></a></h1>
 				<!-- Uncomment below if you prefer to use an image logo -->
 				<!-- <a href="index.html"><img src="/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 			</div>
@@ -105,85 +105,39 @@
 	<div id="home" class="slider-area">
 		<div class="bend niceties preview-2">
 			<div id="ensign-nivoslider" class="slides">
-				<img src="/assets/img/slider/slider1.jpg" alt="" title="#slider-direction-1" />
-				<img src="/assets/img/slider/slider2.jpg" alt="" title="#slider-direction-2" />
-				<img src="/assets/img/slider/slider3.jpg" alt="" title="#slider-direction-3" />
+				<?php $no = 1; ?>
+				<?php foreach ($home as $j) : ?>
+					<img src="<?= base_url('uploads/home/thumb') . '/thumb_' . $j['foto']; ?>" alt="" title="#slider-direction-<?= $no++; ?>" />
+				<?php endforeach; ?>
 			</div>
 
-			<!-- direction 1 -->
-			<div id="slider-direction-1" class="slider-direction slider-one">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="slider-content">
-								<!-- layer 1 -->
-								<div class="layer-1-1 hidden-xs wow animate__slideInDown animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<h2 class="title1">Welcome to PT. Arsi Enarcon</h2>
-								</div>
-								<!-- layer 2 -->
-								<div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<h1 class="title2">COMMERCIAL - REMODELING AND MODELING
-										We Design Beautiful Interiors and Exterior
+			<?php $no = 1; ?>
+			<?php foreach ($home as $j) : ?>
+				<!-- direction 1 -->
+				<div id="slider-direction-<?= $no++; ?>" class="slider-direction slider-one">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="slider-content">
+									<!-- layer 1 -->
+									<div class="layer-1-1 hidden-xs wow animate__slideInDown animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+										<h2 class="title1"><?= $j['jud']; ?></h2>
+									</div>
+									<!-- layer 2 -->
+									<div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+										<h1 class="title2"><?= $j['des']; ?>
 
-									</h1>
-								</div>
-								<!-- layer 3 -->
-								<div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<a class="ready-btn page-scroll" href="/remodelling">Lihat</a>
+										</h1>
+									</div>
+									<!-- layer 3 -->
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php endforeach; ?>
 
-			<!-- direction 2 -->
-			<div id="slider-direction-2" class="slider-direction slider-two">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="slider-content text-center">
-								<!-- layer 1 -->
-								<div class="layer-1-1 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<h2 class="title1">Welcome to PT. Arsi Enarcon </h2>
-								</div>
-								<!-- layer 2 -->
-								<div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".1s">
-									<h1 class="title2">INTERIOR - EXTERIOR RENOVATIONS AND CONTRACTOR</h1>
-								</div>
-								<!-- layer 3 -->
-								<div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<a class="ready-btn page-scroll" href="/interior">Lihat</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- direction 3 -->
-			<div id="slider-direction-3" class="slider-direction slider-two">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="slider-content">
-								<!-- layer 1 -->
-								<div class="layer-1-1 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<h2 class="title1">Welcome to PT. Arsi Enarcon </h2>
-								</div>
-								<!-- layer 2 -->
-								<div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".1s">
-									<h1 class="title2">HOME - DEVELOPER</h1>
-								</div>
-								<!-- layer 3 -->
-								<div class="layer-1-3 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
-									<a class="ready-btn page-scroll" href="/developer">Lihat</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div><!-- End Slider -->
 
@@ -195,7 +149,7 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="section-headline text-center">
-							<h2>About ARSI ENARCON</h2>
+							<h2>About <?= $profile[0]['nama_pt']; ?></h2>
 						</div>
 					</div>
 				</div>
@@ -218,8 +172,7 @@
 									<h4 class="sec-head">Profile</h4>
 								</a>
 								<p>
-									Perusahaan ini mulai dirintis oleh 4 orang ex karyawan PT Megapola Macro Design (MMD). Dari keempat orang tersebut, tiga di antaranya memiliki disiplin arsitektur dari perguruan tinggi yang sama dan satu orang mempunyai disiplin seni rupa. Mereka adalah Ir. Iman N. Djatiatmadja (arsitek), Ir. Beni Robini (arsitek), Ir. Budi Satria (arsitek), dan Drs. Zainal Arifin (seni rupa). Setelah lima tahun bekerja pada PT MMD, tahun 1995 mereka memisahkan diri dengan mendirikan Studio Adi Reka Seni Imaji (ARSI). Manajemen PT MMD sendiri mengalami perpecahan.
-								</p>
+									<?= $profile[0]['profile_pt']; ?> </p>
 								<ul>
 									<li>
 										<i class="fa fa-check"></i> Interior design Package
@@ -424,26 +377,18 @@
 				<div class="container mt-5 mb-5">
 					<div class="owl-carousel testimonial-carousel">
 						<div class="row">
-							<div class="column">
-								<img src="https://fsa.zobj.net/crop.php?r=rcNXL7y5wIybb8rLCBsEDVa5gxM1mt2IYwaMiY6BJzRVRYxz_QQFrk7ckFc12NMNbwKJNokmapdmxO3hipSnhjgYNgvuXF-wN9pS-nzrYaN_Vsgf-uEoWxsHgxEodTROtmSoiEt0rWzP7m8b" alt="Nature" style="height:80%;width:100%;" onclick="myFunction(this);">
-							</div>
-							<div class="column">
-								<img src="https://specials-images.forbesimg.com/imageserve/6023e1a9e9fa25b08ceeef91/960x0.jpg?fit=scale" alt="Snow" style="height:80%;width:100%;" onclick="myFunction(this);">
-							</div>
-							<div class="column">
-								<img src="https://i.pinimg.com/originals/dc/2c/9f/dc2c9fd87e255ab4f553c1bbf59579b7.png" alt="Mountains" style="height:80%;width:100%;" onclick="myFunction(this);">
-							</div>
-							<div class="column">
-								<img src="https://esportsku.com/wp-content/uploads/2021/01/hu-tao-1200x900.png" alt="Lights" style="height:80%;width:100%;" onclick="myFunction(this);">
-							</div>
+							<?php $no = 1; ?>
+							<?php foreach ($videos as $j) : ?>
+
+								<div class="column">
+									<iframe width="250" height="125" src="<?= $j['link']; ?>"> </iframe>
+								</div>
+
+							<?php endforeach; ?>
 						</div>
 					</div>
 
-					<div class="container">
-						<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-						<img id="expandedImg" style="height:100%;width:100%;">
-						<div id="imgtext"></div>
-					</div>
+
 
 				</div>
 			</div>
@@ -464,36 +409,13 @@
 
 						<div id="coverflow">
 							<ul class="flip-items">
-								<li data-flip-title="Red">
-									<img src="/assets/img/text1.gif">
-								</li>
-								<li data-flip-title="Razzmatazz" data-flip-category="Purples">
-									<img src="/assets/img/text2.gif">
-								</li>
-								<li data-flip-title="Deep Lilac" data-flip-category="Purples">
-									<img src="/assets/img/text3.gif">
-								</li>
-								<li data-flip-title="Daisy Bush" data-flip-category="Purples">
-									<img src="/assets/img/text4.gif">
-								</li>
-								<li data-flip-title="Cerulean Blue" data-flip-category="Blues">
-									<img src="/assets/img/text5.gif">
-								</li>
-								<li data-flip-title="Dodger Blue" data-flip-category="Blues">
-									<img src="/assets/img/text6.gif">
-								</li>
-								<li data-flip-title="Cyan" data-flip-category="Blues">
-									<img src="/assets/img/text7.gif">
-								</li>
-								<li data-flip-title="Robin's Egg" data-flip-category="Blues">
-									<img src="/assets/img/text8.gif">
-								</li>
-								<li data-flip-title="Deep Sea" data-flip-category="Greens">
-									<img src="/assets/img/text9.gif">
-								</li>
-								<li data-flip-title="Apple" data-flip-category="Greens">
-									<img src="/assets/img/text10.gif">
-								</li>
+								<?php $no = 1; ?>
+								<?php foreach ($portofolio as $j) : ?>
+									<li data-flip-title="Red">
+										<img src="<?= base_url('uploads/port/thumb') . '/thumb_' . $j['foto']; ?>" width="400px" class="img-thumbnail">
+									</li>
+
+								<?php endforeach; ?>
 							</ul>
 						</div>
 					</article>
@@ -629,99 +551,40 @@
 					</div>
 					<div class="row">
 						<!-- Start Left Blog -->
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="single-blog">
-								<div class="single-blog-img">
-									<a href="blog.html">
-										<img src="/assets/arsi/1.jpeg" alt="" style="height:200px;width:100%;">
-									</a>
-								</div>
-								<div class="blog-meta">
-									<span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">13 comments</a>
+						<?php $no = 1; ?>
+						<?php foreach ($news as $j) : ?>
+							<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="single-blog">
+									<div class="single-blog-img">
+										<a href="blog.html">
+											<img src="<?= base_url('uploads/news/thumb') . '/thumb_' . $j['foto']; ?>" alt="" style="height:200px;width:100%;">
+										</a>
+									</div>
+									<div class="blog-meta">
+
+										<span class="date-type">
+											<i class="fa fa-calendar"></i><?= $j['tanggal']; ?>
+										</span>
+									</div>
+									<div class="blog-text">
+										<h4>
+											<a href="<?= $j['link']; ?>"><?= $j['judul']; ?></a>
+										</h4>
+										<p><?= $j['desk']; ?> </p>
+									</div>
+									<span>
+										<a href="<?= $j['link']; ?>" class="ready-btn">Read more</a>
 									</span>
-									<span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
 								</div>
-								<div class="blog-text">
-									<h4>
-										<a href="blog.html">BERITA</a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-									</p>
-								</div>
-								<span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
+								<!-- Start single blog -->
 							</div>
-							<!-- Start single blog -->
-						</div>
+						<?php endforeach; ?>
 						<!-- End Left Blog-->
 						<!-- Start Left Blog -->
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="single-blog">
-								<div class="single-blog-img">
-									<a href="blog.html">
-										<img src="/assets/arsi/2.jpeg" alt="" style="height:200px;width:100%;">
-									</a>
-								</div>
-								<div class="blog-meta">
-									<span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">130 comments</a>
-									</span>
-									<span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-								</div>
-								<div class="blog-text">
-									<h4>
-										<a href="blog.html">BERITA</a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-									</p>
-								</div>
-								<span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-							</div>
-							<!-- Start single blog -->
-						</div>
+
 						<!-- End Left Blog-->
 						<!-- Start Right Blog-->
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<div class="single-blog">
-								<div class="single-blog-img">
-									<a href="blog.html">
-										<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:100%;">
-									</a>
-								</div>
-								<div class="blog-meta">
-									<span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">10 comments</a>
-									</span>
-									<span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-								</div>
-								<div class="blog-text">
-									<h4>
-										<a href="blog.html">BERITA</a>
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-									</p>
-								</div>
-								<span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-							</div>
-						</div>
+
 						<!-- End Right Blog-->
 					</div>
 				</div>
@@ -774,120 +637,35 @@
 							<div class="row">
 								<div class="row">
 									<!-- Start Left Blog -->
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<div class="single-blog">
-											<div class="single-blog-img">
-												<a href="blog.html">
-													<img src="/assets/arsi/1.jpeg" alt="" style="height:200px;width:80%;">
-												</a>
-											</div>
-											<div class="blog-meta">
+									<?php $no = 1; ?>
+									<?php foreach ($pegawai as $p) : ?>
+										<div class="col-md-3 col-sm-4 col-xs-12">
+											<div class="single-blog">
+												<div class="single-blog-img">
+													<a href="blog.html">
+														<img src="<?= base_url('uploads/pegawai/thumb') . '/thumb_' . $p['foto']; ?>" alt="" style="height:200px;width:80%;">
+													</a>
+												</div>
+												<div class="blog-meta">
+
+												</div>
+												<div class="blog-text">
+													<h6><?= $p['nama']; ?></h6>
+													<h5>
+														<?= $p['nama_jabatan']; ?>
+													</h5>
+
+												</div>
 
 											</div>
-											<div class="blog-text">
-												<h6>Ir.Iman Nuryanto D</h6>
-												<h5>
-													Direktur Utama
-												</h5>
-
-											</div>
-
+											<!-- Start single blog -->
 										</div>
-										<!-- Start single blog -->
-									</div>
+									<?php endforeach; ?>
 									<!-- End Left Blog-->
 									<!-- Start Left Blog -->
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<div class="single-blog">
-											<div class="single-blog-img">
-												<a href="blog.html">
-													<img src="/assets/arsi/2.jpeg" alt="" style="height:200px;width:80%;">
-												</a>
-											</div>
-											<div class="blog-meta">
 
-
-											</div>
-											<div class="blog-text">
-												<h6>Ir.Suwanto</h6>
-												<h5>
-													Direktur Desain
-												</h5>
-
-											</div>
-
-										</div>
-										<!-- Start single blog -->
-									</div>
 									<!-- End Left Blog-->
-									<!-- Start Right Blog-->
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<div class="single-blog">
-											<div class="single-blog-img">
-												<a href="blog.html">
-													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:80%;">
-												</a>
-											</div>
-											<div class="blog-meta">
 
-
-											</div>
-											<div class="blog-text">
-												<h6>Ir.Beni Robini</h6>
-												<h5>
-													Direktur Operasional
-												</h5>
-
-											</div>
-
-										</div>
-									</div>
-									<!-- End Left Blog-->
-									<!-- Start Right Blog-->
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<div class="single-blog">
-											<div class="single-blog-img">
-												<a href="blog.html">
-													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:80%;">
-												</a>
-											</div>
-											<div class="blog-meta">
-
-
-											</div>
-											<div class="blog-text">
-												<h6>Dra. Ratna Arum</h6>
-												<h5>
-													Direktur Keuangan
-												</h5>
-
-											</div>
-
-										</div>
-									</div>
-
-
-									<div class="col-md-3 col-sm-4 col-xs-12">
-										<div class="single-blog">
-											<div class="single-blog-img">
-												<a href="blog.html">
-													<img src="/assets/arsi/3.jpeg" alt="" style="height:200px;width:80%;">
-												</a>
-											</div>
-											<div class="blog-meta">
-
-
-											</div>
-											<div class="blog-text">
-												<h6>Dra. Ratna Arum</h6>
-												<h5>
-													Direktur Keuangan
-												</h5>
-
-											</div>
-
-										</div>
-									</div>
 									<!-- End Right Blog-->
 								</div>
 
@@ -1014,10 +792,10 @@
 						<div class="footer-content">
 							<div class="footer-head">
 								<div class="footer-logo">
-									<h2><span>PT</span> Arsi Enarcon</h2>
+									<h2><span>PT</span> <?= $profile[0]['nama_pt']; ?></h2>
 								</div>
 
-								<p>profile bla bla bla</p>
+
 								<div class="footer-icons">
 									<ul>
 										<li>
@@ -1043,11 +821,11 @@
 							<div class="footer-head">
 								<h4>Location :</h4>
 								<p>
-									saninten bandung
+									<?= $profile[0]['tempat']; ?>
 								</p>
 								<div class="footer-contacts">
-									<p><span>Tel:</span> 08154038751</p>
-									<p><span>Email:</span>arsienarcon@gmail.com</p>
+									<p><span>Tel:</span> <?= $profile[0]['whatsapp']; ?></p>
+									<p><span>Email:</span><?= $profile[0]['email']; ?></p>
 									<p><span>Working Hours:</span> <?= $profile[0]['nama_pt']; ?></p>
 								</div>
 							</div>
@@ -1065,7 +843,7 @@
 											<div class="single-icon">
 												<i class="fa fa-mobile"></i>
 												<p>
-													(022) 7275016<br>
+													<?= $profile[0]['no_telp']; ?><br>
 												</p>
 											</div>
 										</div>
@@ -1076,7 +854,7 @@
 											<div class="single-icon">
 												<i class="fa fa-envelope"></i>
 												<p>
-													arsi_enarcon@yahoo.com<br>
+													<?= $profile[0]['email']; ?><br>
 												</p>
 											</div>
 										</div>
@@ -1087,8 +865,7 @@
 											<div class="single-icon">
 												<i class="fa fa-map-marker"></i>
 												<p>
-													Jl. Saninten No. 6<br>
-													<span> Bandung 40114</span>
+													<?= $profile[0]['tempat']; ?>
 												</p>
 											</div>
 										</div>
@@ -1106,7 +883,7 @@
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="copyright text-center">
 							<p>
-								&copy; 2021 <strong>PT.Arsi Enarcon</strong>. All Rights Reserved
+								&copy; 2021 <strong>PT.<?= $profile[0]['nama_pt']; ?></strong>. All Rights Reserved
 							</p>
 						</div>
 

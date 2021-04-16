@@ -21,15 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Foto</label>
-                    <div class="col-sm-8">
-                        <input type="file" class="form-control" id="foto" name="foto" value="<?= $foto; ?>">
-                        <div class="invalid-feedback errorTgl_mulai">
 
-                        </div>
-                    </div>
-                </div>
 
 
             </div>

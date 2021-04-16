@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-4 col-form-label">Foto</label>
+
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="foto" name="foto">
+                        <input type="hidden" value="a" class="form-control" id="foto" name="foto">
                         <div class="invalid-feedback errorTgl_mulai">
 
                         </div>

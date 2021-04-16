@@ -9,7 +9,15 @@ class Home extends BaseController
 	public function index()
 	{
 		$data = [
-			'profile' => $this->ProfileModel->findAll()
+			'profile' => $this->ProfileModel->findAll(),
+			'portofolio' => $this->PortModel->orderBy('tgl', 'ASC')->get()->getResultArray(),
+			'news' => $this->NewsModel->orderBy('tanggal', 'ASC')->get()->getResultArray(),
+			'home' => $this->HomeModel->orderBy('tgl', 'ASC')->get()->getResultArray(),
+			'videos' => $this->VideosModel->orderBy('tanggal', 'ASC')->get()->getResultArray(),
+			'pegawai' => $this->PegawaiModel->join('jabatan', 'jabatan.id_jabatan = pegawai.jabatan')->get()->getResultArray()
+
+
+
 		];
 		return view('index', $data);
 	}

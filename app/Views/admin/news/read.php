@@ -15,7 +15,7 @@
             <tr style="text-align: center;">
                 <td><?= $no++; ?></td>
                 <td><?= $j['judul']; ?></td>
-                <td><img width="50px" class="img-thumbnail" src="<?= base_url('uploads/pegawai/thumb') . '/thumb_' . $j['foto']; ?>" alt=""></td>
+                <td><img onclick="gambar(<?= $j['id_news'] ?>)" src="<?= base_url('uploads/news/thumb') . '/thumb_' . $j['foto']; ?>" width="50px" class="img-thumbnail"></td>
                 <td><?= $j['desk']; ?></td>
                 <td><?= $j['tanggal']; ?></td>
                 <td>
@@ -89,5 +89,22 @@
                 });
             }
         })
+    }
+
+    function gambar(id) {
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('News/form_upload'); ?>",
+            data: {
+                id: id
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.sukses) {
+                    $('.viewmodal').html(response.sukses).show();
+                    $('#modalupload').modal('show');
+                }
+            }
+        });
     }
 </script>

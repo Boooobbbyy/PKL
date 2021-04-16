@@ -161,7 +161,7 @@ class News extends BaseController
                 'desk' => $row['desk'],
                 'link' => $row['link'],
                 'tanggal' => $row['tanggal'],
-                'foto' => $row['foto'],
+
 
             ];
 
@@ -189,7 +189,7 @@ class News extends BaseController
                 'desk'         => $request->getVar('desk'),
                 'link'          => $request->getVar('link'),
                 'tanggal'       => $request->getVar('tanggal'),
-                'foto' => "default.png"
+
 
             ];
 
@@ -215,11 +215,100 @@ class News extends BaseController
 
             $id_news = $request->getVar('id');
 
+            $cekdata = $this->NewsModel->find($id_news);
+            $fotolama = $cekdata['foto'];
+            if ($fotolama != "default.png") {
+                unlink('uploads/news' . '/' . $fotolama);
+                unlink('uploads/news/thumb' . '/thumb_' . $fotolama);
+            }
+
+
             $this->NewsModel->delete($id_news);
             $msg = [
                 'sukses' => 'Data berhasil dihapus'
             ];
 
+            echo json_encode($msg);
+        }
+    }
+
+
+    public function form_upload()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+
+            $id = $request->getVar('id');
+            $row = $this->NewsModel->find($id);
+
+            $data = [
+                'id' => $row['id_news'],
+                'foto' => $row['foto']
+            ];
+
+            $msg = [
+                'sukses' => view('admin/news/upload', $data)
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
+    }
+
+
+    public function doupload()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'foto' => [
+                    'label' => 'Foto ',
+                    'rules' => 'uploaded[foto]|max_size[foto, 1024]|mime_in[foto,image/png,image/jpg,image/jpeg]|is_image[foto]',
+                    'errors' => [
+                        'uploaded'  => '{field} belum diupload',
+                        'max_size'  => 'Ukuran {field} Melebihi 1 MB',
+                        'mime_in'   => 'File yang diupload harus gambar!',
+                        'is_image'  => 'File yang diupload harus gambar!'
+                    ]
+                ]
+            ]);
+            if (!$valid) {
+                $msg = [
+                    'error' => [
+                        'foto' => $validation->getError('foto')
+                    ]
+                ];
+            } else {
+
+                $id = $request->getVar('id');
+                $cekdata = $this->NewsModel->find($id);
+                $fotolama = $cekdata['foto'];
+
+                if ($fotolama != 'default.png') {
+                    unlink('uploads/news' . '/' . $fotolama);
+                    unlink('uploads/news/thumb' . '/thumb_' . $fotolama);
+                }
+
+                $filegambar = $request->getFile('foto');
+
+                $updatedata = [
+                    'foto' => $filegambar->getName()
+                ];
+
+                $this->NewsModel->update($id, $updatedata);
+
+                \Config\Services::image()
+                    ->withFile($filegambar)
+                    ->fit(800, 533, 'center')
+                    ->save('uploads/news/thumb/' . 'thumb_' .  $filegambar->getName());
+                $filegambar->move('uploads/news');
+                $msg = [
+                    'sukses' => 'Gambar berhasil diupload!'
+                ];
+            }
             echo json_encode($msg);
         }
     }

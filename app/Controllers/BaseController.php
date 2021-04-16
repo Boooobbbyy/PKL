@@ -12,7 +12,6 @@ use App\Models\PegawaiModel;
 use App\Models\UserModel;
 use App\Models\ProfileModel;
 use App\Models\AbsensiModel;
-<<<<<<< HEAD
 use App\Models\SrtmModel;
 use App\Models\SrtkModel;
 use App\Models\NewsModel;
@@ -20,9 +19,8 @@ use App\Models\VideosModel;
 use App\Models\PortModel;
 use App\Models\HomeModel;
 
-=======
 use App\Models\ProyekModel;
->>>>>>> 38a2f97d7ad73dea726afb045fd9f5e275db4d28
+
 
 /**
  * Class BaseController
@@ -70,15 +68,14 @@ class BaseController extends Controller
 		$this->UserModel = new UserModel();
 		$this->ProfileModel = new ProfileModel();
 		$this->AbsensiModel = new AbsensiModel();
-<<<<<<< HEAD
+
 		$this->SrtmModel = new SrtmModel();
 		$this->SrtkModel = new SrtkModel();
 		$this->NewsModel = new NewsModel();
 		$this->VideosModel = new VideosModel();
 		$this->PortModel = new PortModel();
 		$this->HomeModel = new HomeModel();
-=======
+
 		$this->ProyekModel = new ProyekModel();
->>>>>>> 38a2f97d7ad73dea726afb045fd9f5e275db4d28
 	}
 }

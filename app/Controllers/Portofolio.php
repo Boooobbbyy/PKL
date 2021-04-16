@@ -132,7 +132,7 @@ class Portofolio extends BaseController
             $data = [
                 'id' => $row['id_port'],
                 'tgl' => $row['tgl'],
-                'foto' => $row['foto'],
+
 
             ];
 
@@ -158,7 +158,7 @@ class Portofolio extends BaseController
             $simpandata = [
 
                 'tgl'       => $request->getVar('tgl'),
-                'foto' => "default.png"
+
 
             ];
 
@@ -184,11 +184,100 @@ class Portofolio extends BaseController
 
             $id_port = $request->getVar('id');
 
+
+            $cekdata = $this->PortModel->find($id_port);
+            $fotolama = $cekdata['foto'];
+            if ($fotolama != "default.png") {
+                unlink('uploads/port' . '/' . $fotolama);
+                unlink('uploads/port/thumb' . '/thumb_' . $fotolama);
+            }
+
+
             $this->PortModel->delete($id_port);
             $msg = [
                 'sukses' => 'Data berhasil dihapus'
             ];
 
+            echo json_encode($msg);
+        }
+    }
+
+    public function form_upload()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+
+            $id = $request->getVar('id');
+            $row = $this->PortModel->find($id);
+
+            $data = [
+                'id' => $row['id_port'],
+                'foto' => $row['foto']
+            ];
+
+            $msg = [
+                'sukses' => view('admin/portofolio/upload', $data)
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
+    }
+
+
+    public function doupload()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'foto' => [
+                    'label' => 'Foto ',
+                    'rules' => 'uploaded[foto]|max_size[foto, 1024]|mime_in[foto,image/png,image/jpg,image/jpeg]|is_image[foto]',
+                    'errors' => [
+                        'uploaded'  => '{field} belum diupload',
+                        'max_size'  => 'Ukuran {field} Melebihi 1 MB',
+                        'mime_in'   => 'File yang diupload harus gambar!',
+                        'is_image'  => 'File yang diupload harus gambar!'
+                    ]
+                ]
+            ]);
+            if (!$valid) {
+                $msg = [
+                    'error' => [
+                        'foto' => $validation->getError('foto')
+                    ]
+                ];
+            } else {
+
+                $id = $request->getVar('id');
+                $cekdata = $this->PortModel->find($id);
+                $fotolama = $cekdata['foto'];
+
+                if ($fotolama != 'default.png') {
+                    unlink('uploads/port' . '/' . $fotolama);
+                    unlink('uploads/port/thumb' . '/thumb_' . $fotolama);
+                }
+
+                $filegambar = $request->getFile('foto');
+
+                $updatedata = [
+                    'foto' => $filegambar->getName()
+                ];
+
+                $this->PortModel->update($id, $updatedata);
+
+                \Config\Services::image()
+                    ->withFile($filegambar)
+                    ->fit(800, 533, 'center')
+                    ->save('uploads/port/thumb/' . 'thumb_' .  $filegambar->getName());
+                $filegambar->move('uploads/port');
+                $msg = [
+                    'sukses' => 'Gambar berhasil diupload!'
+                ];
+            }
             echo json_encode($msg);
         }
     }

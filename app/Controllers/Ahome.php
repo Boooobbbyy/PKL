@@ -151,7 +151,7 @@ class Ahome extends BaseController
             $data = [
                 'id' => $row['id_home'],
                 'tgl' => $row['tgl'],
-                'foto' => $row['foto'],
+
                 'des' => $row['des'],
                 'jud' => $row['jud'],
 
@@ -181,7 +181,7 @@ class Ahome extends BaseController
                 'tgl'       => $request->getVar('tgl'),
                 'jud'       => $request->getVar('jud'),
                 'des'       => $request->getVar('des'),
-                'foto' => "default.png"
+
 
             ];
 
@@ -207,11 +207,99 @@ class Ahome extends BaseController
 
             $id_home = $request->getVar('id');
 
+            $cekdata = $this->HomeModel->find($id_home);
+            $fotolama = $cekdata['foto'];
+            if ($fotolama != "default.png") {
+                unlink('uploads/home' . '/' . $fotolama);
+                unlink('uploads/home/thumb' . '/thumb_' . $fotolama);
+            }
+
             $this->HomeModel->delete($id_home);
             $msg = [
                 'sukses' => 'Data berhasil dihapus'
             ];
 
+            echo json_encode($msg);
+        }
+    }
+
+
+    public function form_upload()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+
+            $id = $request->getVar('id');
+            $row = $this->HomeModel->find($id);
+
+            $data = [
+                'id' => $row['id_home'],
+                'foto' => $row['foto']
+            ];
+
+            $msg = [
+                'sukses' => view('admin/home/upload', $data)
+            ];
+
+            echo json_encode($msg);
+        } else {
+            exit(view('error'));
+        }
+    }
+
+
+    public function doupload()
+    {
+        $request = \Config\Services::request();
+        if ($request->isAJAX()) {
+            $validation = \Config\Services::validation();
+
+            $valid = $this->validate([
+                'foto' => [
+                    'label' => 'Foto ',
+                    'rules' => 'uploaded[foto]|max_size[foto, 1024]|mime_in[foto,image/png,image/jpg,image/jpeg]|is_image[foto]',
+                    'errors' => [
+                        'uploaded'  => '{field} belum diupload',
+                        'max_size'  => 'Ukuran {field} Melebihi 1 MB',
+                        'mime_in'   => 'File yang diupload harus gambar!',
+                        'is_image'  => 'File yang diupload harus gambar!'
+                    ]
+                ]
+            ]);
+            if (!$valid) {
+                $msg = [
+                    'error' => [
+                        'foto' => $validation->getError('foto')
+                    ]
+                ];
+            } else {
+
+                $id = $request->getVar('id');
+                $cekdata = $this->HomeModel->find($id);
+                $fotolama = $cekdata['foto'];
+
+                if ($fotolama != 'default.png') {
+                    unlink('uploads/home' . '/' . $fotolama);
+                    unlink('uploads/home/thumb' . '/thumb_' . $fotolama);
+                }
+
+                $filegambar = $request->getFile('foto');
+
+                $updatedata = [
+                    'foto' => $filegambar->getName()
+                ];
+
+                $this->HomeModel->update($id, $updatedata);
+
+                \Config\Services::image()
+                    ->withFile($filegambar)
+                    ->fit(800, 533, 'center')
+                    ->save('uploads/home/thumb/' . 'thumb_' .  $filegambar->getName());
+                $filegambar->move('uploads/home');
+                $msg = [
+                    'sukses' => 'Gambar berhasil diupload!'
+                ];
+            }
             echo json_encode($msg);
         }
     }
